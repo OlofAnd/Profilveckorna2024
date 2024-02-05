@@ -1,28 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Player_Script : MonoBehaviour
 {
-    Rigidbody2D rb;
-    BoxCollider2D col;
-    Vector2 moveInput;
+
+    [Header("Health Bar")]
+    [SerializeField] int maxHealth = 4;
+    public int currentHealth;
+
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
+
     }
 
     void Update()
     {
 
     }
-
-    void OnMove(InputValue value)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
+        if (currentHealth > 0)
+        {
+
+        }
     }
 }
