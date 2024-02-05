@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Player_Script : MonoBehaviour
 {
-    Rigidbody2D rb;
-    BoxCollider2D collider;
+
+    [Header("Health Bar")]
+    [SerializeField] int maxHealth = 4;
+    public int currentHealth;
+
+
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<BoxCollider2D>();
+
     }
 
     void Update()
     {
-        Debug.Log(transform.localPosition);
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (currentHealth > 0)
+        {
+
+        }
     }
 }
