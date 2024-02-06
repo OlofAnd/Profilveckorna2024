@@ -18,13 +18,14 @@ public class game_Loader : MonoBehaviour
     [SerializeField] public ScriptableObject damage;
     [SerializeField] public ScriptableObject piercingRounds;
     [SerializeField] public ScriptableObject bombRounds;
+    // lägg till time2
 
     [Header("Tier 3")]
     [SerializeField] public ScriptableObject freezingAura;
     [SerializeField] public ScriptableObject rage;
     [SerializeField] public ScriptableObject phoenix;
     [SerializeField] public ScriptableObject tank;
-
+    // lägg till time3
 
     public List<GameObject> Cards = new List<GameObject>();
 }
