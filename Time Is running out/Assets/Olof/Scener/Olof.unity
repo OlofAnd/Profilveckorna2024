@@ -508,7 +508,7 @@ PrefabInstance:
     - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
       propertyPath: card
       value: 
-      objectReference: {fileID: 11400000, guid: 3ce2998151569b045a860dc050f30a4d, type: 2}
+      objectReference: {fileID: 11400000, guid: 5c03bc4d4f443bd4cb5e9ae2d5cd9c18, type: 2}
     - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
       propertyPath: nameText
       value: 
@@ -519,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 1292004973}
     - target: {fileID: 2813897146132361462, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
       propertyPath: m_Name
-      value: card_range
+      value: card_time
       objectReference: {fileID: 0}
     - target: {fileID: 4649569784273674351, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
       propertyPath: m_Pivot.x
