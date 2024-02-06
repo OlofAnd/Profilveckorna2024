@@ -11,21 +11,21 @@ public class Card_Information_Script : ScriptableObject
     public Sprite artwork;
 
     [Header("Tier 1 Powerups")]
-    public int healToMax;
-    public int attackRange;
-    public int bulletSpeed;
-    public int fireRate;
-    public int tier1Time;
+    public int healToMax;       //inlagd
+    public int attackRange;     //inlagd
+    public int bulletSpeed;     //inlagd
+    public int fireRate;        //inlagd
+    public int tier1Time;       //inlagd
 
     [Header("Tier 2 Powerups")]
-    public int bulleSpread;
-    public int maxHp;
-    public int damage;
-    public int piercingRounds;
-    public float bombRounds;
+    public int bulleSpread;     //inlagd
+    public int maxHp;           //inlagd
+    public int damage;          //inlagd
+    public int piercingRounds;  //inlagd
+    public float bombRounds;    //inlagd
 
     [Header("Tier 3 Powerups")]
-    public bool freezingAura;
+    public bool freezingAura;   //inlagd
     public bool rage;
     public bool phoenix;
     public bool tank;
