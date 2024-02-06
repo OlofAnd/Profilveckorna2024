@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Melee_Enemy_Attack_Script : Bullet_Abstract_Script
 {
+    [SerializeField] GameObject Player;
     void Start()
     {
-        Direction = new Vector2(1, 0);
+        Direction = new Vector2(0, 0);
         speed = 1;
         FlyTime = 1;
         rb = GetComponent<Rigidbody2D>();
@@ -15,5 +16,9 @@ public class Melee_Enemy_Attack_Script : Bullet_Abstract_Script
     void Update()
     {
         BulletMovement();
+    }
+    void SlashBehaviour()
+    {
+
     }
 }

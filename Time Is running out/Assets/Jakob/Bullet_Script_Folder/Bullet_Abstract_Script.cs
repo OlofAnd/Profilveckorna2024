@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Bullet_Abstract_Script : MonoBehaviour
 {
     public float Damage { get; set; }
-    public string DoesDamageTo { get; set; }
     public Vector2 Direction { get; set; }
     public float speed { get; set; }
     public float FlyTime { get; set; }
