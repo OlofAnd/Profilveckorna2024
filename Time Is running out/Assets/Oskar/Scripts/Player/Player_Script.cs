@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Player_Script : MonoBehaviour
 {
+    [SerializeField] Enemy_Test_Script enemy_test_script;
 
-    [Header("Health Bar")]
+    public bool isAlive = true;
+
+
+    [Header("Health")]
     [SerializeField] int maxHealth = 4;
     [SerializeField] public int currentHealth;
+
+    [Header("Score")]
+    public int score = 0;
 
 
     void Start()
@@ -18,14 +25,25 @@ public class Player_Script : MonoBehaviour
     void Update()
     {
 
+        if (currentHealth <= 0)
+        {
+            isAlive = false;
+            Debug.Log("Player ded");
+        }
+
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (currentHealth > 0 && other.gameObject.CompareTag("Enemy"))
+        //if (currentHealth > 0 && other.gameObject.CompareTag("Enemy"))
+        //{
+        //    //Gör så den tar skada av hur mycket damage enemyn gör
+        //    currentHealth -= enemy_test_script.damage;
+        //    Debug.Log("Skadad");
+        //}
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            //Gör så den tar skada av hur mycket damage enemyn gör
-            currentHealth--;
-            Debug.Log("Skadad");
+            Destroy(other.gameObject);
+            score += enemy_test_script.scoreGive;
         }
     }
 }
