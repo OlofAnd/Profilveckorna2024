@@ -9,6 +9,7 @@ public class Player_Movement_Script : MonoBehaviour
 {
     Rigidbody2D rb;
     BoxCollider2D col;
+    [SerializeField] Player_Script player_Script;
 
     [Header("Movement")]
     Vector2 moveInput;
@@ -22,7 +23,11 @@ public class Player_Movement_Script : MonoBehaviour
 
     void Update()
     {
-        Run();
+        if(player_Script.isAlive)
+        {
+            Run();
+        }
+        
     }
 
     void OnMove(InputValue value)
