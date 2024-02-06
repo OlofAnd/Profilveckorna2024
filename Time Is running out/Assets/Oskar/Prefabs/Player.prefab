@@ -196,3 +196,4 @@ MonoBehaviour:
   isAlive: 1
   maxHealth: 4
   currentHealth: 4
+  score: 0

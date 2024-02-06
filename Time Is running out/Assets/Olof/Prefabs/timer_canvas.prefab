@@ -287,4 +287,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 8543061954824165243}
-  remainingTime: 90
+  remainingTime: 300
+  enemyAlive: 1
