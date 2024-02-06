@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2803399234008446967}
   - component: {fileID: 633505779603803394}
   - component: {fileID: 6634611948414535114}
-  - component: {fileID: 1433820388}
   - component: {fileID: 1612695099}
+  - component: {fileID: 1433820388}
   - component: {fileID: 1612695104}
   m_Layer: 7
   m_Name: Player
@@ -136,19 +136,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1433820388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8661238833200588891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321505b16bb13bd4d9e6c55f9e50a0aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 5.5
 --- !u!114 &1612695099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +166,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1433820388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661238833200588891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321505b16bb13bd4d9e6c55f9e50a0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_script: {fileID: 1612695104}
+  movementSpeed: 5.5
 --- !u!114 &1612695104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,5 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074aafe0147d3064c9b74373f68b5850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy_test_script: {fileID: 0}
+  isAlive: 1
   maxHealth: 4
   currentHealth: 4

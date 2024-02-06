@@ -10,6 +10,8 @@ public class Player_Movement_Script : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D col;
 
+    [SerializeField] Player_Script player_script;
+
     [Header("Movement")]
     Vector2 moveInput;
     [SerializeField] float movementSpeed = 5.5f;
@@ -22,7 +24,10 @@ public class Player_Movement_Script : MonoBehaviour
 
     void Update()
     {
-        Run();
+        while(player_script.isAlive)
+        {
+            Run();
+        }
     }
 
     void OnMove(InputValue value)

@@ -302,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67799882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000013411045, y: -0.00000014901161, z: -10}
+  m_LocalPosition: {x: 0.00000011920929, y: -0.00000014901161, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 1287381303}
   - component: {fileID: 1287381302}
   - component: {fileID: 1287381301}
+  - component: {fileID: 1287381304}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -421,6 +422,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287381304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287381300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29a47c3ae69ada44a460a956d929b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
 --- !u!4 &1612695103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4099381678496872291, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
@@ -504,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696652231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000013411045, y: -0.00000014901161, z: -10}
+  m_LocalPosition: {x: 0.00000011920929, y: -0.00000014901161, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -552,6 +566,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1433820388, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: player_script
+      value: 
+      objectReference: {fileID: 8382904427434566334}
+    - target: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: enemy_test_script
+      value: 
+      objectReference: {fileID: 1287381304}
     - target: {fileID: 4099381678496872291, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -602,3 +624,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+--- !u!114 &8382904427434566334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+  m_PrefabInstance: {fileID: 8382904427434566333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074aafe0147d3064c9b74373f68b5850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
