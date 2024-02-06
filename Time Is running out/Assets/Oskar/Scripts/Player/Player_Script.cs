@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player_Script : MonoBehaviour
 {
     [SerializeField] Enemy_Test_Script enemy_test_script;
+    [SerializeField] GameController_Script game_controller_script;
 
     public bool isAlive = true;
 
@@ -43,6 +44,7 @@ public class Player_Script : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
+            Debug.Log(game_controller_script.enemiesAlive);
             score += enemy_test_script.scoreGive;
         }
     }

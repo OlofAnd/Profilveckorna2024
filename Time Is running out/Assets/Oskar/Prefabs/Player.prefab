@@ -192,7 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074aafe0147d3064c9b74373f68b5850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy_test_script: {fileID: 0}
+  enemy_test_script: {fileID: 8812002358657192435, guid: c0e22c977f6f59e4ebee77a314295297, type: 3}
+  game_controller_script: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
   isAlive: 1
   maxHealth: 4
   currentHealth: 4

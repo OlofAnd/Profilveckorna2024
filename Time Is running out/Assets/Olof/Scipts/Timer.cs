@@ -6,9 +6,11 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] float remainingTime;
+    float remainingTime;
 
-    public int enemyAlive;
+    [SerializeField] GameController_Script gameController_Script;
+
+    int enemyAlive;
 
 
     //void Update()
@@ -28,9 +30,14 @@ public class Timer : MonoBehaviour
     //    int seconds = Mathf.FloorToInt(remainingTime % 60);
     //    timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     //}
+    private void Start()
+    {
+        remainingTime = gameController_Script.remainingTime;
+    }
 
     void Update()
     {
+        enemyAlive = gameController_Script.enemiesAlive;
         if (enemyAlive > 0)
         {
             if (remainingTime > 0)
