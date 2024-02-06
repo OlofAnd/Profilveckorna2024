@@ -95,7 +95,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     void Attack()
     {
         Speed = 0f;
-        Instantiate(Bullet, transform.position, transform.rotation);
+        Instantiate(Bullet, transform.position,new Quaternion(transform.rotation.x,transform.rotation.y, Vector2.Angle(transform.position, Target.transform.position), transform.rotation.w));
     }
     void Walk()
     {
