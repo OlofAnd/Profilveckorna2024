@@ -2,23 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Card",menuName="Cards/Tier1")]
+[CreateAssetMenu(fileName ="New Card",menuName="Card")]
 
 public class Card_Information_Script : ScriptableObject
 {
-    // info om kortet
+    [Header("Info om kort")]
     public new string name;
     public Sprite artwork;
 
-    // power ups tier 1
+    [Header("Tier 1 Powerups")]
     public int healToMax;
     public int attackRange;
     public int bulletSpeed;
     public int fireRate;
+    public int tier1Time;
 
+    [Header("Tier 2 Powerups")]
+    public int bulleSpread;
+    public int maxHp;
+    public int damage;
+    public int piercingRounds;
+    public float bombRounds;
 
-    public void Print()
-    {
-        Debug.Log(name);
-    }
+    [Header("Tier 3 Powerups")]
+    public bool freezingAura;
+    public bool rage;
+    public bool phoenix;
+    public bool tank;
+
+    //public void Print()
+    //{
+    //    Debug.Log(name);
+    //}
 }
