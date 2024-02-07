@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class Card_Select_Handler_Script : MonoBehaviour, IPointerEnterHandler,IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
@@ -16,7 +17,9 @@ public class Card_Select_Handler_Script : MonoBehaviour, IPointerEnterHandler,IP
     {
         startPos = transform.position;
         startScale = transform.localScale;
+
     }
+
 
     private IEnumerator MoveCard(bool startingAnimation)
     {
@@ -53,13 +56,13 @@ public class Card_Select_Handler_Script : MonoBehaviour, IPointerEnterHandler,IP
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // select the card
+        // select the card_left
         eventData.selectedObject = gameObject;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // deselect the card
+        // deselect the card_left
         eventData.selectedObject = null;
     }
 

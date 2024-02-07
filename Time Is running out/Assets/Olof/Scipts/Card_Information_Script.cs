@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Card",menuName="Card")]
 
+
+[CreateAssetMenu(fileName ="New Card",menuName="Card")]
 public class Card_Information_Script : ScriptableObject
 {
     [Header("Info om kort")]
@@ -23,12 +24,22 @@ public class Card_Information_Script : ScriptableObject
     public int damage;          //inlagd
     public int piercingRounds;  //inlagd
     public float bombRounds;    //inlagd
+    public int tier2Time;
 
     [Header("Tier 3 Powerups")]
     public bool freezingAura;   //inlagd
-    public bool rage;
-    public bool phoenix;
-    public bool tank;
+    public bool rage;           //inlagd
+    public bool phoenix;        //inlagd
+    public bool tank;           //inlagd
+    public int tier3Time;       //inlagd
+
+
+    List<ScriptableObject> card_List = new List<ScriptableObject>();
+    
+    public void Start()
+    {
+        //card_List.Add(game_Loader.FindObjectOfType<ScriptableObject>)
+    }
 
     //public void Print()
     //{
