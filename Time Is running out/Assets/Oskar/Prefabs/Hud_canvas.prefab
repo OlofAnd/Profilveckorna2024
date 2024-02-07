@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -17.284988, y: 0}
+  m_AnchoredPosition: {x: -17.285034, y: 0}
   m_SizeDelta: {x: -34.57, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &72725657533828766
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5945e7a5e46675b47895d0a00ddf8a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_Script: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+  player_Script: {fileID: 0}
   scoreText: {fileID: 147451866249566011}
   amountScore: 0
 --- !u!1001 &5659477638918482173
@@ -290,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 8543061955704045449, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
       propertyPath: gameController_Script
       value: 
-      objectReference: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
 --- !u!224 &4036788190469610518 stripped
