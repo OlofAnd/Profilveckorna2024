@@ -15,6 +15,10 @@ public class Player_Movement_Script : MonoBehaviour
     Vector2 moveInput;
     [SerializeField] float movementSpeed = 5.5f;
 
+    [Header("Dodgeroll")]
+    [SerializeField] float dodgePower;
+    [SerializeField] float dodgeLenght;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,16 +27,21 @@ public class Player_Movement_Script : MonoBehaviour
 
     void Update()
     {
-        if(player_Script.isAlive)
+        if (player_Script.isAlive)
         {
             Run();
         }
-        
+
     }
 
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    void OnDash()
+    {
+
     }
 
     void Run()

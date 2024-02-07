@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1612695099}
   - component: {fileID: 1433820388}
   - component: {fileID: 1612695104}
+  - component: {fileID: 717407049174908319}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 1442617877
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 724041010, guid: 50e86e4ac45abb94dbab02a70b3adb78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,6 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_Script: {fileID: 1612695104}
   movementSpeed: 5.5
+  dodgePower: 0
+  dodgeLenght: 0
 --- !u!114 &1612695104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,8 +196,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_test_script: {fileID: 8812002358657192435, guid: c0e22c977f6f59e4ebee77a314295297, type: 3}
-  game_controller_script: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+  game_controller_script: {fileID: 0}
   isAlive: 1
   maxHealth: 4
   currentHealth: 4
   score: 0
+--- !u!95 &717407049174908319
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661238833200588891}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3693f1245036cf1449e7201cd18ae86c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
