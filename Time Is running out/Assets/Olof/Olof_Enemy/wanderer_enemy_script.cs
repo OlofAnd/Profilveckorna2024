@@ -33,7 +33,6 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
 
     void Update()
     {
-        Debug.Log(playerDetected);
         EnemyBehaviour();
     }
     public override void EnemyBehaviour()
