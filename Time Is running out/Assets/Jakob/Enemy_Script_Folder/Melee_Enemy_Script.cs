@@ -9,7 +9,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
 {
     Rigidbody2D rb;
     GameObject Target;
-   [SerializeField] GameObject Bullet;
+    [SerializeField] GameObject Bullet;
 
     Vector2 Direction;
     float Speed;
@@ -17,11 +17,15 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
 
     Random RNG = new Random();
 
-    bool startDashing = false;
+    bool Dashing = false;
     bool PlayerDetected = false;
-    bool Attacking;
+    bool walking;
+    bool Attacking = false;
+    bool Hurting = false;
 
-    float IdleingTimer = 3;
+    float IdleingTimer = 0;
+    float AttackTimer = 0;
+    float HurtTimer = 0;
     void Start()
     {
         EnemyHealthPoints = 10f;
@@ -34,20 +38,33 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     {
         EnemyBehaviour();
         // if (Target != null)
-        Debug.Log(IdleingTimer);
+        // Debug.Log(IdleingTimer);
     }
     public override void EnemyBehaviour()
     {
         rb.velocity = Direction * Speed;
-        if (!startDashing)
+        if (Hurting)
+        {
+            HurtTimer = Time.time + 0.5f;
+            hurt();
+        }
+        else if (Dashing)
+        {
+            Dash();
+        }
+        else if (Attacking)
+        {
+            Attack();
+        }
+        else
         {
             if (!PlayerDetected)
             {
                 Idle();
             }
-            else if (Vector2.Distance(rb.position, Target.transform.position) <= 7 && Vector2.Distance(rb.position, Target.transform.position) >= 5)
+            else if (Vector2.Distance(rb.position, Target.transform.position) <= 7 && Vector2.Distance(rb.position, Target.transform.position) >= 6.5)
             {
-                startDashing = true;
+                Dashing = true;
                 DashTo = (Vector2)(Target.transform.position);
             }
             else if (Vector2.Distance(rb.position, Target.transform.position) <= 5 && Vector2.Distance(rb.position, Target.transform.position) > 2)
@@ -56,27 +73,27 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
             }
             else if (Vector2.Distance(rb.position, Target.transform.position) <= 2)
             {
-                Attack();
+                Attacking = true;
+                AttackTimer = Time.time + 1f;
             }
         }
-        else if (startDashing)
+        if (EnemyHealthPoints <= 0)
         {
-            Dash();
+            Destroy(gameObject);
         }
     }
     float angle;
     void Idle()
     {
-        IdleingTimer -= Time.deltaTime;
-        if (IdleingTimer < 0)
+        if (IdleingTimer < Time.time)
         {
             angle = RNG.Next(0, 360);
             angle = angle * math.PI / 180;
-            IdleingTimer = 3;
+            IdleingTimer = Time.time + RNG.Next(2, 3);
         }
 
         Direction = new Vector2(math.cos(angle), math.sin(angle));
-        if (IdleingTimer > 1)
+        if (IdleingTimer > Time.time + 1)
             Speed = 1;
         else
             Speed = 0;
@@ -86,21 +103,35 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         Direction = (DashTo - rb.position) / Vector2.Distance(Vector2.zero, DashTo - rb.position);
         Speed = 5f;
 
-        if (Vector2.Distance(transform.position, DashTo) <= 1)
+        if (Vector2.Distance(transform.position, DashTo) <= 2)
         {
-            startDashing = false;
+            Dashing = false;
             Speed = 0f;
+            AttackTimer = 0f;
+            Attack();
         }
     }
     void Attack()
     {
         Speed = 0f;
-        Instantiate(Bullet, transform.position,new Quaternion(transform.rotation.x,transform.rotation.y, Vector2.Angle(transform.position, Target.transform.position), transform.rotation.w));
+        if (Time.time > AttackTimer)
+        {
+            Instantiate(Bullet, transform.position, transform.rotation);
+            Attacking = false;
+        }
     }
     void Walk()
     {
         Direction = ((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);
-        Speed = 2f;
+        Speed = 3f;
+    }
+    void hurt()
+    {
+        EnemyHealthPoints--;
+        if (Time.time > HurtTimer)
+        {
+            Hurting = false;
+        }
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
@@ -110,5 +141,10 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
             Target = trig.gameObject;
             DashTo = (Vector2)(Target.transform.position);
         }
+        if (trig.gameObject.tag == "Player_Bullet")
+        {
+
+        }
     }
 }
+
