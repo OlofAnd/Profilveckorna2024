@@ -134,6 +134,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &292937388
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 327287110620625534, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_Name
+      value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: enemiesAlive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: remainingTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.6028821
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135185428302296080, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
 --- !u!1001 &372987148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,6 +214,10 @@ PrefabInstance:
       propertyPath: nameText
       value: 
       objectReference: {fileID: 2018978159}
+    - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
+      propertyPath: card_left
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
       propertyPath: artWorkImage
       value: 
@@ -294,21 +363,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa90f209a3da7b46a2d89da94da77f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healToMax: {fileID: 0}
-  attackRange: {fileID: 0}
-  bulletSpeed: {fileID: 0}
-  fireRate: {fileID: 0}
-  tier1Time: {fileID: 0}
-  bulletSpread: {fileID: 0}
-  maxHp: {fileID: 0}
-  damage: {fileID: 0}
-  piercingRounds: {fileID: 0}
-  bombRounds: {fileID: 0}
-  freezingAura: {fileID: 0}
-  rage: {fileID: 0}
-  phoenix: {fileID: 0}
-  tank: {fileID: 0}
-  Cards: []
+  healToMax: {fileID: 11400000, guid: f3329ac6585eab64ca7e7f900d15a172, type: 2}
+  attackRange: {fileID: 11400000, guid: 3ce2998151569b045a860dc050f30a4d, type: 2}
+  bulletSpeed: {fileID: 11400000, guid: 42676b12676f2cd419f6b8fc701884bf, type: 2}
+  fireRate: {fileID: 11400000, guid: fdec62a953d0b8842814a2a7ff9e12f1, type: 2}
+  tier1Time: {fileID: 11400000, guid: 5c03bc4d4f443bd4cb5e9ae2d5cd9c18, type: 2}
+  bulletSpread: {fileID: 11400000, guid: 2be0618d72efe8b469c437e13287de1e, type: 2}
+  maxHp: {fileID: 11400000, guid: fb37993488b345d4f9051210ac49593c, type: 2}
+  damage: {fileID: 11400000, guid: 840c11f3d4a75c74aa5fd073626958ce, type: 2}
+  piercingRounds: {fileID: 11400000, guid: 6163f80e52155f1438550566aa8c0ede, type: 2}
+  bombRounds: {fileID: 11400000, guid: 1a0c8a8a1da6429499010d2a6186285a, type: 2}
+  tier2Time: {fileID: 11400000, guid: a086f974f0d88f44baab8d2b0029496c, type: 2}
+  freezingAura: {fileID: 11400000, guid: 10397d7e5d117a34595889648c83b6af, type: 2}
+  rage: {fileID: 11400000, guid: b48bcdf78746c7543885fc754e2c056c, type: 2}
+  phoenix: {fileID: 11400000, guid: 8b00ade06ff876748bab069aab155141, type: 2}
+  tank: {fileID: 11400000, guid: d9a65b1c6c8979f48935fdba264b635d, type: 2}
+  tier3Time: {fileID: 11400000, guid: aac607c4f184fee4e91048a3504b2538, type: 2}
+--- !u!114 &990252157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+  m_PrefabInstance: {fileID: 292937388}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409493849adde3d4aa2d20e0f08108cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1102319105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2813897146132361462, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
+  m_PrefabInstance: {fileID: 1714903621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1112020624
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +489,7 @@ RectTransform:
   m_Children:
   - {fileID: 604958510}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -526,6 +612,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4649569784273674351, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
   m_PrefabInstance: {fileID: 1714903621}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1703047715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102319105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23c139d93b63cc4c8923639a7e29089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_right: {fileID: 0}
 --- !u!1001 &1714903621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -633,7 +732,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
 --- !u!1 &1895992073
 GameObject:
@@ -681,7 +781,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1895992077
 MonoBehaviour:
@@ -823,5 +923,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timer Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8543061955704045449, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
+      propertyPath: gameController_Script
+      value: 
+      objectReference: {fileID: 990252157}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
