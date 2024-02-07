@@ -16,9 +16,9 @@ TagManager:
   - UI
   - 
   - Player
-  - Enemy
+  - Melee_Enemy
   - Bullet
-  - Enemy_Distance
+  - Range_Enemy
   - 
   - 
   - 
