@@ -181,8 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_Script: {fileID: 1612695104}
   movementSpeed: 5.5
-  dodgePower: 0
-  dodgeLenght: 0
+  slidingSpeed: 10
+  slideDir: {x: 0, y: 0, z: 0}
 --- !u!114 &1612695104
 MonoBehaviour:
   m_ObjectHideFlags: 0
