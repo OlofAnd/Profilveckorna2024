@@ -23,6 +23,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     float IdleingTimer = 0;
     float AttackTimer = 0;
     float HurtTimer = 0;
+    Vector2 NewLocation;
     void Start()
     {
         EnemyHealthPoints = 10f;
@@ -33,9 +34,8 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
 
     void Update()
     {
+        Debug.Log(Vector2.Distance(rb.position, NewLocation));
         EnemyBehaviour();
-        // if (Target != null)
-        // Debug.Log(IdleingTimer);
     }
     public override void EnemyBehaviour()
     {
@@ -55,14 +55,17 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
             {
                 Idle();
             }
-            else if (Vector2.Distance(rb.position, Target.transform.position) >= 10 && Vector2.Distance(rb.position, Target.transform.position) < 8)
+            else if (Vector2.Distance(rb.position, Target.transform.position) >= 7 || Vector2.Distance(rb.position, Target.transform.position) < 5)
             {
                 Walk();
+                
             }
             else
             {
+                Speed = 0f;
                 Attacking = true;
                 AttackTimer = Time.time + 0.7f;
+                NewLocation = (Vector2)transform.position;
             }
         }
         if (EnemyHealthPoints <= 0)
@@ -88,21 +91,40 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     }
     void Attack()
     {
-        Speed = 0f;
-        if (Time.time > AttackTimer)
+        if (Time.time > AttackTimer && NewLocation == (Vector2)transform.position)
         {
             Instantiate(Bullet, transform.position, transform.rotation);
-            Attacking = false;
+            NewLocation = NextLocation();
         }
+        else if (Vector2.Distance(NewLocation, transform.position) >= 1f)
+        {
+            Direction = (NewLocation - rb.position).normalized;
+            Speed = 2f;
+        }
+        else if (Time.time > AttackTimer)
+            Attacking = false;
+    }
+    Vector2 NextLocation()
+    {
+        Vector2 newLocation = transform.position;
+        do
+        {
+            angle = RNG.Next(0, 360);
+            angle = angle * math.PI / 180;
+            newLocation = rb.position + (new Vector2(math.cos(angle), math.sin(angle)) * 3);
+        }
+        while (Vector2.Distance(newLocation, Target.transform.position) <= 7 && Vector2.Distance(newLocation, Target.transform.position) >= 5);
+
+        return newLocation;
     }
     void Walk()
     {
-        if (Vector2.Distance(rb.position, Target.transform.position) < 8)
+        if (Vector2.Distance(rb.position, Target.transform.position) < 5)
         {
             Direction = -((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);
             Speed = 3f;
         }
-        if (Vector2.Distance(rb.position, Target.transform.position) >= 10)
+        if (Vector2.Distance(rb.position, Target.transform.position) >= 7)
         {
             Direction = ((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);
             Speed = 3f;
