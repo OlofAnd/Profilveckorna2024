@@ -215,6 +215,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2018978159}
     - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
+      propertyPath: testDeck
+      value: 
+      objectReference: {fileID: 11400000, guid: e5e44c0f33671584aaec93e8b20e60e5, type: 2}
+    - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
       propertyPath: card_left
       value: 
       objectReference: {fileID: 0}

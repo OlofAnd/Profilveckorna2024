@@ -67,7 +67,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
                 Dashing = true;
                 DashTo = (Vector2)(Target.transform.position);
             }
-            else if (Vector2.Distance(rb.position, Target.transform.position) <= 5 && Vector2.Distance(rb.position, Target.transform.position) > 2)
+            else if (Vector2.Distance(rb.position, Target.transform.position) > 2)
             {
                 Walk();
             }
