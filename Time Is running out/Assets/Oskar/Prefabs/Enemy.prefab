@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6020696670752374071}
   - component: {fileID: 6020696670752374070}
-  - component: {fileID: 6020696670752374069}
+  - component: {fileID: -7074559108951562246}
   - component: {fileID: 8812002358657192435}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6020696670752374069
+--- !u!61 &-7074559108951562246
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+  scoreGive: 10
