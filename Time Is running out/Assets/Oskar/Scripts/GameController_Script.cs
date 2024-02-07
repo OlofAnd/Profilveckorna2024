@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameController_Script : MonoBehaviour
 {
+    //[Header("Game Globals")]
+    [SerializeField] public enum GameState { Normal, Pause, GameOver }
+    [SerializeField] public GameState CurrentGameState;
+
+
     [Header("Enemies")]
     [SerializeField] public int enemiesAlive = 0;
     [SerializeField] GameObject enemyObject;
@@ -14,7 +19,7 @@ public class GameController_Script : MonoBehaviour
 
     void Start()
     {
-        
+        CurrentGameState = GameState.Normal;
     }
 
     void Update()

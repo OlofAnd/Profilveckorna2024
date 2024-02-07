@@ -35,19 +35,21 @@ public class Player_Script : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //if (currentHealth > 0 && other.gameObject.CompareTag("Enemy"))
-        //{
-        //    //Gör så den tar skada av hur mycket damage enemyn gör
-        //    currentHealth -= enemy_test_script.damage;
-        //    Debug.Log("Skadad");
-        //}
-        Debug.Log("Collision");
-        if (other.gameObject.CompareTag("Enemy"))
+        if (currentHealth > 0 && other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            //Gör så den tar skada av hur mycket damage enemyn gör
+            currentHealth -= enemy_test_script.damage;
+            Debug.Log("Skadad");
             score += enemy_test_script.scoreGive;
-            game_controller_script.enemiesAlive--;
-            Debug.Log(game_controller_script.enemiesAlive);
+
         }
+        //Debug.Log("Collision");
+        //if (other.gameObject.CompareTag("Enemy"))
+        //{
+        //    Destroy(other.gameObject);
+        //    score += enemy_test_script.scoreGive;
+        //    game_controller_script.enemiesAlive--;
+        //    Debug.Log(game_controller_script.enemiesAlive);
+        //}
     }
 }
