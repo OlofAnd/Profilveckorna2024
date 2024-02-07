@@ -41,11 +41,13 @@ public class Player_Script : MonoBehaviour
         //    currentHealth -= enemy_test_script.damage;
         //    Debug.Log("Skadad");
         //}
+        Debug.Log("Collision");
         if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
-            Debug.Log(game_controller_script.enemiesAlive);
             score += enemy_test_script.scoreGive;
+            game_controller_script.enemiesAlive--;
+            Debug.Log(game_controller_script.enemiesAlive);
         }
     }
 }
