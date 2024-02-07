@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class game_Loader : MonoBehaviour
 {
     [Header("Tier 1")]
     [SerializeField] public ScriptableObject healToMax;
-    [SerializeField] public ScriptableObject attackRange;       //GÖR ALLA TILL SCRIPTABLE OBJECTS
+    [SerializeField] public ScriptableObject attackRange;
     [SerializeField] public ScriptableObject bulletSpeed;
     [SerializeField] public ScriptableObject fireRate;
     [SerializeField] public ScriptableObject tier1Time;
@@ -18,14 +19,15 @@ public class game_Loader : MonoBehaviour
     [SerializeField] public ScriptableObject damage;
     [SerializeField] public ScriptableObject piercingRounds;
     [SerializeField] public ScriptableObject bombRounds;
-    // lägg till time2
+    [SerializeField] public ScriptableObject tier2Time;
 
     [Header("Tier 3")]
     [SerializeField] public ScriptableObject freezingAura;
     [SerializeField] public ScriptableObject rage;
     [SerializeField] public ScriptableObject phoenix;
     [SerializeField] public ScriptableObject tank;
-    // lägg till time3
+    [SerializeField] public ScriptableObject tier3Time;
 
-    public List<GameObject> Cards = new List<GameObject>();
+
+    //public List<GameObject> Cards = new List<GameObject>();   
 }
