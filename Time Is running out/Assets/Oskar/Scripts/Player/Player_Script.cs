@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player_Script : MonoBehaviour
 {
-    [SerializeField] Enemy_Test_Script enemy_test_script;
     [SerializeField] GameController_Script game_controller_script;
 
     public bool isAlive = true;
@@ -33,25 +32,6 @@ public class Player_Script : MonoBehaviour
         }
 
     }
-    //private void OnCollisionEnter2D(Collision2D other)
-    //{
-    //    if (currentHealth > 0 && other.gameObject.CompareTag("Enemy"))
-    //    {
-    //        //Gör så den tar skada av hur mycket damage enemyn gör
-    //        currentHealth -= enemy_test_script.damage;
-    //        Debug.Log("Skadad");
-    //        score += enemy_test_script.scoreGive;
-
-    //    }
-    //    Debug.Log("Collision");
-    //    if (other.gameObject.CompareTag("Enemy"))
-    //    {
-    //        Destroy(other.gameObject);
-    //        score += enemy_test_script.scoreGive;
-    //        game_controller_script.enemiesAlive--;
-    //        Debug.Log(game_controller_script.enemiesAlive);
-    //    }
-    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -74,4 +54,6 @@ public class Player_Script : MonoBehaviour
             }
         }
     }
+
+
 }
