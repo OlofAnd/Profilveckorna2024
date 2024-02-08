@@ -39,20 +39,17 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     }
     public override void EnemyBehaviour()
     {
+        rb.velocity = (Vector3)KnockBack;
+        KnockBack = KnockBack * 0.99f;
+        if (Vector2.Distance(Vector2.zero, KnockBack) <= 1)
+        {
+            KnockBack = Vector2.zero;
+        }
         if (KnockBack == Vector2.zero)
         {
             rb.velocity = Direction * Speed;
+        }
 
-        }
-        else
-        {
-            rb.velocity = KnockBack;
-            KnockBack /= 2;
-            if (Vector2.Distance(Vector2.zero, KnockBack) <= 1)
-            {
-                KnockBack = Vector2.zero;
-            }
-        }
         if (Hurting)
         {
             Hurt();
@@ -163,14 +160,20 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         }
         if (trig.gameObject.tag == "Player_Bullet")
         {
-            HurtTimer = Time.time + 0.5f;
-            Hurting = true;
+            if (!Hurting)
+            {
+                HurtTimer = Time.time + 0.5f;
+                Hurting = true;
+            }
         }
         if (trig.gameObject.tag == "Explosion")
         {
-            HurtTimer = Time.time + 0.5f;
-            Hurting = true;
-            KnockBack = (trig.gameObject.transform.position - transform.position).normalized * 10;
+            KnockBack = (trig.gameObject.transform.position - transform.position).normalized * 20;
+            if (!Hurting)
+            {
+                HurtTimer = Time.time + 0.5f;
+                Hurting = true;
+            }
         }
 
     }
