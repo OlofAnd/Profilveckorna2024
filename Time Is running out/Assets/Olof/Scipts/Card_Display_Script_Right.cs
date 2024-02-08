@@ -6,12 +6,14 @@ using TMPro;
 
 public class Card_Display_Script_Right : MonoBehaviour
 {
+    [Header("Decks")]
     [SerializeField] CardDeck deck_tier1;
     [SerializeField] CardDeck deck_tier2;
     [SerializeField] CardDeck deck_tier3;
 
-    [SerializeField] public Card_Information_Script card_right;
 
+    [Header("Misc")]
+    [SerializeField] public Card_Information_Script card_right;
     public TMP_Text nameText;
     public Image artworkImage;
 
