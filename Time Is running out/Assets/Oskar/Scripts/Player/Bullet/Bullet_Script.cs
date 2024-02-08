@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class Bullet_Script : MonoBehaviour
     Camera cam;
     Rigidbody2D rb;
     public float force;
+    public float timeAlive;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,15 @@ public class Bullet_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        timeAlive -= Time.deltaTime;
+        if (timeAlive <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player"))
+            Destroy(gameObject);
     }
 }
