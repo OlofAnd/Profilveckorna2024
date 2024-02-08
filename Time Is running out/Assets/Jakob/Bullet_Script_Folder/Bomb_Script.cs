@@ -5,11 +5,11 @@ using UnityEngine;
 public class Bomb_Script : Bullet_Abstract_Script
 {
     private GameObject Player;
+    [SerializeField] GameObject Explosion;
     void Start()
     {
-        Speed = 10f;
+        Speed = 15f;
         FlyTime = 1f;
-        Target = "Player";
         Player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         Direction = ((Vector2)Player.transform.position - rb.position).normalized;
@@ -17,6 +17,8 @@ public class Bomb_Script : Bullet_Abstract_Script
     void Update()
     {
         BulletMovement();
+        if (FlyTime - Time.deltaTime <= 0)
+            Instantiate(Explosion, transform.position, transform.rotation);
         Speed -= Time.deltaTime * (Speed / FlyTime);
     }
 }

@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 695785101279159714, guid: e4bb6b99d54932a4cb440a44b63f2c1f, type: 3}
+  sprRen: {fileID: 0}
 --- !u!50 &7277821146826784280
 Rigidbody2D:
   serializedVersion: 4
@@ -169,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7277821147578110234}
   - component: {fileID: 7277821147578110233}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
