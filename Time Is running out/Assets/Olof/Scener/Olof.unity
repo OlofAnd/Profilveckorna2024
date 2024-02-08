@@ -223,6 +223,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
+      propertyPath: deck_tier1
+      value: 
+      objectReference: {fileID: 11400000, guid: e5e44c0f33671584aaec93e8b20e60e5, type: 2}
+    - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
+      propertyPath: deck_tier2
+      value: 
+      objectReference: {fileID: 11400000, guid: e0943ea8d19fe994ea815409391cc842, type: 2}
+    - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
+      propertyPath: deck_tier3
+      value: 
+      objectReference: {fileID: 11400000, guid: 0eb9805707c7ed34086b63bdd28c24d9, type: 2}
+    - target: {fileID: 2763331187219046306, guid: eb8e7c3e4997b2b4b8eeb028ac08bbb9, type: 3}
       propertyPath: artWorkImage
       value: 
       objectReference: {fileID: 1606298786}
@@ -628,7 +640,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23c139d93b63cc4c8923639a7e29089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck_tier1: {fileID: 11400000, guid: e5e44c0f33671584aaec93e8b20e60e5, type: 2}
+  deck_tier2: {fileID: 11400000, guid: e0943ea8d19fe994ea815409391cc842, type: 2}
+  deck_tier3: {fileID: 11400000, guid: 0eb9805707c7ed34086b63bdd28c24d9, type: 2}
   card_right: {fileID: 0}
+  nameText: {fileID: 41598455}
+  artworkImage: {fileID: 1292004973}
 --- !u!1001 &1714903621
 PrefabInstance:
   m_ObjectHideFlags: 0

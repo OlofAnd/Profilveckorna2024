@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4465fbf9f757e084caebc8bfbfa09d10, type: 3}
+  m_Name: tier 3 deck
+  m_EditorClassIdentifier: 
+  cards:
+  - {fileID: 11400000, guid: 10397d7e5d117a34595889648c83b6af, type: 2}
+  - {fileID: 11400000, guid: b48bcdf78746c7543885fc754e2c056c, type: 2}
+  - {fileID: 11400000, guid: 8b00ade06ff876748bab069aab155141, type: 2}
+  - {fileID: 11400000, guid: d9a65b1c6c8979f48935fdba264b635d, type: 2}
+  - {fileID: 11400000, guid: aac607c4f184fee4e91048a3504b2538, type: 2}
