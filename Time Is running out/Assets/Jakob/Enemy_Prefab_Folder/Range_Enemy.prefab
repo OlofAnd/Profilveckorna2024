@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53361b0ef820c640b8fb8121f5973d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 3916641883861545924, guid: f35238ce3817a7d4e8066a3cfe6ad4be, type: 3}
+  Bullet: {fileID: 5918520974710265574, guid: 35ec4482be6f98242abf81143a4f2581, type: 3}
+  Bomb: {fileID: 3916641883861545924, guid: f35238ce3817a7d4e8066a3cfe6ad4be, type: 3}
 --- !u!1 &914417406924083541
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 914417406924083540}
   - component: {fileID: 914417406924083543}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

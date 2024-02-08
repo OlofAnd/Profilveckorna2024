@@ -8,7 +8,7 @@ public class Bomb_Script : Bullet_Abstract_Script
     [SerializeField] GameObject Explosion;
     void Start()
     {
-        Speed = 10f;
+        Speed = 15f;
         FlyTime = 1f;
         Player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();

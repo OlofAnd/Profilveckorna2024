@@ -9,6 +9,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     Rigidbody2D rb;
     GameObject Target;
     [SerializeField] GameObject Bullet;
+    [SerializeField] GameObject Bomb;
 
     Vector2 Direction;
     float Speed;
@@ -25,7 +26,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     Vector2 NewLocation;
     void Start()
     {
-        EnemyHealthPoints = 10f;
+        EnemyHealthPoints = 1f;
         Damage = 1f;
 
         rb = GetComponent<Rigidbody2D>();
@@ -40,7 +41,6 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         rb.velocity = Direction * Speed;
         if (Hurting)
         {
-            HurtTimer = Time.time + 0.5f;
             Hurt();
         }
         else if (Attacking)
@@ -65,6 +65,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
                 NewLocation = (Vector2)transform.position;
             }
         }
+
         if (EnemyHealthPoints <= 0)
         {
             Destroy(gameObject);
@@ -90,7 +91,10 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     {
         if (Time.time > AttackTimer && NewLocation == (Vector2)transform.position)
         {
-            Instantiate(Bullet, transform.position, transform.rotation);
+            if (RNG.Next(0, 5) == 0)
+                Instantiate(Bomb, transform.position, transform.rotation);
+            else
+                Instantiate(Bullet, transform.position, transform.rotation);
             NewLocation = NextLocation();
         }
         else if (Vector2.Distance(NewLocation, transform.position) >= 1f)
@@ -129,9 +133,10 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     }
     void Hurt()
     {
-        EnemyHealthPoints--;
+        Speed = 0;
         if (Time.time > HurtTimer)
         {
+            EnemyHealthPoints--;
             Hurting = false;
         }
     }
@@ -144,10 +149,12 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         }
         if (trig.gameObject.tag == "Player_Bullet")
         {
+            HurtTimer = Time.time + 0.5f;
             Hurting = true;
         }
-        if (trig.gameObject.tag == "")
+        if (trig.gameObject.tag == "Explosion")
         {
+            HurtTimer = Time.time + 0.5f;
             Hurting = true;
         }
 
