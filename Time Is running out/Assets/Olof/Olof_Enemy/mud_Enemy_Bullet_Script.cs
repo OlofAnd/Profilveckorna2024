@@ -10,10 +10,10 @@ public class mud_Enemy_Bullet_Script : Bullet_Abstract_Script
     {
         Damage = 5f;
         Speed = 6f;
-        FlyTime = 5f;
+        FlyTime = 2f;
         Target = "Player";
         Player = GameObject.FindGameObjectWithTag("Player");
-        rb.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         Direction = ((Vector2)Player.transform.position - rb.position).normalized;
     }
 
