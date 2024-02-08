@@ -34,7 +34,6 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
 
     void Update()
     {
-        Debug.Log(Vector2.Distance(rb.position, NewLocation));
         EnemyBehaviour();
     }
     public override void EnemyBehaviour()
@@ -58,13 +57,12 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
             else if (Vector2.Distance(rb.position, Target.transform.position) >= 7 || Vector2.Distance(rb.position, Target.transform.position) < 5)
             {
                 Walk();
-                
             }
             else
             {
                 Speed = 0f;
                 Attacking = true;
-                AttackTimer = Time.time + 0.7f;
+                AttackTimer = Time.time + 1f;
                 NewLocation = (Vector2)transform.position;
             }
         }

@@ -101,7 +101,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     void Dash()
     {
         Direction = (DashTo - rb.position) / Vector2.Distance(Vector2.zero, DashTo - rb.position);
-        Speed = 5f;
+        Speed = 9f;
 
         if (Vector2.Distance(transform.position, DashTo) <= 2)
         {
@@ -123,7 +123,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     void Walk()
     {
         Direction = ((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);
-        Speed = 3f;
+        Speed = 4f;
     }
     void hurt()
     {
