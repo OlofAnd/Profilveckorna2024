@@ -16,10 +16,7 @@ public class LookAtMouse_Script : MonoBehaviour
     void Update()
     {
         LAMouse();
-        if (angle > 90f && angle < 180f || angle < -90f && angle > -180f)
-            m_spriteRenderer.flipY = true;
-        else if (angle < 0f && angle > -90f || angle > 0f && angle < 90f)
-            m_spriteRenderer.flipY = false;
+       
     }
     private void LAMouse()
     {
@@ -27,5 +24,9 @@ public class LookAtMouse_Script : MonoBehaviour
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         m_transform.rotation = rotation;
+        if (angle > 90f && angle < 180f || angle < -90f && angle > -180f)
+            m_spriteRenderer.flipY = true;
+        else if (angle < 0f && angle > -90f || angle > 0f && angle < 90f)
+            m_spriteRenderer.flipY = false;
     }
 }

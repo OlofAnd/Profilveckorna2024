@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Player_Movement_Script : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Player_Movement_Script : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D col;
     SpriteRenderer sprRen;
+    Transform m_transform;
+
 
 
 
@@ -38,6 +41,7 @@ public class Player_Movement_Script : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         sprRen = GetComponent<SpriteRenderer>();
+        m_transform = GetComponent<Transform>();
 
         state = State.Normal;
     }
@@ -49,14 +53,14 @@ public class Player_Movement_Script : MonoBehaviour
         //State normal
         if (player_Script.isAlive && state == State.Normal)
         {
-            PlayerFacingDirection();
+            LAMouse();
             Run();
             slideDir = moveInput;
         }
         //State dodgerolling
         else if (state == State.DodgeRollSliding && !canDodgeRoll)
         {
-            PlayerFacingDirection();
+            LAMouse();
             HandleDodgeRollSliding();
             if (slidingSpeed <= 0.1f)
             {
@@ -66,7 +70,7 @@ public class Player_Movement_Script : MonoBehaviour
             }
         }
         //State död/gameover
-        else if(state == State.Död)
+        else if (state == State.Död)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
             rb.freezeRotation = true;
@@ -94,11 +98,13 @@ public class Player_Movement_Script : MonoBehaviour
     {
         rb.velocity = moveInput * movementSpeed;
     }
-    private void PlayerFacingDirection()
+    private void LAMouse()
     {
-        if (slideDir.x < 0)
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - m_transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        if (angle > 90f && angle < 180f || angle < -90f && angle > -180f)
             sprRen.flipX = true;
-        else if (slideDir.x > 0)
+        else if (angle < 0f && angle > -90f || angle > 0f && angle < 90f)
             sprRen.flipX = false;
     }
 
