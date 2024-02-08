@@ -11,7 +11,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
     [SerializeField] GameObject bullet;
 
     Vector2 direction;
-    float speed;
+    //float speed;
 
     Random rng = new Random();
 
@@ -56,13 +56,13 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
             }
             // ändra första siffran för hur lång vision den har av spelaren
-            else if (Vector2.Distance(rb.position, target.transform.position) >= 7 || Vector2.Distance(rb.position, target.transform.position) < 3)
+            else if (Vector2.Distance(rb.position, target.transform.position) >= 7 || Vector2.Distance(rb.position, target.transform.position) < 4)
             {
                 transform.position = NextLocation();
             }
             else if (!attacking)
             {
-                speed = 0f;
+                //speed = 0f;
                 attacking = true;
                 attackTimer = Time.time + 1f;
             }
