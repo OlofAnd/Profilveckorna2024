@@ -47,8 +47,6 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     {
         rb.velocity = (Vector3)KnockBack;
         KnockBack = KnockBack * 0.99f;
-        if (Vector2.Distance(Vector2.zero, KnockBack) != 0)
-            Debug.Log(Vector2.Distance(Vector2.zero, KnockBack));
         if (Vector2.Distance(Vector2.zero, KnockBack) <= 1)
         {
             KnockBack = Vector2.zero;
@@ -143,6 +141,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     }
     void hurt()
     {
+        Speed = 0;
         if (Time.time > HurtTimer)
         {
             EnemyHealthPoints--;
@@ -153,20 +152,28 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     {
         if (trig.gameObject.tag == "Player")
         {
+
             PlayerDetected = true;
             Target = trig.gameObject;
             DashTo = (Vector2)(Target.transform.position);
         }
         if (trig.gameObject.tag == "Player_Bullet")
         {
-            HurtTimer = Time.time + 0.5f;
-            Hurting = true;
+            if (!Hurting)
+            {
+                HurtTimer = Time.time + 0.5f;
+                Hurting = true;
+                Debug.Log("skadad");
+            }
         }
         if (trig.gameObject.tag == "Explosion")
         {
             KnockBack = (transform.position - trig.gameObject.transform.position).normalized * 20;
-            HurtTimer = Time.time + 0.5f;
-            Hurting = true;
+            if (!Hurting)
+            {
+                HurtTimer = Time.time + 0.5f;
+                Hurting = true;
+            }
         }
     }
 }
