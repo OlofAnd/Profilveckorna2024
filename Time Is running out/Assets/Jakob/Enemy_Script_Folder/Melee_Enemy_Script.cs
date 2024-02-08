@@ -163,7 +163,6 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
             {
                 HurtTimer = Time.time + 0.5f;
                 Hurting = true;
-                Debug.Log("skadad");
             }
         }
         if (trig.gameObject.tag == "Explosion")

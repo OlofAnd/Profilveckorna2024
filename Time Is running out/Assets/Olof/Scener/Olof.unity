@@ -509,7 +509,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1895992077
 MonoBehaviour:
@@ -663,7 +663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8543061955041981675, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8543061955041981675, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
       propertyPath: m_AnchorMax.x
@@ -852,5 +852,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: card_left
       objectReference: {fileID: 0}
+    - target: {fileID: 9000581816039430686, guid: a6d8352de06656e449ca3dc95c1e0b60, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 990252157}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6d8352de06656e449ca3dc95c1e0b60, type: 3}
