@@ -16,7 +16,6 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     Random RNG = new Random();
 
     bool PlayerDetected = false;
-    bool walking;
     bool Attacking = false;
     bool Hurting = false;
 
@@ -27,14 +26,13 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     void Start()
     {
         EnemyHealthPoints = 10f;
-        EnemyDamage = 1f;
+        Damage = 1f;
 
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        Debug.Log(Vector2.Distance(rb.position, NewLocation));
         EnemyBehaviour();
     }
     public override void EnemyBehaviour()
@@ -43,7 +41,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         if (Hurting)
         {
             HurtTimer = Time.time + 0.5f;
-            hurt();
+            Hurt();
         }
         else if (Attacking)
         {
@@ -58,13 +56,12 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
             else if (Vector2.Distance(rb.position, Target.transform.position) >= 7 || Vector2.Distance(rb.position, Target.transform.position) < 5)
             {
                 Walk();
-                
             }
             else
             {
                 Speed = 0f;
                 Attacking = true;
-                AttackTimer = Time.time + 0.7f;
+                AttackTimer = Time.time + 1f;
                 NewLocation = (Vector2)transform.position;
             }
         }
@@ -130,7 +127,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
             Speed = 3f;
         }
     }
-    void hurt()
+    void Hurt()
     {
         EnemyHealthPoints--;
         if (Time.time > HurtTimer)

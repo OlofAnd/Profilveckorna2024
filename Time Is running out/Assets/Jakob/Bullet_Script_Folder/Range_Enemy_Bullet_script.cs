@@ -8,7 +8,8 @@ public class Range_Enemy_Bullet_script : Bullet_Abstract_Script
     private GameObject Player;
     void Start()
     {
-        Speed = 4f;
+        Damage = 5f;
+        Speed = 6f;
         FlyTime = 5f;
         Target = "Player";
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -19,8 +20,6 @@ public class Range_Enemy_Bullet_script : Bullet_Abstract_Script
         //transform.position += (Vector3)Direction;
         //transform.rotation = Quaternion.Euler(0, 0, rotation);
     }
-
-    // Update is called once per frame
     void Update()
     {
         BulletMovement();

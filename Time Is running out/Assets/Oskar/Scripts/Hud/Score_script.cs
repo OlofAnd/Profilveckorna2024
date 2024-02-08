@@ -17,7 +17,7 @@ public class Score_script : MonoBehaviour
 
     void Update()
     {
-        amountScore = player_Script.score;
-        scoreText.text = "Score: " + amountScore.ToString();
+        amountScore = player_Script.currentHealth;
+        scoreText.text = "Hp: " + amountScore.ToString();
     }
 }

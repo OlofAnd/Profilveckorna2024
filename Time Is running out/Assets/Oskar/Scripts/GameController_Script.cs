@@ -24,7 +24,7 @@ public class GameController_Script : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             Instantiate(enemyObject, transform.localPosition, transform.rotation);
             enemiesAlive++;
