@@ -146,5 +146,10 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         {
             Hurting = true;
         }
+        if (trig.gameObject.tag == "")
+        {
+            Hurting = true;
+        }
+
     }
 }
