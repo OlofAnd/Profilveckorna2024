@@ -32,7 +32,7 @@ public class Card_Display_Script_Left : MonoBehaviour
     }
     private void Awake()
     {
-        if (gameController.remainingTime <= 120f&&gameController.remainingTime>=60f)
+        if (gameController.remainingTime <= 120f && gameController.remainingTime >= 60f)
         {
             card_left = deck_time_tier1.cards[Random.Range(0, deck_time_tier1.cards.Count)];
             Debug.Log("1");
