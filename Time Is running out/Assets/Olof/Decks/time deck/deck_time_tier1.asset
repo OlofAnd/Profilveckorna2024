@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4465fbf9f757e084caebc8bfbfa09d10, type: 3}
-  m_Name: tier 1 deck
+  m_Name: deck_time_tier1
   m_EditorClassIdentifier: 
   cards:
-  - {fileID: 11400000, guid: 42676b12676f2cd419f6b8fc701884bf, type: 2}
-  - {fileID: 11400000, guid: fdec62a953d0b8842814a2a7ff9e12f1, type: 2}
-  - {fileID: 11400000, guid: f3329ac6585eab64ca7e7f900d15a172, type: 2}
-  - {fileID: 11400000, guid: 3ce2998151569b045a860dc050f30a4d, type: 2}
+  - {fileID: 11400000, guid: 5c03bc4d4f443bd4cb5e9ae2d5cd9c18, type: 2}

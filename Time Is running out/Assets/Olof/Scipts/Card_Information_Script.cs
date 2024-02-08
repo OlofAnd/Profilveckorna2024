@@ -35,11 +35,6 @@ public class Card_Information_Script : ScriptableObject
 
 
     List<ScriptableObject> card_List = new List<ScriptableObject>();
-    
-    public void Start()
-    {
-        //card_List.Add(game_Loader.FindObjectOfType<ScriptableObject>)
-    }
 
     //public void Print()
     //{
