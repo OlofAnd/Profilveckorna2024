@@ -16,6 +16,8 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     float Speed;
     Vector2 DashTo;
 
+    Vector2 KnockBack;
+
     Random RNG = new Random();
 
     bool Dashing = false;
@@ -39,15 +41,25 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     void Update()
     {
         EnemyBehaviour();
-        // if (Target != null)
-        // Debug.Log(IdleingTimer);
+
     }
     public override void EnemyBehaviour()
     {
-        rb.velocity = Direction * Speed;
+        rb.velocity = (Vector3)KnockBack;
+        KnockBack = KnockBack * 0.99f;
+        if (Vector2.Distance(Vector2.zero, KnockBack) != 0)
+            Debug.Log(Vector2.Distance(Vector2.zero, KnockBack));
+        if (Vector2.Distance(Vector2.zero, KnockBack) <= 1)
+        {
+            KnockBack = Vector2.zero;
+        }
+        if (KnockBack == Vector2.zero)
+        {
+            rb.velocity = Direction * Speed;
+        }
+
         if (Hurting)
         {
-            HurtTimer = Time.time + 0.5f;
             hurt();
         }
         else if (Dashing)
@@ -131,9 +143,9 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     }
     void hurt()
     {
-        EnemyHealthPoints--;
         if (Time.time > HurtTimer)
         {
+            EnemyHealthPoints--;
             Hurting = false;
         }
     }
@@ -147,6 +159,13 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         }
         if (trig.gameObject.tag == "Player_Bullet")
         {
+            HurtTimer = Time.time + 0.5f;
+            Hurting = true;
+        }
+        if (trig.gameObject.tag == "Explosion")
+        {
+            KnockBack = (transform.position - trig.gameObject.transform.position).normalized * 20;
+            HurtTimer = Time.time + 0.5f;
             Hurting = true;
         }
     }

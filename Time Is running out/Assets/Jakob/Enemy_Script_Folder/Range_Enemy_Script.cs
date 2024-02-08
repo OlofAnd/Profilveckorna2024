@@ -13,6 +13,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
 
     Vector2 Direction;
     float Speed;
+    Vector2 KnockBack;
 
     Random RNG = new Random();
 
@@ -38,7 +39,20 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     }
     public override void EnemyBehaviour()
     {
-        rb.velocity = Direction * Speed;
+        if (KnockBack == Vector2.zero)
+        {
+            rb.velocity = Direction * Speed;
+
+        }
+        else
+        {
+            rb.velocity = KnockBack;
+            KnockBack /= 2;
+            if (Vector2.Distance(Vector2.zero, KnockBack) <= 1)
+            {
+                KnockBack = Vector2.zero;
+            }
+        }
         if (Hurting)
         {
             Hurt();
@@ -156,6 +170,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         {
             HurtTimer = Time.time + 0.5f;
             Hurting = true;
+            KnockBack = (trig.gameObject.transform.position - transform.position).normalized * 10;
         }
 
     }
