@@ -10,6 +10,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     Rigidbody2D rb;
     GameObject Target;
     [SerializeField] GameObject Bullet;
+    [SerializeField] SpriteRenderer sprRen;
 
     Vector2 Direction;
     float Speed;
@@ -32,6 +33,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         Damage = 1f;
 
         rb = GetComponent<Rigidbody2D>();
+        sprRen = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -124,6 +126,8 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     {
         Direction = ((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);
         Speed = 4f;
+        if (Direction.x > 0) sprRen.flipX = true;
+        else sprRen.flipX = false;
     }
     void hurt()
     {
