@@ -25,7 +25,7 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
     void Start()
     {
         EnemyHealthPoints = 10f;
-        EnemyDamage = 0f;
+        Damage = 0f;
 
         rb = GetComponent<Rigidbody2D>();
     }
