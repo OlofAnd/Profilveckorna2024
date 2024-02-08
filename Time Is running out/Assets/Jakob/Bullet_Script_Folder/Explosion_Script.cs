@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion_Script : MonoBehaviour
+public class Explosion_Script : Bullet_Abstract_Script
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+        Speed = 0f;
+        FlyTime = 0.3f;
+        rb = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        BulletMovement();
     }
 }

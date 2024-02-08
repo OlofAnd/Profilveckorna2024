@@ -33,18 +33,18 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     void Update()
     {
-        Debug.Log(playerDetected);
-        EnemyBehaviour();    
+
+        EnemyBehaviour();
     }
 
     public override void EnemyBehaviour()
     {
-        if(hurting)
+        if (hurting)
         {
             hurtTimer = Time.time + 0.5f;
             Hurt();
         }
-        else if(attacking)
+        else if (attacking)
         {
             Attack();
         }
@@ -53,12 +53,24 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
             if (!playerDetected)
             {
                 Idle();
+
             }
-            else
+            // ändra första siffran för hur lång vision den har av spelaren
+            else if (Vector2.Distance(rb.position, target.transform.position) >= 7 || Vector2.Distance(rb.position, target.transform.position) < 3)
             {
-                attacking = true;
-                attackTimer = Time.time + 0.7f;
+                transform.position = NextLocation();
             }
+            else if (!attacking)
+            {
+                speed = 0f;
+                attacking = true;
+                attackTimer = Time.time + 1f;
+            }
+            //else
+            //{
+            //    Idle();
+            //    Debug.Log(playerDetected);
+            //}
         }
         if (EnemyHealthPoints <= 0)
         {
@@ -68,15 +80,13 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
     void Idle()
     {
         //spela animation
+        playerDetected = false;
     }
     void Attack()
     {
-        if(Time.time > attackTimer)
+        if (Time.time > attackTimer)
         {
             Instantiate(bullet, transform.position, transform.rotation);
-        }
-        else if (Time.time > attackTimer)
-        {
             attacking = false;
         }
     }
@@ -84,10 +94,17 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
     void Hurt()
     {
         EnemyHealthPoints--;
-        if(Time.time>hurtTimer)
+        if (Time.time > hurtTimer)
         {
             hurting = false;
         }
+    }
+    Vector2 NextLocation()
+    {
+
+        float angle = rng.Next(0, 360);
+        angle = angle * math.PI / 180;
+        return target.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * 5); //ändra den sista siffran för att bestämma hur långt den ska flytta
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
