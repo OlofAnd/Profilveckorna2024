@@ -8,6 +8,7 @@ public class Range_Enemy_Bullet_script : Bullet_Abstract_Script
     private GameObject Player;
     void Start()
     {
+        Damage = 5f;
         Speed = 6f;
         FlyTime = 5f;
         Target = "Player";

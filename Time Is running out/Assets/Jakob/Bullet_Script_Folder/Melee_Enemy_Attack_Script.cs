@@ -8,6 +8,7 @@ public class Melee_Enemy_Attack_Script : Bullet_Abstract_Script
     private GameObject Player;
     void Start()
     {
+        Damage = 10f;
         Speed = 0f;
         FlyTime = 0.3f;
         Player = GameObject.FindGameObjectWithTag("Player");
