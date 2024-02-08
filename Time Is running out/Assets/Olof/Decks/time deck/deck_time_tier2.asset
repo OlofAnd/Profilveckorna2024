@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4465fbf9f757e084caebc8bfbfa09d10, type: 3}
   m_Name: deck_time_tier2
   m_EditorClassIdentifier: 
-  cards: []
+  cards:
+  - {fileID: 11400000, guid: a086f974f0d88f44baab8d2b0029496c, type: 2}
