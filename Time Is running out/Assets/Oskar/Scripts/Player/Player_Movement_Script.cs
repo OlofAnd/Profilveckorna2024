@@ -11,19 +11,27 @@ public class Player_Movement_Script : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D col;
     SpriteRenderer sprRen;
+
+
+
+    private enum State { Normal, DodgeRollSliding, Död }
     private State state;
-    private enum State { Normal, DodgeRollSliding, Pause }
+
 
     [SerializeField] Player_Script player_Script;
 
     [Header("Movement")]
-    Vector2 moveInput;
     [SerializeField] float movementSpeed = 5.5f;
+    Vector2 moveInput;
 
     [Header("Dodgeroll")]
     [SerializeField] float slidingSpeed;
-    bool canDodgeRoll = true;
     [SerializeField] Vector3 slideDir;
+    bool canDodgeRoll = true;
+
+    [Header("Animations")]
+    [SerializeField] Animator ani;
+
 
     void Start()
     {
@@ -36,14 +44,19 @@ public class Player_Movement_Script : MonoBehaviour
 
     void Update()
     {
-        PlayerFacingDirection();
+        if (!player_Script.isAlive)
+            state = State.Död;
+        //State normal
         if (player_Script.isAlive && state == State.Normal)
         {
+            PlayerFacingDirection();
             Run();
             slideDir = moveInput;
         }
+        //State dodgerolling
         else if (state == State.DodgeRollSliding && !canDodgeRoll)
         {
+            PlayerFacingDirection();
             HandleDodgeRollSliding();
             if (slidingSpeed <= 0.1f)
             {
@@ -51,6 +64,12 @@ public class Player_Movement_Script : MonoBehaviour
                 state = State.Normal;
                 slidingSpeed = 10f;
             }
+        }
+        //State död/gameover
+        else if(state == State.Död)
+        {
+            Debug.Log("Du fick " + player_Script.score + " Score innan du dog.");
+            
         }
     }
 
@@ -82,4 +101,5 @@ public class Player_Movement_Script : MonoBehaviour
         else if (slideDir.x > 0)
             sprRen.flipX = false;
     }
+
 }
