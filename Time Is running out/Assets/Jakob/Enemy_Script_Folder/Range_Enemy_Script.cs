@@ -16,7 +16,6 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     Random RNG = new Random();
 
     bool PlayerDetected = false;
-    bool walking;
     bool Attacking = false;
     bool Hurting = false;
 
@@ -27,7 +26,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     void Start()
     {
         EnemyHealthPoints = 10f;
-        EnemyDamage = 1f;
+        Damage = 1f;
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -42,7 +41,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         if (Hurting)
         {
             HurtTimer = Time.time + 0.5f;
-            hurt();
+            Hurt();
         }
         else if (Attacking)
         {
@@ -128,7 +127,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
             Speed = 3f;
         }
     }
-    void hurt()
+    void Hurt()
     {
         EnemyHealthPoints--;
         if (Time.time > HurtTimer)
