@@ -27,6 +27,5 @@ public class game_Loader : MonoBehaviour
     [SerializeField] public ScriptableObject tank;
     [SerializeField] public ScriptableObject tier3Time;
 
-
-    //public List<GameObject> Cards = new List<GameObject>();   
+ 
 }
