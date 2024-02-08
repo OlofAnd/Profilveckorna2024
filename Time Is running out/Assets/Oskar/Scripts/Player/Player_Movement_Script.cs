@@ -68,7 +68,6 @@ public class Player_Movement_Script : MonoBehaviour
         //State död/gameover
         else if(state == State.Död)
         {
-            Debug.Log("Du fick " + player_Script.score + " Score innan du dog.");
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
             rb.freezeRotation = true;
         }

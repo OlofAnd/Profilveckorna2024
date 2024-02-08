@@ -27,6 +27,5 @@ public class LookAtMouse_Script : MonoBehaviour
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         m_transform.rotation = rotation;
-        Debug.Log(angle);
     }
 }
