@@ -26,7 +26,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
     void Start()
     {
         EnemyHealthPoints = 10f;
-        EnemyDamage = 1f;
+        Damage = 1f;
 
         rb = GetComponent<Rigidbody2D>();
     }
