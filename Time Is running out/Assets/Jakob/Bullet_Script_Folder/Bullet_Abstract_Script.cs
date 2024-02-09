@@ -12,7 +12,7 @@ public abstract class Bullet_Abstract_Script : MonoBehaviour
     public Rigidbody2D rb { get; set; }
     public void BulletMovement()
     {
-        rb.velocity = Direction * Speed;
+        rb.velocity = new Vector2(Direction.x, Direction.y).normalized * Speed;
         FlyTime -= Time.deltaTime;
         if(FlyTime < 0)
         {
