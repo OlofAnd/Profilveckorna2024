@@ -24,7 +24,8 @@ public class Player_Script : MonoBehaviour
 
     void Update()
     {
-
+        if(currentHealth>maxHealth) 
+            currentHealth = maxHealth;
         if (currentHealth <= 0)
         {
             isAlive = false;
