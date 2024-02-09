@@ -15,6 +15,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     float Speed;
 
     float JumpTImer;
+    float JumpDelay;
     float HurtTimer;
 
     bool Attacking = false;
@@ -46,7 +47,11 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
             rb.velocity = Direction * Speed;
         }
 
-        if (Walking)
+        if (Hurting)
+        {
+            hurt();
+        }
+        else if (Walking)
         {
             Walk();
         }
@@ -56,7 +61,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
         }
         else
         {
-            if (Vector2.Distance(transform.position, Target.transform.position) >= 5)
+            if (Vector2.Distance(transform.position, Target.transform.position) >= 4)
             {
                 Walking = true;
             }
@@ -64,8 +69,15 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
             {
                 Attacking = true;
                 JumpTo = (Vector2)(Target.transform.position);
-                JumpTImer = Time.time + 0.5f;
+                JumpDelay = Time.time + 0.1f;
+                JumpTImer = JumpDelay + 0.5f;
             }
+        }
+
+        if (EnemyHealthPoints <= 0)
+        {
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
     void Walk()
@@ -76,11 +88,15 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     }
     void Attack()
     {
-        Direction = (JumpTo - rb.position) / Vector2.Distance(Vector2.zero, JumpTo - rb.position);
-        Speed = 30f * (JumpTImer - Time.time);
+        Speed = 0;
+        if (Time.time > JumpDelay)
+        {
+            Direction = (JumpTo - rb.position) / Vector2.Distance(Vector2.zero, JumpTo - rb.position);
+            Speed = 30f * (JumpTImer - Time.time);
+        }
         if (Time.time > JumpTImer)
         {
-            Instantiate(Explosion,transform.position, Quaternion.identity);
+            Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
