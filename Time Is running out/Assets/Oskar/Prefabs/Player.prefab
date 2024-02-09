@@ -489,5 +489,5 @@ MonoBehaviour:
   cardInfor_Script: {fileID: 0}
   gameCont_Script: {fileID: 0}
   player_Script: {fileID: 1612695104}
-  isPheonixActive: 1
+  isPheonixActive: 0
   pheonixActivatedThisRound: 0
