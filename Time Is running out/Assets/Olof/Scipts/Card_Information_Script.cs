@@ -12,26 +12,26 @@ public class Card_Information_Script : ScriptableObject
     public Sprite artwork;
 
     [Header("Tier 1 Powerups")]
-    public int healToMax;       //inlagd
-    public int attackRange;     //inlagd
-    public int bulletSpeed;     //inlagd
-    public int fireRate;        //inlagd
-    public int tier1Time;       //inlagd
+    public bool healToMax;       //inlagd
+    public bool attackRange;     //inlagd
+    public bool bulletSpeed;     //inlagd
+    public bool fireRate;        //inlagd
+    public bool tier1Time;       //inlagd
 
     [Header("Tier 2 Powerups")]
-    public int bulleSpread;     //inlagd
-    public int maxHp;           //inlagd
-    public int damage;          //inlagd
-    public int piercingRounds;  //inlagd
-    public float bombRounds;    //inlagd
-    public int tier2Time;
+    public bool bulleSpread;     //inlagd
+    public bool maxHp;           //inlagd
+    public bool damage;          //inlagd
+    public bool piercingRounds;  //inlagd
+    public bool bombRounds;    //inlagd
+    public bool tier2Time;
 
     [Header("Tier 3 Powerups")]
     public bool freezingAura;   //inlagd
     public bool rage;           //inlagd
     public bool phoenix;        //inlagd
     public bool tank;           //inlagd
-    public int tier3Time;       //inlagd
+    public bool tier3Time;       //inlagd
 
 
     List<ScriptableObject> card_List = new List<ScriptableObject>();
