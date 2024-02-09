@@ -15,8 +15,6 @@ public class Player_Movement_Script : MonoBehaviour
     Transform m_transform;
 
 
-
-
     private enum State { Normal, DodgeRollSliding, Död }
     private State state;
 
@@ -81,19 +79,16 @@ public class Player_Movement_Script : MonoBehaviour
     {
         moveInput = value.Get<Vector2>();
     }
-
     void OnDash()
     {
         canDodgeRoll = false;
         state = State.DodgeRollSliding;
     }
-
     private void HandleDodgeRollSliding()
     {
         transform.position += slideDir * slidingSpeed * Time.deltaTime;
         slidingSpeed -= slidingSpeed * 10f * Time.deltaTime;
     }
-
     void Run()
     {
         rb.velocity = moveInput * movementSpeed;
@@ -106,6 +101,22 @@ public class Player_Movement_Script : MonoBehaviour
             sprRen.flipX = true;
         else if (angle < 0f && angle > -90f || angle > 0f && angle < 90f)
             sprRen.flipX = false;
+    }
+
+    private IEnumerator Delay(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Mud_Bullet"))
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            StartCoroutine(Delay(1f));
+            Debug.Log("Hej");
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.freezeRotation = true;
+        }
     }
 
 }
