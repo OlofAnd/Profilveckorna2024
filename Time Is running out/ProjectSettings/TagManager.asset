@@ -9,6 +9,7 @@ TagManager:
   - Player_Bullet
   - Bomb
   - Explosion
+  - Big_Explosion
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,11 @@ TagManager:
   - Range_Enemy
   - Mud_Enemy
   - Enemy_Trigger
+<<<<<<< HEAD
+  - Bomb_Enemy
+=======
   - Freezing_Aura
+>>>>>>> a9052c69a104c9763d7825f30deb600932b83ade
   - 
   - 
   - 
