@@ -10,8 +10,8 @@ public class Player_Script : MonoBehaviour
 
 
     [Header("Health")]
-    [SerializeField] float maxHealth = 100;
-    [SerializeField] public float currentHealth;
+    public float maxHealth = 100;
+    public float currentHealth;
 
     [Header("Score")]
     public int score = 0;

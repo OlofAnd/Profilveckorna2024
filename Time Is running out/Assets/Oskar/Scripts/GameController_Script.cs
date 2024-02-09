@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameController_Script : MonoBehaviour
@@ -11,7 +12,6 @@ public class GameController_Script : MonoBehaviour
 
     [Header("Enemies")]
     [SerializeField] public int enemiesAlive = 0;
-    [SerializeField] GameObject enemyObject;
 
 
     [Header("Timer")]
@@ -24,11 +24,6 @@ public class GameController_Script : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Instantiate(enemyObject, transform.localPosition, transform.rotation);
-            enemiesAlive++;
-            Debug.Log(enemiesAlive);
-        }
+        enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 }

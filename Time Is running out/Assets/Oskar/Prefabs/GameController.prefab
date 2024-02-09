@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409493849adde3d4aa2d20e0f08108cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentGameState: 0
   enemiesAlive: 0
   enemyObject: {fileID: 6020696670752374068, guid: c0e22c977f6f59e4ebee77a314295297, type: 3}
-  remainingTime: 10
+  remainingTime: 100

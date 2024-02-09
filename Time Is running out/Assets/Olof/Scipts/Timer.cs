@@ -6,11 +6,8 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    float remainingTime;
 
     [SerializeField] GameController_Script gameController_Script;
-
-    int enemyAlive;
 
 
     //void Update()
@@ -30,30 +27,25 @@ public class Timer : MonoBehaviour
     //    int seconds = Mathf.FloorToInt(remainingTime % 60);
     //    timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     //}
-    private void Start()
-    {
-        remainingTime = gameController_Script.remainingTime;
-    }
 
     void Update()
     {
-        enemyAlive = gameController_Script.enemiesAlive;
-        if (enemyAlive > 0)
+        if (gameController_Script.enemiesAlive > 0)
         {
-            if (remainingTime > 0)
+            if (gameController_Script.remainingTime > 0)
             {
-                remainingTime -= Time.deltaTime;
+                gameController_Script.remainingTime -= Time.deltaTime;
             }
-            else if (remainingTime < 0)
+            else if (gameController_Script.remainingTime < 0)
             {
-                remainingTime = 0;
+                gameController_Script.remainingTime = 0;
                 //Game OVER
                 timerText.color = Color.red;
                 //fixa så att timer blir röd när tiden är låg.
             }
         }
-        int minutes = Mathf.FloorToInt(remainingTime / 60);
-        int seconds = Mathf.FloorToInt(remainingTime % 60);
+        int minutes = Mathf.FloorToInt(gameController_Script.remainingTime / 60);
+        int seconds = Mathf.FloorToInt(gameController_Script.remainingTime % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
