@@ -33,9 +33,10 @@ public class Player_Movement_Script : MonoBehaviour
     [Header("Animations")]
     [SerializeField] Animator ani;
 
-
+    [Header("Mud Freeze")]
     bool frozenByMud = false;
-
+    public float unFreezeTimer;
+    float unFreezeTimerValueHolder;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class Player_Movement_Script : MonoBehaviour
         m_transform = GetComponent<Transform>();
 
         state = State.Normal;
+        unFreezeTimerValueHolder = unFreezeTimer;
     }
 
     void Update()
@@ -56,6 +58,7 @@ public class Player_Movement_Script : MonoBehaviour
         {
             LAMouse();
             Run();
+            UnfreezeFromMud();
             slideDir = moveInput;
         }
         //State dodgerolling
@@ -105,26 +108,26 @@ public class Player_Movement_Script : MonoBehaviour
         else if (angle < 0f && angle > -90f || angle > 0f && angle < 90f)
             sprRen.flipX = false;
     }
-
-    private IEnumerator Delay(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Mud_Bullet") && !frozenByMud)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             frozenByMud = true;
+            canDodgeRoll = false;
         }
     }
     private void UnfreezeFromMud()
     {
         if (frozenByMud)
+            unFreezeTimer -= Time.deltaTime;
+        if (frozenByMud && unFreezeTimer <= 0)
         {
             rb.constraints = RigidbodyConstraints2D.None;
             rb.freezeRotation = true;
             frozenByMud = false;
+            canDodgeRoll = true;
+            unFreezeTimer = unFreezeTimerValueHolder;
         }
     }
 
