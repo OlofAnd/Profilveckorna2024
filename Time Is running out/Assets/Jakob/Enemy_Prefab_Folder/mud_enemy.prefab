@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 565036939840426344}
   - component: {fileID: 565036939840426345}
   - component: {fileID: 565036939840426351}
+  - component: {fileID: -4974500749614234281}
   m_Layer: 11
   m_Name: mud_enemy
   m_TagString: Enemy
@@ -125,8 +126,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.509434, g: 0.3323142, b: 0.15138839, a: 1}
+  m_Sprite: {fileID: -1086162794, guid: 6d9d96236e13bcc4ba8fcbe091e4ea12, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -186,3 +187,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2830156798087072280, guid: 2e8d06823c6b84f4fa8ca05ff7cd150b, type: 3}
+--- !u!95 &-4974500749614234281
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565036939840426348}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 718ad8817751bd34892d6b8a57fe2915, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
