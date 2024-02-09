@@ -4,38 +4,35 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class Bullet_Script : MonoBehaviour
+public class PlayerBullet_Script : Bullet_Abstract_Script
 {
     Vector3 mousePos;
     Camera cam;
-    Rigidbody2D rb;
     public float force;
     public float timeAlive;
     // Start is called before the first frame update
     void Start()
     {
+        FlyTime = timeAlive;
+        Speed = force;
+        Target = "Enemy";
+        rb = GetComponent<Rigidbody2D>();
+
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        rb = gameObject.GetComponent<Rigidbody2D>();
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - transform.position;
+        Direction = mousePos - transform.position;
+
         Vector3 rotation = transform.position - mousePos;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot);
     }
-
-    // Update is called once per frame
     void Update()
     {
-        timeAlive -= Time.deltaTime;
-        if (timeAlive <= 0)
-        {
-            Destroy(gameObject);
-        }
+        BulletMovement();
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player"))
-            Destroy(gameObject);
-    }
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (!other.CompareTag("Player"))
+    //        Destroy(gameObject);
+    //}
 }
