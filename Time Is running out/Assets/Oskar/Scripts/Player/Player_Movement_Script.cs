@@ -87,8 +87,12 @@ public class Player_Movement_Script : MonoBehaviour
     }
     void OnDash()
     {
-        canDodgeRoll = false;
-        state = State.DodgeRollSliding;
+        if (!frozenByMud)
+        {
+            canDodgeRoll = false;
+            state = State.DodgeRollSliding;
+        }
+     
     }
     private void HandleDodgeRollSliding()
     {
@@ -108,15 +112,6 @@ public class Player_Movement_Script : MonoBehaviour
         else if (angle < 0f && angle > -90f || angle > 0f && angle < 90f)
             sprRen.flipX = false;
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Mud_Bullet") && !frozenByMud)
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            frozenByMud = true;
-            canDodgeRoll = false;
-        }
-    }
     private void UnfreezeFromMud()
     {
         if (frozenByMud)
@@ -126,8 +121,15 @@ public class Player_Movement_Script : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;
             rb.freezeRotation = true;
             frozenByMud = false;
-            canDodgeRoll = true;
             unFreezeTimer = unFreezeTimerValueHolder;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Mud_Bullet") && !frozenByMud)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            frozenByMud = true;
         }
     }
 
