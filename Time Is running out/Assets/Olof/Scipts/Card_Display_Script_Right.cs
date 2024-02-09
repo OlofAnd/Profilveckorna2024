@@ -21,8 +21,6 @@ public class Card_Display_Script_Right : MonoBehaviour
 
     void Start()
     {
-        //card_right = deck_tier1.cards[Random.Range(0, deck_tier1.cards.Count)]; // väljer ett random kort från deck_tier1
-
         nameText.text = card_right.name;
         artworkImage.sprite = card_right.artwork;
     }
