@@ -10,9 +10,12 @@ public class PlayerBullet_Script : Bullet_Abstract_Script
     Camera cam;
     public float force;
     public float timeAlive;
-    // Start is called before the first frame update
+    public float bulletDamage;
+
     void Start()
     {
+        Damage = bulletDamage;
+
         FlyTime = timeAlive;
         Speed = force;
         Target = "Enemy";
@@ -30,9 +33,4 @@ public class PlayerBullet_Script : Bullet_Abstract_Script
     {
         BulletMovement();
     }
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (!other.CompareTag("Player"))
-    //        Destroy(gameObject);
-    //}
 }

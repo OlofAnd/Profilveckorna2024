@@ -34,6 +34,9 @@ public class Player_Movement_Script : MonoBehaviour
     [SerializeField] Animator ani;
 
 
+    bool frozenByMud = false;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -109,13 +112,19 @@ public class Player_Movement_Script : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Mud_Bullet"))
+        if (other.CompareTag("Mud_Bullet") && !frozenByMud)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            StartCoroutine(Delay(1f));
-            Debug.Log("Hej");
+            frozenByMud = true;
+        }
+    }
+    private void UnfreezeFromMud()
+    {
+        if (frozenByMud)
+        {
             rb.constraints = RigidbodyConstraints2D.None;
             rb.freezeRotation = true;
+            frozenByMud = false;
         }
     }
 
