@@ -18,7 +18,7 @@ public class PheonixAbility_Script : MonoBehaviour
 
     void Update()
     {
-        isPheonixActive = cardInfor_Script.phoenix;
+        //isPheonixActive = cardInfor_Script.phoenix;
         if (!player_Script.isAlive && !pheonixActivatedThisRound)
         {
             player_Script.isAlive = true;

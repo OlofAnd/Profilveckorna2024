@@ -21,7 +21,7 @@ public class FreezingAura_Script : MonoBehaviour
 
     void Update()
     {
-        isFreezingAuraActive = CardInfo_Script.freezingAura;
+        //isFreezingAuraActive = CardInfo_Script.freezingAura;
         if (isFreezingAuraActive)
         {
             freezingAreaCollider.enabled = true;
