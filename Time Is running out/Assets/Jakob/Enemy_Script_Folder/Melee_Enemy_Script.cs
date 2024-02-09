@@ -41,6 +41,8 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     void Update()
     {
         EnemyBehaviour();
+        if (Direction.x > 0) sprRen.flipX = true;
+        else sprRen.flipX = false;
 
     }
     public override void EnemyBehaviour()
@@ -136,8 +138,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     {
         Direction = ((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);
         Speed = 4f;
-        if (Direction.x > 0) sprRen.flipX = true;
-        else sprRen.flipX = false;
+        
     }
     void hurt()
     {
