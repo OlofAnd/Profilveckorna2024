@@ -24,7 +24,9 @@ MonoBehaviour:
   damage: 0
   piercingRounds: 0
   bombRounds: 0
+  tier2Time: 0
   freezingAura: 0
   rage: 0
   phoenix: 0
-  tank: 1
+  tank: 0
+  tier3Time: 0

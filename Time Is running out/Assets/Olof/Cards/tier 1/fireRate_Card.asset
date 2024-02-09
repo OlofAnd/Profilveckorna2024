@@ -17,14 +17,16 @@ MonoBehaviour:
   healToMax: 0
   attackRange: 0
   bulletSpeed: 0
-  fireRate: 5
+  fireRate: 0
   tier1Time: 0
   bulleSpread: 0
   maxHp: 0
   damage: 0
   piercingRounds: 0
   bombRounds: 0
+  tier2Time: 0
   freezingAura: 0
   rage: 0
   phoenix: 0
   tank: 0
+  tier3Time: 0

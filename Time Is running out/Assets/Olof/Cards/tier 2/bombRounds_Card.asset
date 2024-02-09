@@ -23,8 +23,10 @@ MonoBehaviour:
   maxHp: 0
   damage: 0
   piercingRounds: 0
-  bombRounds: 0.25
+  bombRounds: 1
+  tier2Time: 0
   freezingAura: 0
   rage: 0
   phoenix: 0
   tank: 0
+  tier3Time: 0
