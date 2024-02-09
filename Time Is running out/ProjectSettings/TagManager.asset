@@ -10,6 +10,7 @@ TagManager:
   - Bomb
   - Explosion
   - Mud_Bullet
+  - Gas_Aura
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - Mud_Enemy
   - Enemy_Trigger
   - Bomb_Enemy
-  - 
-  - 
+  - Enemy_Collision
+  - Gas_Enemy
   - 
   - 
   - 

@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using Unity.Mathematics;
 using Random = System.Random;
+using UnityEngine.UIElements.Experimental;
 
-class Melee_Enemy_Script : Enemy_Abstract_Script
+public class Gas_Enemy_Script : Enemy_Abstract_Script
 {
     Rigidbody2D rb;
     GameObject Target;
-    [SerializeField] GameObject Bullet;
-    [SerializeField] SpriteRenderer sprRen;
 
     Vector2 Direction;
     float Speed;
@@ -20,30 +18,23 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
 
     Random RNG = new Random();
 
-    bool Dashing = false;
     bool PlayerDetected = false;
     bool walking;
-    bool Attacking = false;
     bool Hurting = false;
 
     float IdleingTimer = 0;
-    float AttackTimer = 0;
     float HurtTimer = 0;
     void Start()
     {
         EnemyHealthPoints = 10f;
-        Damage = 1f;
 
         rb = GetComponent<Rigidbody2D>();
-        sprRen = GetComponent<SpriteRenderer>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         EnemyBehaviour();
-        if (Direction.x > 0) sprRen.flipX = true;
-        else sprRen.flipX = false;
-
     }
     public override void EnemyBehaviour()
     {
@@ -62,33 +53,15 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         {
             hurt();
         }
-        else if (Dashing)
-        {
-            Dash();
-        }
-        else if (Attacking)
-        {
-            Attack();
-        }
         else
         {
             if (!PlayerDetected)
             {
                 Idle();
             }
-            else if (Vector2.Distance(rb.position, Target.transform.position) <= 7 && Vector2.Distance(rb.position, Target.transform.position) >= 6.5)
-            {
-                Dashing = true;
-                DashTo = (Vector2)(Target.transform.position);
-            }
             else if (Vector2.Distance(rb.position, Target.transform.position) > 2)
             {
                 Walk();
-            }
-            else if (Vector2.Distance(rb.position, Target.transform.position) <= 2)
-            {
-                Attacking = true;
-                AttackTimer = Time.time + 0.7f;
             }
         }
         if (EnemyHealthPoints <= 0)
@@ -108,37 +81,15 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
 
         Direction = new Vector2(math.cos(angle), math.sin(angle));
         if (IdleingTimer > Time.time + 1)
-            Speed = 1;
+            Speed = 0.5f;
         else
             Speed = 0;
-    }
-    void Dash()
-    {
-        Direction = (DashTo - rb.position) / Vector2.Distance(Vector2.zero, DashTo - rb.position);
-        Speed = 9f;
-
-        if (Vector2.Distance(transform.position, DashTo) <= 2)
-        {
-            Dashing = false;
-            Speed = 0f;
-            AttackTimer = 0f;
-            Attack();
-        }
-    }
-    void Attack()
-    {
-        Speed = 0f;
-        if (Time.time > AttackTimer)
-        {
-            Instantiate(Bullet, transform.position, transform.rotation);
-            Attacking = false;
-        }
     }
     void Walk()
     {
         Direction = ((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);
-        Speed = 4f;
-        
+        Speed = 0.5f;
+
     }
     void hurt()
     {
@@ -177,4 +128,3 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         }
     }
 }
-
