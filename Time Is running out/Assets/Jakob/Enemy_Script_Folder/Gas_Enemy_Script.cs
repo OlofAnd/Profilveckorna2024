@@ -63,6 +63,10 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
             {
                 Walk();
             }
+            else
+            {
+                Speed = 0;
+            }
         }
         if (EnemyHealthPoints <= 0)
         {

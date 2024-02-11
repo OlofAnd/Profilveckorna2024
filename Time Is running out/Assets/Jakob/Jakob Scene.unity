@@ -200,7 +200,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &854152761
 PrefabInstance:
@@ -628,13 +628,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 602284093, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 602284093, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
+      propertyPath: ShapeModule.arc.spread
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 602284093, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 602284093, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 602284093, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 602284093, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 602284093, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
+      propertyPath: InitialModule.startColor.minColor.a
+      value: 0.7607843
+      objectReference: {fileID: 0}
     - target: {fileID: 2108896193383815488, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
       propertyPath: m_Name
       value: Gas_Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2108896193383815516, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2108896193383815516, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -676,5 +704,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3176292713849506110, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
+      propertyPath: GameController
+      value: 
+      objectReference: {fileID: 264754040}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
