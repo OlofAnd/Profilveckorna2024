@@ -14,6 +14,8 @@ public class Shooting_Script : MonoBehaviour
     private float timer;
     public float timeBetweenFiring;
     public GameObject bullet;
+    [SerializeField] Player_Script player_Script;
+
 
 
     void Start()
@@ -32,7 +34,7 @@ public class Shooting_Script : MonoBehaviour
         rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
-        if (!canFire)
+        if (!canFire && player_Script.isAlive)
         {
             timer += Time.deltaTime;
             if (timer > timeBetweenFiring)

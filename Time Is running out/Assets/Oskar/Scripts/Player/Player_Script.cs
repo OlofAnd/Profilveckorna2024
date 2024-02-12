@@ -24,18 +24,18 @@ public class Player_Script : MonoBehaviour
 
     void Update()
     {
-        if(currentHealth>maxHealth) 
+        if (currentHealth > maxHealth)
             currentHealth = maxHealth;
         if (currentHealth <= 0)
-        {
             isAlive = false;
-        }
+        if (game_controller_script.remainingTime <= 0)
+            isAlive = false;
 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy_bullet"))
+        if (other.gameObject.CompareTag("Enemy_bullet") || other.gameObject.CompareTag("Explosion"))
         {
             MonoBehaviour[] scripts = other.gameObject.GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour script in scripts)
