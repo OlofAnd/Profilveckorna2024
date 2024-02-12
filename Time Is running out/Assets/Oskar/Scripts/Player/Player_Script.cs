@@ -8,10 +8,12 @@ public class Player_Script : MonoBehaviour
 
     public bool isAlive = true;
 
+    public int playerDamage = 5;
+
 
     [Header("Health")]
-    public float maxHealth = 100;
-    public float currentHealth;
+    public int maxHealth = 100;
+    public int currentHealth;
 
     [Header("Score")]
     public int score = 0;
@@ -44,7 +46,7 @@ public class Player_Script : MonoBehaviour
                 if (enemyDamageFindProperty != null)
                 {
                     float damageValue = (float)enemyDamageFindProperty.GetValue(script);
-                    currentHealth -= damageValue;
+                    currentHealth -= (int)damageValue;
                     break;
                 }
             }

@@ -22,7 +22,7 @@ public class Player_Movement_Script : MonoBehaviour
     [SerializeField] Player_Script player_Script;
 
     [Header("Movement")]
-    [SerializeField] float movementSpeed = 5.5f;
+    public float movementSpeed = 5.5f;
     Vector2 moveInput;
 
     [Header("Dodgeroll")]

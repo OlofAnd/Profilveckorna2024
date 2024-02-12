@@ -86,7 +86,7 @@ public class left_card_select_script : MonoBehaviour
         }
         else if (cardInfo.maxHp)
         {
-            playerScript.maxHealth += 25f;
+            playerScript.maxHealth += 25;
 
             Debug.Log(playerScript.maxHealth);
             cardInfo.maxHp = false;
