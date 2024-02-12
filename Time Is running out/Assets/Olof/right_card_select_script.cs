@@ -41,5 +41,4 @@ public class right_card_select_script : MonoBehaviour
             cardInfo.tier3Time = false;
         }
     }
-
 }

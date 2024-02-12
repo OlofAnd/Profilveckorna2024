@@ -10,6 +10,8 @@ public class left_card_select_script : MonoBehaviour
     [SerializeField] Player_Script playerScript;
     [SerializeField] PlayerBullet_Script playerBulletScript;
     [SerializeField] Shooting_Script shootingScript;
+    [SerializeField] FreezingAura_Script freezeAuraScript;
+    [SerializeField] PheonixAbility_Script phoenixScript;
 
     public void LeftButtonPressed()
     {
@@ -84,16 +86,23 @@ public class left_card_select_script : MonoBehaviour
         }
         else if (cardInfo.maxHp)
         {
-            playerScript.maxHealth += 25f;
+            playerScript.maxHealth += 25;
 
             Debug.Log(playerScript.maxHealth);
             cardInfo.maxHp = false;
         }
+        // tier 3
+        else if(cardInfo.freezingAura)
+        {
+            freezeAuraScript.isFreezingAuraActive=true;
 
-    }
+            Debug.Log(cardInfo.freezingAura);
+        }
+        else if(cardInfo.phoenix)
+        {
+            phoenixScript.isPheonixActive=true;
 
-    void Update()
-    {
-        
+            Debug.Log(cardInfo.phoenix);
+        }
     }
 }

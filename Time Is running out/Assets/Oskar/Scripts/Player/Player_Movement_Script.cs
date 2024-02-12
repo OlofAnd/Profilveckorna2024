@@ -22,13 +22,16 @@ public class Player_Movement_Script : MonoBehaviour
     [SerializeField] Player_Script player_Script;
 
     [Header("Movement")]
-    [SerializeField] float movementSpeed = 5.5f;
+    public float movementSpeed = 5.5f;
     Vector2 moveInput;
 
     [Header("Dodgeroll")]
     [SerializeField] float slidingSpeed;
     [SerializeField] Vector3 slideDir;
     bool canDodgeRoll = true;
+
+    [Header("Knockback")]
+    Vector2 knockback;
 
     [Header("Animations")]
     [SerializeField] Animator ani;
@@ -87,12 +90,12 @@ public class Player_Movement_Script : MonoBehaviour
     }
     void OnDash()
     {
-        if (!frozenByMud)
+        if (!frozenByMud && canDodgeRoll)
         {
             canDodgeRoll = false;
             state = State.DodgeRollSliding;
         }
-     
+
     }
     private void HandleDodgeRollSliding()
     {
@@ -101,7 +104,12 @@ public class Player_Movement_Script : MonoBehaviour
     }
     void Run()
     {
-        rb.velocity = moveInput * movementSpeed;
+        rb.velocity = (Vector3)knockback;
+        knockback = knockback * 0.93f;
+        if (Vector2.Distance(Vector2.zero, knockback) <= 1)
+            knockback = Vector2.zero;
+        if (knockback == Vector2.zero)
+            rb.velocity = moveInput * movementSpeed;
     }
     private void LAMouse()
     {
@@ -130,6 +138,11 @@ public class Player_Movement_Script : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             frozenByMud = true;
+        }
+        if (other.CompareTag("Explosion") && !frozenByMud)
+        {
+            canDodgeRoll = false;
+            knockback = (transform.position - other.gameObject.transform.position).normalized * 30;
         }
     }
 
