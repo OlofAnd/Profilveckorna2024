@@ -28,6 +28,11 @@ public class Shooting_Script : MonoBehaviour
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
+    
+    }
+
+    void Update()
+    {
         if (rotZ > 90f && rotZ < 180f || rotZ < -90f && rotZ > -180f)
             sprRen.flipY = true;
         else if (rotZ < 0f && rotZ > -90f || rotZ > 0f && rotZ < 90f)
@@ -36,11 +41,6 @@ public class Shooting_Script : MonoBehaviour
         Vector3 rotation = mousePos - transform.position;
         rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
-    }
-
-    void Update()
-    {
-
 
         if (!canFire && player_Script.isAlive)
         {
