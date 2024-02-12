@@ -33,6 +33,8 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     {
         EnemyHealthPoints = 10f;
         Damage = 1f;
+        ScoreValue = 10;
+        DifficultyValue = 1;
 
         rb = GetComponent<Rigidbody2D>();
         sprRen = GetComponent<SpriteRenderer>();

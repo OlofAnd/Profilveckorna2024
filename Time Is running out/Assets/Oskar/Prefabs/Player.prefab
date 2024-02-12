@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFreezingAuraActive: 0
-  CardInfo_Script: {fileID: 0}
 --- !u!58 &1046199780
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -271,6 +270,7 @@ GameObject:
   - component: {fileID: 1612695104}
   - component: {fileID: 1249113128}
   - component: {fileID: 5607975371974548933}
+  - component: {fileID: 7014006956212167001}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -475,10 +475,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_controller_script: {fileID: 0}
+  tankScript: {fileID: 0}
   isAlive: 1
   playerDamage: 5
   maxHealth: 100
   currentHealth: 100
+  tankMaxHealth: 0
   score: 0
 --- !u!114 &1249113128
 MonoBehaviour:
@@ -492,7 +494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554e9ac66d08908458179065e9d454ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardInfor_Script: {fileID: 0}
   gameCont_Script: {fileID: 0}
   player_Script: {fileID: 1612695104}
   isPheonixActive: 0
@@ -509,7 +510,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96278208524d33c4f9478ea3845ed525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardInfor_Script: {fileID: 0}
   player_Script: {fileID: 1612695104}
   playerMove_Script: {fileID: 1433820388}
   isRageActive: 0
+--- !u!114 &7014006956212167001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661238833200588891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32fe68ba095ce4489cd5ecf657cce62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_Script: {fileID: 1612695104}
+  gameController_Script: {fileID: 0}
+  isTankActive: 0

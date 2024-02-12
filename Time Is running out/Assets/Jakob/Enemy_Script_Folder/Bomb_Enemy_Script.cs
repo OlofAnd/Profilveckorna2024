@@ -26,7 +26,10 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     {
         Target = GameObject.FindGameObjectWithTag("Player");
         EnemyHealthPoints = 10f;
-        Damage = 1f;
+        Damage = 0f;
+
+        ScoreValue = 10;
+        DifficultyValue = 5;
 
         rb = GetComponent<Rigidbody2D>();
     }
