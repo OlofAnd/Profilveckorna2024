@@ -29,8 +29,8 @@ TagManager:
   - Enemy_Collision
   - Gas_Enemy
   - Gas_Aura
-  - 
-  - 
+  - GameBounds
+  - Camera
   - 
   - 
   - 
