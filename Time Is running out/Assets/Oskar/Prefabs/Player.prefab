@@ -166,6 +166,7 @@ MonoBehaviour:
   bulletTransform: {fileID: 1727326004}
   timeBetweenFiring: 0.3
   bullet: {fileID: 2146653891399440392, guid: 4cd957bb17df9ad40be9928451753c0a, type: 3}
+  player_Script: {fileID: 1612695104}
 --- !u!1 &1727326003
 GameObject:
   m_ObjectHideFlags: 0

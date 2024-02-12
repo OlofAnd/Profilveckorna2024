@@ -8,6 +8,7 @@ public class Explosion_Script : Bullet_Abstract_Script
     {
         Speed = 0f;
         FlyTime = 0.3f;
+        Damage = 10;
         rb = GetComponent<Rigidbody2D>();
     }
     void Update()
