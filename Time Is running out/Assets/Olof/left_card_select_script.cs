@@ -5,6 +5,8 @@ using UnityEngine;
 public class left_card_select_script : MonoBehaviour
 {
     Card_Information_Script cardInfo;
+    [SerializeField] GameObject CardCanvas;
+
     [SerializeField] Card_Display_Script_Right cardDisplay;
 
     [SerializeField] Player_Script playerScript;
@@ -104,5 +106,8 @@ public class left_card_select_script : MonoBehaviour
 
             Debug.Log(cardInfo.phoenix);
         }
+
+
+        CardCanvas.SetActive(false);
     }
 }

@@ -12,6 +12,9 @@ public class GameController_Script : MonoBehaviour
     [SerializeField] public enum GameState { Normal, Pause, GameOver }
     [SerializeField] public GameState CurrentGameState;
     [SerializeField] GameObject Player;
+    [SerializeField] GameObject CardCanvas;
+    bool cardSelect;
+    int nextWave = 0;
     Random RNG = new Random();
 
     [Header("Enemies")]
@@ -26,6 +29,7 @@ public class GameController_Script : MonoBehaviour
     [SerializeField] public float remainingTime;
     void Start()
     {
+        CardCanvas.SetActive(false);
         CurrentGameState = GameState.Normal;
         NewWave();
     }
@@ -33,11 +37,16 @@ public class GameController_Script : MonoBehaviour
     void Update()
     {
         enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (enemiesAlive <= 0)
+        if (enemiesAlive == 0 && nextWave == Wave)
+        {
+            CardCanvas.SetActive(true);
+            nextWave = Wave + 1;
+        }
+        else if (!CardCanvas.active && enemiesAlive == 0)
         {
             NewWave();
+            cardSelect = false;
         }
-        Debug.Log(enemiesAlive);
     }
     void NewWave()
     {
@@ -46,7 +55,7 @@ public class GameController_Script : MonoBehaviour
         {
             float angle = RNG.Next(0, 360);
             angle = angle * math.PI / 180;
-            Vector2 spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7,9));
+            Vector2 spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7, 9));
             Instantiate(Enemies[RNG.Next(0, Enemies.Count)], spawnPoint, Quaternion.identity);
         }
     }
