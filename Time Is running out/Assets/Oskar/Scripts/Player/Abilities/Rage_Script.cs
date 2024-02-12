@@ -6,6 +6,7 @@ public class Rage_Script : MonoBehaviour
 {
     [SerializeField] Player_Script player_Script;
     [SerializeField] Player_Movement_Script playerMove_Script;
+    [SerializeField] Tank_Script tank_Script;
 
     public bool isRageActive;
 
@@ -19,23 +20,47 @@ public class Rage_Script : MonoBehaviour
     }
     void Update()
     {
-        if (player_Script.currentHealth <= player_Script.maxHealth / 10 && !rageTier1Activated)
+        if (isRageActive && !tank_Script.isTankActive)
         {
-            rageTier1Activated = true;
-            playerMove_Script.movementSpeed *= 3;
-            player_Script.playerDamage *= 6;
+            if (player_Script.currentHealth <= player_Script.maxHealth / 10 && !rageTier1Activated)
+            {
+                rageTier1Activated = true;
+                playerMove_Script.movementSpeed *= 3;
+                player_Script.playerDamage *= 6;
+            }
+            else if (player_Script.currentHealth <= player_Script.maxHealth / 4 && !rageTier2Activated)
+            {
+                rageTier2Activated = true;
+                playerMove_Script.movementSpeed *= 2f;
+                player_Script.playerDamage *= 4;
+            }
+            else if (player_Script.currentHealth <= player_Script.maxHealth / 2 && !rageTier3Activated)
+            {
+                rageTier3Activated = true;
+                playerMove_Script.movementSpeed *= 1.5f;
+                player_Script.playerDamage *= 2;
+            }
         }
-        else if (player_Script.currentHealth <= player_Script.maxHealth / 4 && !rageTier2Activated)
+        else if (isRageActive && tank_Script.isTankActive)
         {
-            rageTier2Activated = true;
-            playerMove_Script.movementSpeed *= 2f;
-            player_Script.playerDamage *= 4;
-        }
-        else if (player_Script.currentHealth <= player_Script.maxHealth / 2 && !rageTier3Activated)
-        {
-            rageTier3Activated = true;
-            playerMove_Script.movementSpeed *= 1.5f;
-            player_Script.playerDamage *= 2;
+            if (player_Script.currentHealth <= player_Script.tankMaxHealth / 10 && !rageTier1Activated)
+            {
+                rageTier1Activated = true;
+                playerMove_Script.movementSpeed *= 3;
+                player_Script.playerDamage *= 6;
+            }
+            else if (player_Script.currentHealth <= player_Script.tankMaxHealth / 4 && !rageTier2Activated)
+            {
+                rageTier2Activated = true;
+                playerMove_Script.movementSpeed *= 2f;
+                player_Script.playerDamage *= 4;
+            }
+            else if (player_Script.currentHealth <= player_Script.tankMaxHealth / 2 && !rageTier3Activated)
+            {
+                rageTier3Activated = true;
+                playerMove_Script.movementSpeed *= 1.5f;
+                player_Script.playerDamage *= 2;
+            }
         }
     }
 }

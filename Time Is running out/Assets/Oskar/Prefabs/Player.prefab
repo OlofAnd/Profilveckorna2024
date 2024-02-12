@@ -460,7 +460,6 @@ MonoBehaviour:
   movementSpeed: 5.5
   slidingSpeed: 10
   slideDir: {x: 0, y: 0, z: 0}
-  ani: {fileID: 717407049174908319}
   unFreezeTimer: 0.5
 --- !u!114 &1612695104
 MonoBehaviour:
