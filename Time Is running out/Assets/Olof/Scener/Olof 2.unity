@@ -572,6 +572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mud_enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 565036939840426348, guid: a1297b7124be76044904f7829c38e073, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 565036939840426350, guid: a1297b7124be76044904f7829c38e073, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -625,13 +629,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3768059675362619853, guid: 19968450878d6904b85d7cca6040c45f, type: 3}
+      propertyPath: stopCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3768059675362619855, guid: 19968450878d6904b85d7cca6040c45f, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3768059675362619855, guid: 19968450878d6904b85d7cca6040c45f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: -0.28
       objectReference: {fileID: 0}
     - target: {fileID: 3768059675362619855, guid: 19968450878d6904b85d7cca6040c45f, type: 3}
       propertyPath: m_LocalPosition.y

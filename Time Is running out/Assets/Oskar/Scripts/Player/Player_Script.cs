@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player_Script : MonoBehaviour
 {
     [SerializeField] GameController_Script game_controller_script;
+    [SerializeField] Tank_Script tankScript;
 
     public bool isAlive = true;
 
@@ -14,6 +15,7 @@ public class Player_Script : MonoBehaviour
     [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
+    public int tankMaxHealth;
 
     [Header("Score")]
     public int score = 0;
@@ -22,17 +24,19 @@ public class Player_Script : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        tankMaxHealth = maxHealth;
     }
 
     void Update()
     {
-        if (currentHealth > maxHealth)
+        if (currentHealth > maxHealth && !tankScript.isTankActive)
             currentHealth = maxHealth;
-        if (currentHealth <= 0)
-            isAlive = false;
-        if (game_controller_script.remainingTime <= 0)
-            isAlive = false;
+        else if (currentHealth > tankMaxHealth)
+            currentHealth = tankMaxHealth;
 
+
+        if (currentHealth <= 0 || game_controller_script.remainingTime <= 0)
+            isAlive = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
