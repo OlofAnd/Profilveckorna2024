@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = System.Random;
+using Unity.Mathematics;
+
 
 public class Shooting_Script : MonoBehaviour
 {
@@ -14,17 +17,17 @@ public class Shooting_Script : MonoBehaviour
     private float timer;
     public float timeBetweenFiring;
     public GameObject bullet;
+    public GameObject bombBullet;
     [SerializeField] Player_Script player_Script;
+    Random rNG = new Random();
+    public int playerBombChance;
 
 
 
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-    }
 
-    void Update()
-    {
         if (rotZ > 90f && rotZ < 180f || rotZ < -90f && rotZ > -180f)
             sprRen.flipY = true;
         else if (rotZ < 0f && rotZ > -90f || rotZ > 0f && rotZ < 90f)
@@ -33,6 +36,11 @@ public class Shooting_Script : MonoBehaviour
         Vector3 rotation = mousePos - transform.position;
         rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
+    }
+
+    void Update()
+    {
+
 
         if (!canFire && player_Script.isAlive)
         {
@@ -46,7 +54,10 @@ public class Shooting_Script : MonoBehaviour
         if (Input.GetMouseButton(0) && canFire)
         {
             canFire = false;
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            if (rNG.Next(100) + 1 <= playerBombChance)
+                Instantiate(bombBullet, bulletTransform.position, Quaternion.identity);
+            else
+                Instantiate(bullet, bulletTransform.position, Quaternion.identity);
         }
     }
 }
