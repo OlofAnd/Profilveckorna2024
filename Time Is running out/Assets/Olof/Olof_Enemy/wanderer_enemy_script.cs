@@ -22,6 +22,14 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
     float idleTimer = 0;
     float hurtTimer = 0;
 
+    // gpt code
+    [SerializeField] float stopCooldown = 1.0f;   // Adjust the cooldown time as needed
+    float stopCooldownTimer = 0f;
+    [SerializeField] float runDuration = 2.0f;   // Adjust the run duration as needed
+    float runEndTime = 5f;
+
+    [SerializeField] float wanderRadius = 5f;
+
     void Start()
     {
         EnemyHealthPoints = 10f;
@@ -40,6 +48,7 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
         // alla behaviour här a.k.a hur enemy ska hantera dess olika behaviour
 
         rb.velocity = direction * speed;
+
         if (hurting)
         {
             hurtTimer = Time.time + 0.5f;
@@ -49,7 +58,22 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
         {
             if (!playerDetected)
             {
-                Idle();
+                // gpt code
+                if (Time.time < runEndTime)
+                {
+                    Walk();
+                    //Wander();
+                }
+                else
+                {
+                    Wander();
+                    runEndTime = Time.time + runDuration; // set the end time for the run
+                }
+                if (Time.time > stopCooldownTimer)
+                {
+                    StopMovement();
+                    stopCooldownTimer = Time.time + stopCooldown; // set cooldown timer
+                }
             }
             else if (Vector2.Distance(rb.position, target.transform.position) <= 7)
             {
@@ -66,6 +90,12 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
         }
     }
 
+    // gpt code
+    void StopMovement()
+    {
+        direction = Vector2.zero;
+        speed = 0f;
+    }
 
     void Idle()
     {
@@ -88,8 +118,30 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
     }
     void Walk()
     {
-        direction = -((Vector2)(target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(target.transform.position) - rb.position);
-        speed = 3f;
+        if(target!=null)
+        {
+            direction = -((Vector2)(target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(target.transform.position) - rb.position);
+            speed = 3f;
+        }
+        else
+        {
+            // Handle the case when the target is null, for example, by stopping movement
+            StopMovement();
+        }
+    }
+    void Wander()
+    {
+        // generates a random angle within a cicrle to determine the new direction
+        float randomAngle = rng.Next(0, 360);
+        randomAngle = randomAngle * math.PI / 180;
+
+        // calculate the new direction based on the random angle and wander radius
+        Vector2 wanderDirection = new Vector2(math.cos(randomAngle), math.sin(randomAngle));
+        Vector2 wanderPosition = rb.position + wanderDirection * wanderRadius;
+
+        // set the new direction and speed
+        direction = (wanderPosition - rb.position).normalized;
+        speed = 4f;
     }
     void hurt()
     {
