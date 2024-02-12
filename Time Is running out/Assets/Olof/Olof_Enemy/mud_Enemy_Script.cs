@@ -6,35 +6,30 @@ using Random = System.Random;
 
 public class mud_Enemy_Script : Enemy_Abstract_Script
 {
+    [SerializeField] GameObject bullet;
+    [SerializeField] float teleportRadius = 5f;
+    [SerializeField] float teleportCooldown = 1f;
+
     Rigidbody2D rb;
     GameObject target;
-    [SerializeField] GameObject bullet;
-
-    Vector2 direction;
-    //float speed;
-
     Random rng = new Random();
 
     bool playerDetected = false;
-    bool walking;
     bool attacking = false;
     bool hurting = false;
 
     float attackTimer = 0;
     float hurtTimer = 0;
-    float nextLocationTimer = 1f;
 
     void Start()
     {
         EnemyHealthPoints = 10f;
         Damage = 1f;
-
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        
         EnemyBehaviour();
     }
 
@@ -42,7 +37,6 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
     {
         if (hurting)
         {
-            hurtTimer = Time.time + 0.5f;
             Hurt();
         }
         else if (attacking)
@@ -54,36 +48,59 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
             if (!playerDetected)
             {
                 Idle();
-
             }
-            // ändra första siffran för hur lång vision den har av spelaren
-            else if (Vector2.Distance(rb.position, target.transform.position) >= 7 || Vector2.Distance(rb.position, target.transform.position) < 4 && nextLocationTimer<=Time.time)
+            else
             {
-                transform.position = NextLocation();
-                nextLocationTimer = Time.time + 2f;
+                HandleTeleportation();
+                if (!attacking)
+                {
+                    attacking = true;
+                    attackTimer = Time.time + 1f;
+                }
             }
-            else if (!attacking)
-            {
-                //speed = 0f;
-                attacking = true;
-                attackTimer = Time.time + 1f;
-            }
-            //else
-            //{
-            //    Idle();
-            //    Debug.Log(playerDetected);
-            //}
         }
+
+        UpdateCooldowns();
+
         if (EnemyHealthPoints <= 0)
         {
             Destroy(gameObject);
         }
     }
+
+    void HandleTeleportation()
+    {
+        if (ShouldTeleport())
+        {
+            Teleport();
+        }
+    }
+
+    bool ShouldTeleport()
+    {
+        return (Vector2.Distance(rb.position, target.transform.position) >= 7 ||
+                (Vector2.Distance(rb.position, target.transform.position) < 4 && teleportCooldown <= 0));
+    }
+
+    void Teleport()
+    {
+        transform.position = NextLocation();
+        teleportCooldown = 2f;
+    }
+
+    void UpdateCooldowns()
+    {
+        if (teleportCooldown > 0)
+        {
+            teleportCooldown -= Time.deltaTime;
+        }
+    }
+
     void Idle()
     {
-        //spela animation
         playerDetected = false;
     }
+
     void Attack()
     {
         if (Time.time > attackTimer)
@@ -92,7 +109,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
             attacking = false;
         }
     }
-    // lägg till en metod som bestämmer när mud enemy ska flytta sig och vart
+
     void Hurt()
     {
         EnemyHealthPoints--;
@@ -101,13 +118,14 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
             hurting = false;
         }
     }
+
     Vector2 NextLocation()
     {
-
         float angle = rng.Next(0, 360);
         angle = angle * math.PI / 180;
-        return target.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * 5); //ändra den sista siffran för att bestämma hur långt den ska flytta
+        return target.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * teleportRadius);
     }
+
     private void OnTriggerEnter2D(Collider2D trig)
     {
         if (trig.gameObject.tag == "Player")
