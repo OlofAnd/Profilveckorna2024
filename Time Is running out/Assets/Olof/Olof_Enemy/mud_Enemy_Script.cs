@@ -22,6 +22,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     float attackTimer = 0;
     float hurtTimer = 0;
+    float nextLocationTimer = 1f;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     void Update()
     {
-
+        
         EnemyBehaviour();
     }
 
@@ -56,9 +57,10 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
             }
             // ändra första siffran för hur lång vision den har av spelaren
-            else if (Vector2.Distance(rb.position, target.transform.position) >= 7 || Vector2.Distance(rb.position, target.transform.position) < 4)
+            else if (Vector2.Distance(rb.position, target.transform.position) >= 7 || Vector2.Distance(rb.position, target.transform.position) < 4 && nextLocationTimer<=Time.time)
             {
                 transform.position = NextLocation();
+                nextLocationTimer = Time.time + 2f;
             }
             else if (!attacking)
             {
