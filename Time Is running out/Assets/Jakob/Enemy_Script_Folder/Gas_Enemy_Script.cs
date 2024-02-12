@@ -27,7 +27,10 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
     void Start()
     {
         EnemyHealthPoints = 10f;
+        Damage = 0;
 
+        ScoreValue = 50;
+        DifficultyValue = 7;
         rb = GetComponent<Rigidbody2D>();
     }
 
