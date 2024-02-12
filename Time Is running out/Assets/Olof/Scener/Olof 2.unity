@@ -191,6 +191,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249113128, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: gameCont_Script
+      value: 
+      objectReference: {fileID: 713622136}
+    - target: {fileID: 1249113128, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: isPheonixActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: game_controller_script
       value: 
