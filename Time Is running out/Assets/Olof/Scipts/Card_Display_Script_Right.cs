@@ -26,7 +26,7 @@ public class Card_Display_Script_Right : MonoBehaviour
     }
     private void Awake()
     {
-        if (gameController.remainingTime <= 120f && gameController.remainingTime >= 60f)
+        if (gameController.remainingTime >= 60f)
         {
             card_right = deck_tier1.cards[Random.Range(0, deck_tier1.cards.Count)];
         }
