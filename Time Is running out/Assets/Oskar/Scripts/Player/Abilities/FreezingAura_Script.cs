@@ -6,7 +6,6 @@ public class FreezingAura_Script : MonoBehaviour
 {
     public bool isFreezingAuraActive;
 
-    [SerializeField] Card_Information_Script CardInfo_Script;
     CircleCollider2D freezingAreaCollider;
     Rigidbody2D otherRb;
     SpriteRenderer sprRen;
@@ -21,7 +20,6 @@ public class FreezingAura_Script : MonoBehaviour
 
     void Update()
     {
-        //isFreezingAuraActive = CardInfo_Script.freezingAura;
         if (isFreezingAuraActive)
         {
             freezingAreaCollider.enabled = true;

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Rage_Script : MonoBehaviour
 {
-    [SerializeField] Card_Information_Script cardInfor_Script;
     [SerializeField] Player_Script player_Script;
     [SerializeField] Player_Movement_Script playerMove_Script;
 
@@ -20,7 +19,6 @@ public class Rage_Script : MonoBehaviour
     }
     void Update()
     {
-        //isRageActive = cardInfor_Script.rage;
         if (player_Script.currentHealth <= player_Script.maxHealth / 10 && !rageTier1Activated)
         {
             rageTier1Activated = true;

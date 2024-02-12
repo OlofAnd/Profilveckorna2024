@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PheonixAbility_Script : MonoBehaviour
 {
-    [SerializeField] Card_Information_Script cardInfor_Script;
     [SerializeField] GameController_Script gameCont_Script;
     [SerializeField] Player_Script player_Script;
 
@@ -18,7 +17,6 @@ public class PheonixAbility_Script : MonoBehaviour
     
     void Update()
     {
-        //isPheonixActive = cardInfor_Script.phoenix;
         if (!player_Script.isAlive && !pheonixActivatedThisRound && isPheonixActive)
         {
             player_Script.isAlive = true;
