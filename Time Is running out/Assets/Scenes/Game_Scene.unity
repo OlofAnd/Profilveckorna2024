@@ -264,6 +264,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1388423587}
     - target: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: playerDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: game_controller_script
       value: 
       objectReference: {fileID: 1388423587}
@@ -444,9 +448,25 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1943415790}
+    - target: {fileID: 3280226384918966475, guid: 563eb577f2617ae4fb31afd0aeb8746d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.791134
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280226384918966475, guid: 563eb577f2617ae4fb31afd0aeb8746d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3653588
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280226385062280732, guid: 563eb577f2617ae4fb31afd0aeb8746d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.791134
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280226385062280732, guid: 563eb577f2617ae4fb31afd0aeb8746d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3653588
+      objectReference: {fileID: 0}
     - target: {fileID: 3280226386708437282, guid: 563eb577f2617ae4fb31afd0aeb8746d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3280226386708437282, guid: 563eb577f2617ae4fb31afd0aeb8746d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -839,7 +859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511c0d1f233301b4182cc6f849eaf2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardCanvas: {fileID: 530035222}
   cardDisplay: {fileID: 1485923975}
   gameController: {fileID: 1388423587}
 --- !u!114 &1485923975 stripped
@@ -872,6 +891,14 @@ PrefabInstance:
       propertyPath: CardCanvas
       value: 
       objectReference: {fileID: 530035222}
+    - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: LeftDisplay
+      value: 
+      objectReference: {fileID: 1485923975}
+    - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
+      propertyPath: RightDisplay
+      value: 
+      objectReference: {fileID: 1792106504}
     - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
       propertyPath: Enemies.Array.size
       value: 5
@@ -984,13 +1011,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75c80ef70a390b4385f064de189b88e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardCanvas: {fileID: 530035222}
+  GameController: {fileID: 1388423587}
   cardDisplay: {fileID: 1792106504}
   playerScript: {fileID: 1943415783}
   playerBulletScript: {fileID: -8981153351154551263, guid: 4cd957bb17df9ad40be9928451753c0a, type: 3}
   shootingScript: {fileID: 590148649}
   freezeAuraScript: {fileID: 1194555831}
   phoenixScript: {fileID: 1943415793}
+  rageScript: {fileID: 0}
+  tankScript: {fileID: 0}
 --- !u!114 &1792106504 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9000581816039430686, guid: a6d8352de06656e449ca3dc95c1e0b60, type: 3}
@@ -1068,7 +1097,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1943415781 stripped
 GameObject:

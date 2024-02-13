@@ -21,6 +21,7 @@ public class Card_Display_Script_Right : MonoBehaviour
 
     void Start()
     {
+
         nameText.text = card_right.name;
         artworkImage.sprite = card_right.artwork;
     }
@@ -30,6 +31,7 @@ public class Card_Display_Script_Right : MonoBehaviour
     }
     public void RandomizeCard()
     {
+
         if (gameController.remainingTime >= 60f)
         {
             card_right = deck_tier1.cards[Random.Range(0, deck_tier1.cards.Count)];
@@ -42,5 +44,7 @@ public class Card_Display_Script_Right : MonoBehaviour
         {
             card_right = deck_tier3.cards[Random.Range(0, deck_tier3.cards.Count)];
         }
+        nameText.text = card_right.name;
+        artworkImage.sprite = card_right.artwork;
     }
 }

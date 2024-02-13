@@ -31,7 +31,6 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         Damage = 1f;
 
         ScoreValue = 20;
-        DifficultyValue = 3;
 
         rb = GetComponent<Rigidbody2D>();
     }

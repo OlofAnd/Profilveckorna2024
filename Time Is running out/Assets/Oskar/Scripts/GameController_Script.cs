@@ -34,12 +34,13 @@ public class GameController_Script : MonoBehaviour
     {
         CardCanvas.SetActive(false);
         CurrentGameState = GameState.Normal;
-        nextWave = Wave;
         NewWave();
+        nextWave = Wave;
     }
 
     void Update()
     {
+        Debug.Log(nextWave +"  "+ Wave);
         enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         if (cardSelect)
@@ -72,7 +73,7 @@ public class GameController_Script : MonoBehaviour
             float angle = RNG.Next(0, 360);
             angle = angle * math.PI / 180;
             Vector2 spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7, 9));
-            Instantiate(Enemies[RNG.Next(0, Enemies.Count)], spawnPoint, Quaternion.identity);
+            Instantiate(Enemies[RNG.Next(0, 1)], spawnPoint, Quaternion.identity);
         }
     }
 }
