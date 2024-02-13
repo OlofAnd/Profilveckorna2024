@@ -30,7 +30,7 @@ public class left_card_select_script : MonoBehaviour
         else if (cardInfo.name == "Range")
             cardInfo.attackRange = true;
         // tier 2
-        else if (cardInfo.name == "Bomb Rounds") // kvar
+        else if (cardInfo.name == "Bomb Rounds")
             cardInfo.bombRounds = true;
         else if (cardInfo.name == "Bullet spread") // kvar
             cardInfo.bulleSpread = true;
@@ -95,6 +95,13 @@ public class left_card_select_script : MonoBehaviour
 
             Debug.Log(playerScript.maxHealth);
             cardInfo.maxHp = false;
+        }
+        else if (cardInfo.bombRounds)
+        {
+            shootingScript.playerBombChance += 10;
+
+            Debug.Log(cardInfo.bombRounds);
+            cardInfo.bombRounds = false;
         }
         // tier 3
         else if (cardInfo.freezingAura)
