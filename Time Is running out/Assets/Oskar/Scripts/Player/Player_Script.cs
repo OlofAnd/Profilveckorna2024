@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Device;
 
 public class Player_Script : MonoBehaviour
 {
     [SerializeField] GameController_Script game_controller_script;
     [SerializeField] Tank_Script tankScript;
 
+    SpriteRenderer sprRen;
+
     public bool isAlive = true;
 
     public int playerDamage = 5;
+    public bool playerIFrames = false;
 
 
     [Header("Health")]
@@ -25,6 +29,8 @@ public class Player_Script : MonoBehaviour
     {
         currentHealth = maxHealth;
         tankMaxHealth = maxHealth;
+        sprRen = GetComponent<SpriteRenderer>();
+
     }
 
     void Update()
@@ -47,14 +53,41 @@ public class Player_Script : MonoBehaviour
             foreach (MonoBehaviour script in scripts)
             {
                 var enemyDamageFindProperty = script.GetType().GetProperty("Damage");
-                if (enemyDamageFindProperty != null)
+                if (enemyDamageFindProperty != null && !playerIFrames)
                 {
                     float damageValue = (float)enemyDamageFindProperty.GetValue(script);
                     currentHealth -= (int)damageValue;
+                    Hurt();
                     break;
                 }
             }
         }
+
+    }
+
+
+
+
+    private void Hurt()
+    {
+        playerIFrames = true;
+        HurtAnimationRed();
+        Invoke("HurtAnimationWhite", 0.1f);
+        Invoke("HurtAnimationRed", 0.2f);
+        Invoke("HurtAnimationWhite", 0.3f);
+        Invoke("TurnOffPlayerIFrames", 0.4f);
+    }
+    private void HurtAnimationRed()
+    {
+        sprRen.color = Color.red;
+    }
+    private void HurtAnimationWhite()
+    {
+        sprRen.color = Color.white;
+    }
+    private void TurnOffPlayerIFrames()
+    {
+        playerIFrames = false;
     }
 
 
