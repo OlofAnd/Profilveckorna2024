@@ -22,7 +22,7 @@ public class Shooting_Script : MonoBehaviour
     [SerializeField] Player_Script player_Script;
     Random rNG = new Random();
     public int playerBombChance;
-
+    [SerializeField] Player_Movement_Script player_Movement_Script;
 
     public int numberOfBullets;
     int maxBullets = 24;
@@ -168,7 +168,7 @@ public class Shooting_Script : MonoBehaviour
                 timer = 0;
             }
         }
-        if (Input.GetMouseButton(0) && canFire)
+        if (Input.GetMouseButton(0) && canFire && !player_Movement_Script.frozenByMud)
         {
             canFire = false;
             if (rNG.Next(100) + 1 <= playerBombChance)

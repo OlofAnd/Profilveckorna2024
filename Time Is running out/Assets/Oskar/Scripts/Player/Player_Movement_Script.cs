@@ -36,7 +36,7 @@ public class Player_Movement_Script : MonoBehaviour
     Animator ani;
 
     [Header("Mud Freeze")]
-    bool frozenByMud = false;
+    public bool frozenByMud = false;
     public float unFreezeTimer;
     float unFreezeTimerValueHolder;
     public Sprite mudFreezeSprite;

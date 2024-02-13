@@ -199,6 +199,7 @@ MonoBehaviour:
   bombBullet: {fileID: 364513969487090642, guid: 53680efb2c1f88e4290d14f03ae31b1c, type: 3}
   player_Script: {fileID: 1612695104}
   playerBombChance: 0
+  player_Movement_Script: {fileID: 1433820388}
   numberOfBullets: 1
   bullet1: {fileID: 2146653891399440392, guid: 4cd957bb17df9ad40be9928451753c0a, type: 3}
   bullet2: {fileID: 2146653891399440392, guid: 2d061cb72407f9c4fa5dc7cb2edabe2e, type: 3}
@@ -573,6 +574,7 @@ MonoBehaviour:
   movementSpeed: 5.5
   slidingSpeed: 10
   slideDir: {x: 0, y: 0, z: 0}
+  frozenByMud: 0
   unFreezeTimer: 0.5
   mudFreezeSprite: {fileID: 0}
 --- !u!114 &1612695104
