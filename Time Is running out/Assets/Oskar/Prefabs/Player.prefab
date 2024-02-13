@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 1727326004}
   - component: {fileID: 1727326005}
   m_Layer: 7
-  m_Name: BulletTransform
+  m_Name: WeaponSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,7 +587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_controller_script: {fileID: 0}
-  tankScript: {fileID: 0}
+  tankScript: {fileID: 7014006956212167001}
+  weaponSprRen: {fileID: 1727326005}
   isAlive: 1
   playerDamage: 5
   playerIFrames: 0
@@ -625,7 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_Script: {fileID: 1612695104}
   playerMove_Script: {fileID: 1433820388}
-  tank_Script: {fileID: 0}
+  tank_Script: {fileID: 7014006956212167001}
   isRageActive: 0
 --- !u!114 &7014006956212167001
 MonoBehaviour:

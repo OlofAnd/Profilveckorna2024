@@ -22,7 +22,7 @@ public class PlayerBullet_Script : Bullet_Abstract_Script
         Damage = bulletDamage;
 
         FlyTime = timeAlive;
-        Speed = force;
+        Speed = force * Time.deltaTime;
         Target = "Enemy";
         rb = GetComponent<Rigidbody2D>();
         shootScript = FindObjectOfType<Shooting_Script>();

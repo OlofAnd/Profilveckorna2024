@@ -9,12 +9,16 @@ public class Player_Script : MonoBehaviour
     [SerializeField] Tank_Script tankScript;
 
     SpriteRenderer sprRen;
+    [SerializeField] SpriteRenderer weaponSprRen;
 
     public bool isAlive = true;
 
     public int playerDamage = 5;
     public bool playerIFrames = false;
 
+    int deathAnimation = 0;
+
+    Animator ani;
 
     [Header("Health")]
     public int maxHealth = 100;
@@ -30,11 +34,22 @@ public class Player_Script : MonoBehaviour
         currentHealth = maxHealth;
         tankMaxHealth = maxHealth;
         sprRen = GetComponent<SpriteRenderer>();
+        ani = GetComponent<Animator>();
 
     }
 
     void Update()
     {
+        if (!isAlive && deathAnimation == 0)
+        {
+            deathAnimation++;
+            ani.SetBool("isIdle", false);
+            ani.SetBool("isRunning", false);
+            ani.SetTrigger("isDead");
+            weaponSprRen.enabled = false;
+        }
+
+
         if (currentHealth > maxHealth && !tankScript.isTankActive)
             currentHealth = maxHealth;
         else if (currentHealth > tankMaxHealth)
