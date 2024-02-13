@@ -12,6 +12,11 @@ public class PlayerBullet_Script : Bullet_Abstract_Script
     public float timeAlive;
     public float bulletDamage;
 
+    [SerializeField] int degDiff;
+
+    public Vector2 testDir;
+
+    [SerializeField] Shooting_Script shootScript;
     void Start()
     {
         Damage = bulletDamage;
@@ -20,10 +25,15 @@ public class PlayerBullet_Script : Bullet_Abstract_Script
         Speed = force;
         Target = "Enemy";
         rb = GetComponent<Rigidbody2D>();
+        shootScript = FindObjectOfType<Shooting_Script>();
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Direction = mousePos - transform.position;
+        //Direction = mousePos - transform.position;
+        float angleRad = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x);
+        float angleDeg = Mathf.Rad2Deg * angleRad;
+        float angleRadWithOffset = Mathf.Deg2Rad * (angleDeg + degDiff);
+        Direction = new Vector2(Mathf.Cos(angleRadWithOffset), Mathf.Sin(angleRadWithOffset));
 
         Vector3 rotation = transform.position - mousePos;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;

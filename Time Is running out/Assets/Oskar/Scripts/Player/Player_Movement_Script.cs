@@ -64,7 +64,7 @@ public class Player_Movement_Script : MonoBehaviour
             slideDir = moveInput;
         }
         //State dodgerolling
-        else if (state == State.DodgeRollSliding && !canDodgeRoll)
+        else if (state == State.DodgeRollSliding/* && !canDodgeRoll*/)
         {
             LookRightWay();
             HandleAnimations();

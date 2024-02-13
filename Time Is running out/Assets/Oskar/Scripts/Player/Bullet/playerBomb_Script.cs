@@ -9,6 +9,9 @@ public class playerBomb_Script : Bullet_Abstract_Script
     Vector3 mousePos;
     Camera cam;
 
+    [SerializeField] int degDiff;
+
+
     void Start()
     {
         Speed = 15f;
@@ -17,7 +20,12 @@ public class playerBomb_Script : Bullet_Abstract_Script
         rb = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Direction = mousePos - transform.position;
+        float angleRad = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x);
+        float angleDeg = Mathf.Rad2Deg * angleRad;
+        float angleRadWithOffset = Mathf.Deg2Rad * (angleDeg + degDiff);
+        Direction = new Vector2(Mathf.Cos(angleRadWithOffset), Mathf.Sin(angleRadWithOffset));
+
+
         Vector3 rotation = transform.position - mousePos;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot);

@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 1555072775}
   m_Layer: 7
   m_Name: RotatePoint
-  m_TagString: Untagged
+  m_TagString: PlayerGun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,10 +164,58 @@ MonoBehaviour:
   canFire: 1
   bulletTransform: {fileID: 1727326004}
   timeBetweenFiring: 0.3
-  bullet: {fileID: 2146653891399440392, guid: 4cd957bb17df9ad40be9928451753c0a, type: 3}
   bombBullet: {fileID: 364513969487090642, guid: 53680efb2c1f88e4290d14f03ae31b1c, type: 3}
   player_Script: {fileID: 1612695104}
   playerBombChance: 0
+  numberOfBullets: 1
+  bullet1: {fileID: 2146653891399440392, guid: 4cd957bb17df9ad40be9928451753c0a, type: 3}
+  bullet2: {fileID: 2146653891399440392, guid: 2d061cb72407f9c4fa5dc7cb2edabe2e, type: 3}
+  bullet3: {fileID: 2146653891399440392, guid: 1dfe69f9b9c922e41be7145d25dc0686, type: 3}
+  bullet4: {fileID: 2146653891399440392, guid: 15ae283df0ee6644dbb2913ac3446e25, type: 3}
+  bullet5: {fileID: 2146653891399440392, guid: 6121a0bcc00fe9a49b216986fa076f8c, type: 3}
+  bullet6: {fileID: 2146653891399440392, guid: aad0c08f646ea5348a23f68b287b86d3, type: 3}
+  bullet7: {fileID: 2146653891399440392, guid: 8043c7d81ba5f6e49b2b9f0e6af19d50, type: 3}
+  bullet8: {fileID: 2146653891399440392, guid: edb5335c6040a7b49b82f1bef73a65d2, type: 3}
+  bullet9: {fileID: 2146653891399440392, guid: 3f0bc1cd2f6219541931a9599abb4e6d, type: 3}
+  bullet10: {fileID: 2146653891399440392, guid: 18b7f689f5696034d8b4c4b8c6e48b5b, type: 3}
+  bullet11: {fileID: 2146653891399440392, guid: 14f673b4d49eaf5488e0429916240194, type: 3}
+  bullet12: {fileID: 2146653891399440392, guid: 8a06f3664d934e84880292868184865b, type: 3}
+  bullet13: {fileID: 2146653891399440392, guid: 44099a06514be364a80421e61f967b0e, type: 3}
+  bullet14: {fileID: 2146653891399440392, guid: 56f82d66dd97fcd4c88fcb4e119ae7c0, type: 3}
+  bullet15: {fileID: 2146653891399440392, guid: 54bcf50954b0c4a46b8c1aa91fbef75d, type: 3}
+  bullet16: {fileID: 2146653891399440392, guid: cc65235ef02b86148a6f4fe570c92281, type: 3}
+  bullet17: {fileID: 2146653891399440392, guid: 64903256f112e884a8a036629697d46b, type: 3}
+  bullet18: {fileID: 2146653891399440392, guid: 061948beaa0d1284b853d0835dcf24cb, type: 3}
+  bullet19: {fileID: 2146653891399440392, guid: e4be4fca9b8ff0d4ea7c2a5b9e65cc34, type: 3}
+  bullet20: {fileID: 2146653891399440392, guid: 5d7990116f2843146906d33545521d23, type: 3}
+  bullet21: {fileID: 2146653891399440392, guid: 0c54d83b2bdd8b442b8ca1ad5ecf3c68, type: 3}
+  bullet22: {fileID: 2146653891399440392, guid: 1e52487fc4441a547bd509e1b7794891, type: 3}
+  bullet23: {fileID: 2146653891399440392, guid: 316f95e527abca24a917fc94b2456b22, type: 3}
+  bullet24: {fileID: 2146653891399440392, guid: 950b9cf976506cf4e86e8100662029ac, type: 3}
+  bombBullet1: {fileID: 364513969487090642, guid: 53680efb2c1f88e4290d14f03ae31b1c, type: 3}
+  bombBullet2: {fileID: 364513969487090642, guid: 98b72cecf3271ab45a92a2eb7806d162, type: 3}
+  bombBullet3: {fileID: 364513969487090642, guid: 390b0904ef2ed864c8302808b5926a04, type: 3}
+  bombBullet4: {fileID: 364513969487090642, guid: 8fbac3e2c2342e14891b0ce861953fa3, type: 3}
+  bombBullet5: {fileID: 364513969487090642, guid: 538a154be771ca54881d4cf8bcd02b1a, type: 3}
+  bombBullet6: {fileID: 364513969487090642, guid: 4d5464b4fbb7bae448491c3836a274f8, type: 3}
+  bombBullet7: {fileID: 364513969487090642, guid: 97f4a73dab7c18f4b9ffbfb5d67c839c, type: 3}
+  bombBullet8: {fileID: 364513969487090642, guid: 617860f1d723f7347bf0d5522a667f8b, type: 3}
+  bombBullet9: {fileID: 364513969487090642, guid: ea294be37f91c7b49b511b69348a0500, type: 3}
+  bombBullet10: {fileID: 364513969487090642, guid: 609abbf4d69d07f409615c54b4106885, type: 3}
+  bombBullet11: {fileID: 364513969487090642, guid: 9ca0db88cbce92a40a8a06d88a5553e5, type: 3}
+  bombBullet12: {fileID: 364513969487090642, guid: 6bd44e85d34706941b963934a5a2bc43, type: 3}
+  bombBullet13: {fileID: 364513969487090642, guid: d419f727daacbb24290fb2e619709153, type: 3}
+  bombBullet14: {fileID: 364513969487090642, guid: 0efdb4169f942764caa0adee76130648, type: 3}
+  bombBullet15: {fileID: 364513969487090642, guid: 09e58bf1beb2f8e41b52372551db0924, type: 3}
+  bombBullet16: {fileID: 364513969487090642, guid: 5848e6cb1d933bf4b983b90d674ad833, type: 3}
+  bombBullet17: {fileID: 364513969487090642, guid: e584f439512950d46b4be3f546936236, type: 3}
+  bombBullet18: {fileID: 364513969487090642, guid: 8f98b30b6b73e0b45b4bb7d2e27c1c4c, type: 3}
+  bombBullet19: {fileID: 364513969487090642, guid: 47af64b8758f9214a9d502a77f3bcbe2, type: 3}
+  bombBullet20: {fileID: 364513969487090642, guid: d9eb738f0c4077c42bea66b14aee6863, type: 3}
+  bombBullet21: {fileID: 364513969487090642, guid: 49dbe1956c2027843b204526b633f9fc, type: 3}
+  bombBullet22: {fileID: 364513969487090642, guid: f464b4d5f956f964da483ae24aceaf18, type: 3}
+  bombBullet23: {fileID: 364513969487090642, guid: 7e3af75e518f6ae459992d0f1be1b170, type: 3}
+  bombBullet24: {fileID: 364513969487090642, guid: 02bd70b4be677104487a0f16bd9ef2ee, type: 3}
 --- !u!1 &1727326003
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_Script: {fileID: 1612695104}
-  playerIFrames: 0
   movementSpeed: 5.5
   slidingSpeed: 10
   slideDir: {x: 0, y: 0, z: 0}
@@ -478,6 +525,7 @@ MonoBehaviour:
   tankScript: {fileID: 0}
   isAlive: 1
   playerDamage: 5
+  playerIFrames: 0
   maxHealth: 100
   currentHealth: 100
   tankMaxHealth: 0

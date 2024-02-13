@@ -11,6 +11,7 @@ TagManager:
   - Explosion
   - Mud_Bullet
   - Gas_Aura
+  - PlayerGun
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Gas_Aura
   - GameBounds
   - Camera
-  - 
+  - GameWalls
   - 
   - 
   - 
