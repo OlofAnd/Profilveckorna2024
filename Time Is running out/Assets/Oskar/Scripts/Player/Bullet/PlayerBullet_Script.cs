@@ -17,6 +17,7 @@ public class PlayerBullet_Script : Bullet_Abstract_Script
     public Vector2 testDir;
 
     [SerializeField] Shooting_Script shootScript;
+
     void Start()
     {
         Damage = bulletDamage;
