@@ -13,13 +13,16 @@ public class Shooting_Script : MonoBehaviour
     [SerializeField] SpriteRenderer sprRen;
     float rotZ;
     public bool canFire;
-    public Transform bulletTransform;
+    public Transform bulletTransformRightSide;
+    public Transform bulletTransformLeftSide;
+    bool weaponFlip;
     private float timer;
     public float timeBetweenFiring;
     public GameObject bombBullet;
     [SerializeField] Player_Script player_Script;
     Random rNG = new Random();
     public int playerBombChance;
+
 
     public int numberOfBullets;
     int maxBullets = 24;
@@ -140,9 +143,17 @@ public class Shooting_Script : MonoBehaviour
         if (numberOfBullets >= maxBullets)
             numberOfBullets = maxBullets;
         if (rotZ > 90f && rotZ < 180f || rotZ < -90f && rotZ > -180f)
+        {
             sprRen.flipY = true;
+            weaponFlip = true;
+            transform.position = new Vector3(0.172f, -0.019f, 0) + player_Script.transform.position;
+        }
         else if (rotZ < 0f && rotZ > -90f || rotZ > 0f && rotZ < 90f)
+        {
             sprRen.flipY = false;
+            weaponFlip = false;
+            transform.position = new Vector3(-0.17f, 0, 0) + player_Script.transform.position;
+        }
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
         rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
@@ -164,14 +175,20 @@ public class Shooting_Script : MonoBehaviour
             {
                 for (int i = 0; i < numberOfBullets; i++)
                 {
-                    Instantiate(bombBulletList[i], bulletTransform.position, Quaternion.identity);
+                    if (weaponFlip)
+                        Instantiate(bombBulletList[i], bulletTransformLeftSide.position, Quaternion.identity);
+                    else
+                        Instantiate(bombBulletList[i], bulletTransformRightSide.position, Quaternion.identity);
                 }
             }
             else
             {
                 for (int i = 0; i < numberOfBullets; i++)
                 {
-                    Instantiate(bulletList[i], bulletTransform.position, Quaternion.identity);
+                    if (weaponFlip)
+                        Instantiate(bulletList[i], bulletTransformLeftSide.position, Quaternion.identity);
+                    else
+                        Instantiate(bulletList[i], bulletTransformRightSide.position, Quaternion.identity);
                 }
             }
         }

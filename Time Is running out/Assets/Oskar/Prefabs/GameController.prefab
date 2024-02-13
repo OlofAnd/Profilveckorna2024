@@ -46,12 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentGameState: 0
   Player: {fileID: 0}
+  CardCanvas: {fileID: 0}
+  LeftDisplay: {fileID: 0}
+  RightDisplay: {fileID: 0}
+  cardSelect: 0
+  cardSelected: 0
+  Wave: 0
   Enemies:
   - {fileID: 914417406711135828, guid: f01411538f4256744a76a805ec0d56f6, type: 3}
   - {fileID: 565036939840426348, guid: a1297b7124be76044904f7829c38e073, type: 3}
   - {fileID: 7277821146826784282, guid: c37385fd70694ff418cf39ab8c7c64a8, type: 3}
   - {fileID: 2108896193383815488, guid: 63a016e8b02fd914a873195af6c3dcc3, type: 3}
   - {fileID: 2234891871813026, guid: 9fd502d7b7f36834189c361e18db635f, type: 3}
-  Wave: 0
   enemiesAlive: 0
   remainingTime: 100
