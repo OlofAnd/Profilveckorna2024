@@ -39,6 +39,7 @@ public class Player_Movement_Script : MonoBehaviour
     bool frozenByMud = false;
     public float unFreezeTimer;
     float unFreezeTimerValueHolder;
+    public Sprite mudFreezeSprite;
 
     void Start()
     {
@@ -113,12 +114,6 @@ public class Player_Movement_Script : MonoBehaviour
     }
     private void LookRightWay()
     {
-        //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - m_transform.position;
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //if (angle > 90f && angle < 180f || angle < -90f && angle > -180f)
-        //    sprRen.flipX = true;
-        //else if (angle < 0f && angle > -90f || angle > 0f && angle < 90f)
-        //    sprRen.flipX = false;
         if (moveInput.x < 0)
             sprRen.flipX = true;
         else if (moveInput.x > 0)
@@ -133,17 +128,18 @@ public class Player_Movement_Script : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;
             rb.freezeRotation = true;
             frozenByMud = false;
+            ani.SetBool("isMudded", false);
             unFreezeTimer = unFreezeTimerValueHolder;
         }
     }
     private void HandleAnimations()
     {
-        if (moveInput.x != 0 || moveInput.y != 0)
+        if ((moveInput.x != 0 || moveInput.y != 0) && !frozenByMud)
         {
             ani.SetBool("isIdle", false);
             ani.SetBool("isRunning", true);
         }
-        else if (moveInput.x == 0 || moveInput.y == 0)
+        else if ((moveInput.x == 0 || moveInput.y == 0) && !frozenByMud)
         {
             ani.SetBool("isRunning", false);
             ani.SetBool("isIdle", true);
@@ -155,13 +151,16 @@ public class Player_Movement_Script : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             frozenByMud = true;
+            ani.SetBool("isIdle", false);
+            ani.SetBool("isRunning", false);
+            ani.SetBool("isMudded", true);
         }
         if (other.CompareTag("Explosion") && !frozenByMud)
         {
             canDodgeRoll = false;
             knockback = (transform.position - other.gameObject.transform.position).normalized * 30;
         }
-        
+
     }
 
 
