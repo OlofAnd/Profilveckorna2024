@@ -18,7 +18,7 @@ public class GameController_Script : MonoBehaviour
     public bool cardSelect;
     public bool cardSelected;
     int nextWave;
-    public int Wave = 0;
+    public int Wave;
     Random RNG = new Random();
 
     [Header("Enemies")]
@@ -40,7 +40,7 @@ public class GameController_Script : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(nextWave +"  "+ Wave);
+        Debug.Log(nextWave + "  " + Wave);
         enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         if (cardSelect)
@@ -68,11 +68,16 @@ public class GameController_Script : MonoBehaviour
     void NewWave()
     {
         Wave++;
+        Vector2 spawnPoint = Vector2.zero;
         for (int i = 0; i < Wave * 2; i++)
         {
-            float angle = RNG.Next(0, 360);
-            angle = angle * math.PI / 180;
-            Vector2 spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7, 9));
+            do
+            {
+                float angle = RNG.Next(0, 360);
+                angle = angle * math.PI / 180;
+                spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7, 9));
+            }
+            while (spawnPoint.x <= -8 || spawnPoint.x >= 27 || spawnPoint.y >= 14 || spawnPoint.y <= -4);
             Instantiate(Enemies[RNG.Next(0, 1)], spawnPoint, Quaternion.identity);
         }
     }
