@@ -5,7 +5,7 @@ using UnityEngine;
 public class left_card_select_script : MonoBehaviour
 {
     Card_Information_Script cardInfo;
-    [SerializeField] GameObject CardCanvas;
+    [SerializeField] GameController_Script GameController;
 
     [SerializeField] Card_Display_Script_Right cardDisplay;
 
@@ -114,6 +114,6 @@ public class left_card_select_script : MonoBehaviour
 
         }
 
-        CardCanvas.SetActive(false);
+        GameController.cardSelected = true;
     }
 }
