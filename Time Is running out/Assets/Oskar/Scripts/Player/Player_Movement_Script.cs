@@ -10,9 +10,7 @@ public class Player_Movement_Script : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    BoxCollider2D col;
     SpriteRenderer sprRen;
-    Transform m_transform;
 
 
     private enum State { Normal, DodgeRollSliding, Död }
@@ -21,7 +19,6 @@ public class Player_Movement_Script : MonoBehaviour
 
     [SerializeField] Player_Script player_Script;
 
-    public bool playerIFrames = false;
 
     [Header("Movement")]
     public float movementSpeed = 5.5f;
@@ -46,9 +43,7 @@ public class Player_Movement_Script : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
         sprRen = GetComponent<SpriteRenderer>();
-        m_transform = GetComponent<Transform>();
         ani = GetComponent<Animator>();
 
         state = State.Normal;
@@ -166,25 +161,8 @@ public class Player_Movement_Script : MonoBehaviour
             canDodgeRoll = false;
             knockback = (transform.position - other.gameObject.transform.position).normalized * 30;
         }
-        if (other.CompareTag("Explosion") || other.CompareTag("Enemy_bullet"))
-        {
-            HurtAnimation();
-        }
+        
     }
-    private void HurtAnimation()
-    {
-        HurtAnimationRed();
-        Invoke("HurtAnimationWhite", 0.1f);
-        Invoke("HurtAnimationRed", 0.2f);
-        Invoke("HurtAnimationWhite", 0.3f);
-    }
-    private void HurtAnimationRed()
-    {
-        sprRen.color = Color.red;
-    }
-    private void HurtAnimationWhite()
-    {
-        sprRen.color = Color.white;
-    }
+
 
 }

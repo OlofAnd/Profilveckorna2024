@@ -39,8 +39,8 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     void Update()
     {
         EnemyBehaviour();
-        if (Direction.x > 0) sprRen.flipX = true;
-        else sprRen.flipX = false;
+        if (Direction.x > 0) sprRen.flipX = false;
+        else sprRen.flipX = true;
     }
     public override void EnemyBehaviour()
     {
