@@ -13,7 +13,8 @@ public class GameController_Script : MonoBehaviour
     [SerializeField] public GameState CurrentGameState;
     [SerializeField] GameObject Player;
     [SerializeField] GameObject CardCanvas;
-    bool cardSelect;
+    public bool cardSelect;
+    public bool cardSelected;
     int nextWave = 0;
     Random RNG = new Random();
 
@@ -37,15 +38,24 @@ public class GameController_Script : MonoBehaviour
     void Update()
     {
         enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (enemiesAlive == 0 && nextWave == Wave)
+       
+        if (cardSelect)
         {
-            CardCanvas.SetActive(true);
-            nextWave = Wave + 1;
+            if (!cardSelected)
+            {
+                CardCanvas.SetActive(true);
+            }
+            else if (cardSelected)
+            {
+                NewWave();
+                CardCanvas.SetActive(false);
+                cardSelect = false;
+                cardSelected = false;
+            }
         }
-        else if (!CardCanvas.active && enemiesAlive == 0)
+        else if (enemiesAlive <= 0)
         {
-            NewWave();
-            cardSelect = false;
+            cardSelect = true;
         }
     }
     void NewWave()

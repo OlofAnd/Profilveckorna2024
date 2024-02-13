@@ -5,7 +5,6 @@ using UnityEngine;
 public class right_card_select_script : MonoBehaviour
 {
     Card_Information_Script cardInfo;
-    [SerializeField] GameObject CardCanvas;
 
     [SerializeField] Card_Display_Script_Left cardDisplay;
 
@@ -43,6 +42,6 @@ public class right_card_select_script : MonoBehaviour
             cardInfo.tier3Time = false;
         }
 
-        CardCanvas.SetActive(false);
+       gameController.cardSelected = true;
     }
 }
