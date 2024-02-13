@@ -12,8 +12,11 @@ public class left_card_select_script : MonoBehaviour
     [SerializeField] Player_Script playerScript;
     [SerializeField] PlayerBullet_Script playerBulletScript;
     [SerializeField] Shooting_Script shootingScript;
+
     [SerializeField] FreezingAura_Script freezeAuraScript;
     [SerializeField] PheonixAbility_Script phoenixScript;
+    [SerializeField] Rage_Script rageScript;
+    [SerializeField] Tank_Script tankScript;
 
     public void LeftButtonPressed()
     {
@@ -106,7 +109,10 @@ public class left_card_select_script : MonoBehaviour
 
             Debug.Log(cardInfo.phoenix);
         }
+        else if(cardInfo.rage)
+        {
 
+        }
 
         CardCanvas.SetActive(false);
     }
