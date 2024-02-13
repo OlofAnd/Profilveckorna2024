@@ -14,5 +14,6 @@ public abstract class Enemy_Abstract_Script : MonoBehaviour
             return FindObjectOfType<Player_Script>().playerDamage;
         }
     }
+    public float EnemySpawnCooldown;
     public abstract void EnemyBehaviour();
 }

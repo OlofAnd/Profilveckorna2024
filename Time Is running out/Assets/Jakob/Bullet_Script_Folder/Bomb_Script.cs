@@ -23,7 +23,7 @@ public class Bomb_Script : Bullet_Abstract_Script
     }
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        if(trig.gameObject.tag == "Enemy")
+        if(trig.gameObject.tag == "Player")
         {
             Destroy(gameObject);
             Instantiate(Explosion, transform.position, transform.rotation);
