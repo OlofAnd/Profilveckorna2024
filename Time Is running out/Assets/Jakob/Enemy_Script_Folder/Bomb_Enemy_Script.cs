@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Device;
 
 public class Bomb_Enemy_Script : Enemy_Abstract_Script
 {
     Rigidbody2D rb;
     GameObject Target;
+    SpriteRenderer sprRen;
     [SerializeField] GameObject Explosion;
 
     Vector2 Direction;
@@ -25,6 +27,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     void Start()
     {
         Target = GameObject.FindGameObjectWithTag("Player");
+        sprRen = GetComponent<SpriteRenderer>();
         EnemyHealthPoints = 10f;
         Damage = 0f;
 
@@ -36,6 +39,8 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     void Update()
     {
         EnemyBehaviour();
+        if (Direction.x > 0) sprRen.flipX = true;
+        else sprRen.flipX = false;
     }
     public override void EnemyBehaviour()
     {

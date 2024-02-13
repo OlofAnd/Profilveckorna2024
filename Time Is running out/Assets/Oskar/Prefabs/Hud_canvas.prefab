@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_Script: {fileID: 0}
+  tank_Script: {fileID: 0}
   scoreText: {fileID: 147451866249566011}
   amountScore: 0
 --- !u!1001 &5659477638918482173

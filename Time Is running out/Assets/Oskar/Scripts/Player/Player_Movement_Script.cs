@@ -21,6 +21,8 @@ public class Player_Movement_Script : MonoBehaviour
 
     [SerializeField] Player_Script player_Script;
 
+    public bool playerIFrames = false;
+
     [Header("Movement")]
     public float movementSpeed = 5.5f;
     Vector2 moveInput;
@@ -34,7 +36,7 @@ public class Player_Movement_Script : MonoBehaviour
     Vector2 knockback;
 
     [Header("Animations")]
-    [SerializeField] Animator ani;
+    Animator ani;
 
     [Header("Mud Freeze")]
     bool frozenByMud = false;
@@ -47,6 +49,7 @@ public class Player_Movement_Script : MonoBehaviour
         col = GetComponent<BoxCollider2D>();
         sprRen = GetComponent<SpriteRenderer>();
         m_transform = GetComponent<Transform>();
+        ani = GetComponent<Animator>();
 
         state = State.Normal;
         unFreezeTimerValueHolder = unFreezeTimer;
@@ -59,15 +62,17 @@ public class Player_Movement_Script : MonoBehaviour
         //State normal
         if (player_Script.isAlive && state == State.Normal)
         {
-            LAMouse();
+            LookRightWay();
             Run();
+            HandleAnimations();
             UnfreezeFromMud();
             slideDir = moveInput;
         }
         //State dodgerolling
         else if (state == State.DodgeRollSliding && !canDodgeRoll)
         {
-            LAMouse();
+            LookRightWay();
+            HandleAnimations();
             HandleDodgeRollSliding();
             if (slidingSpeed <= 0.1f)
             {
@@ -111,13 +116,17 @@ public class Player_Movement_Script : MonoBehaviour
         if (knockback == Vector2.zero)
             rb.velocity = moveInput * movementSpeed;
     }
-    private void LAMouse()
+    private void LookRightWay()
     {
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - m_transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        if (angle > 90f && angle < 180f || angle < -90f && angle > -180f)
+        //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - m_transform.position;
+        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //if (angle > 90f && angle < 180f || angle < -90f && angle > -180f)
+        //    sprRen.flipX = true;
+        //else if (angle < 0f && angle > -90f || angle > 0f && angle < 90f)
+        //    sprRen.flipX = false;
+        if (moveInput.x < 0)
             sprRen.flipX = true;
-        else if (angle < 0f && angle > -90f || angle > 0f && angle < 90f)
+        else if (moveInput.x > 0)
             sprRen.flipX = false;
     }
     private void UnfreezeFromMud()
@@ -132,6 +141,19 @@ public class Player_Movement_Script : MonoBehaviour
             unFreezeTimer = unFreezeTimerValueHolder;
         }
     }
+    private void HandleAnimations()
+    {
+        if (moveInput.x != 0 || moveInput.y != 0)
+        {
+            ani.SetBool("isIdle", false);
+            ani.SetBool("isRunning", true);
+        }
+        else if (moveInput.x == 0 || moveInput.y == 0)
+        {
+            ani.SetBool("isRunning", false);
+            ani.SetBool("isIdle", true);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Mud_Bullet") && !frozenByMud)
@@ -144,6 +166,25 @@ public class Player_Movement_Script : MonoBehaviour
             canDodgeRoll = false;
             knockback = (transform.position - other.gameObject.transform.position).normalized * 30;
         }
+        if (other.CompareTag("Explosion") || other.CompareTag("Enemy_bullet"))
+        {
+            HurtAnimation();
+        }
+    }
+    private void HurtAnimation()
+    {
+        HurtAnimationRed();
+        Invoke("HurtAnimationWhite", 0.1f);
+        Invoke("HurtAnimationRed", 0.2f);
+        Invoke("HurtAnimationWhite", 0.3f);
+    }
+    private void HurtAnimationRed()
+    {
+        sprRen.color = Color.red;
+    }
+    private void HurtAnimationWhite()
+    {
+        sprRen.color = Color.white;
     }
 
 }

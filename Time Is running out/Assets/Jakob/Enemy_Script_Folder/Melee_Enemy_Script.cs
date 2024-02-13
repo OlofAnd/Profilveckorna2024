@@ -10,11 +10,12 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     Rigidbody2D rb;
     GameObject Target;
     [SerializeField] GameObject Bullet;
-    [SerializeField] SpriteRenderer sprRen;
+    SpriteRenderer sprRen;
 
     Vector2 Direction;
     float Speed;
     Vector2 DashTo;
+    Animator ani;
 
     Vector2 KnockBack;
 
@@ -38,13 +39,22 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
 
         rb = GetComponent<Rigidbody2D>();
         sprRen = GetComponent<SpriteRenderer>();
+        ani = GetComponent<Animator>();
     }
 
     void Update()
     {
         EnemyBehaviour();
-        if (Direction.x > 0) sprRen.flipX = true;
-        else sprRen.flipX = false;
+        if (!PlayerDetected)
+        {
+            if (Direction.x > 0) sprRen.flipX = true;
+            else sprRen.flipX = false;
+        }
+        else
+        {
+            if (Direction.x > 0) sprRen.flipX = false;
+            else sprRen.flipX = true;
+        }
 
     }
     public override void EnemyBehaviour()
@@ -96,6 +106,11 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         if (EnemyHealthPoints <= 0)
         {
             Destroy(gameObject);
+        }
+        if (PlayerDetected)
+        {
+            ani.SetBool("isIdle", false);
+            ani.SetBool("isRunning", true);
         }
     }
     float angle;

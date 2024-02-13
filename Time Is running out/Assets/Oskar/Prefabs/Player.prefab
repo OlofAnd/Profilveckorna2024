@@ -337,7 +337,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 724041010, guid: 50e86e4ac45abb94dbab02a70b3adb78, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -457,10 +457,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_Script: {fileID: 1612695104}
+  playerIFrames: 0
   movementSpeed: 5.5
   slidingSpeed: 10
   slideDir: {x: 0, y: 0, z: 0}
-  ani: {fileID: 717407049174908319}
   unFreezeTimer: 0.5
 --- !u!114 &1612695104
 MonoBehaviour:
@@ -512,6 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_Script: {fileID: 1612695104}
   playerMove_Script: {fileID: 1433820388}
+  tank_Script: {fileID: 0}
   isRageActive: 0
 --- !u!114 &7014006956212167001
 MonoBehaviour:
