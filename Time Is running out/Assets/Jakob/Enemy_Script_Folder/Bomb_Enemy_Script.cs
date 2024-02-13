@@ -9,6 +9,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     Rigidbody2D rb;
     GameObject Target;
     SpriteRenderer sprRen;
+    Animator ani;
     [SerializeField] GameObject Explosion;
 
     Vector2 Direction;
@@ -28,6 +29,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     {
         Target = GameObject.FindGameObjectWithTag("Player");
         sprRen = GetComponent<SpriteRenderer>();
+        ani = GetComponent<Animator>();
         EnemyHealthPoints = 10f;
         Damage = 0f;
 
@@ -96,6 +98,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     void Attack()
     {
         Speed = 0;
+        ani.SetBool("isBlow", true);
         if (Time.time > JumpDelay)
         {
             Direction = (JumpTo - rb.position) / Vector2.Distance(Vector2.zero, JumpTo - rb.position);
