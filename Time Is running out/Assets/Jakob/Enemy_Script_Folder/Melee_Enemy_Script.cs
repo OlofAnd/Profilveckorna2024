@@ -32,6 +32,8 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     float HurtTimer = 0;
     void Start()
     {
+        EnemySpawnCooldown = Time.time + 0.5f;
+
         EnemyHealthPoints = 10f;
         Damage = 1f;
         ScoreValue = 10;
@@ -57,59 +59,65 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     }
     public override void EnemyBehaviour()
     {
-        rb.velocity = (Vector3)KnockBack;
-        KnockBack = KnockBack * 0.99f;
-        if (Vector2.Distance(Vector2.zero, KnockBack) <= 1)
+
+        if (EnemySpawnCooldown < Time.time)
         {
-            KnockBack = Vector2.zero;
-        }
-        if (KnockBack == Vector2.zero)
-        {
-            rb.velocity = Direction * Speed;
+            rb.velocity = (Vector3)KnockBack;
+            KnockBack = KnockBack * 0.99f;
+            if (Vector2.Distance(Vector2.zero, KnockBack) <= 1)
+            {
+                KnockBack = Vector2.zero;
+            }
+            if (KnockBack == Vector2.zero)
+            {
+                rb.velocity = Direction * Speed;
+            }
+
+            if (Hurting)
+            {
+                hurt();
+            }
+            else if (Dashing)
+            {
+                Dash();
+            }
+            else if (Attacking)
+            {
+                Attack();
+            }
+            else
+            {
+                if (!PlayerDetected)
+                {
+                    Idle();
+                }
+                else if (Vector2.Distance(rb.position, Target.transform.position) <= 7 && Vector2.Distance(rb.position, Target.transform.position) >= 6.5)
+                {
+                    Dashing = true;
+                    DashTo = (Vector2)(Target.transform.position);
+                }
+                else if (Vector2.Distance(rb.position, Target.transform.position) > 2)
+                {
+                    Walk();
+                }
+                else if (Vector2.Distance(rb.position, Target.transform.position) <= 2)
+                {
+                    Attacking = true;
+                    AttackTimer = Time.time + 0.7f;
+                }
+            }
+            if (EnemyHealthPoints <= 0)
+            {
+                Destroy(gameObject);
+            }
+            if (PlayerDetected)
+            {
+                ani.SetBool("isIdle", false);
+                ani.SetBool("isRunning", true);
+            }
+
         }
 
-        if (Hurting)
-        {
-            hurt();
-        }
-        else if (Dashing)
-        {
-            Dash();
-        }
-        else if (Attacking)
-        {
-            Attack();
-        }
-        else
-        {
-            if (!PlayerDetected)
-            {
-                Idle();
-            }
-            else if (Vector2.Distance(rb.position, Target.transform.position) <= 7 && Vector2.Distance(rb.position, Target.transform.position) >= 6.5)
-            {
-                Dashing = true;
-                DashTo = (Vector2)(Target.transform.position);
-            }
-            else if (Vector2.Distance(rb.position, Target.transform.position) > 2)
-            {
-                Walk();
-            }
-            else if (Vector2.Distance(rb.position, Target.transform.position) <= 2)
-            {
-                Attacking = true;
-                AttackTimer = Time.time + 0.7f;
-            }
-        }
-        if (EnemyHealthPoints <= 0)
-        {
-            Destroy(gameObject);
-        }
-        if (PlayerDetected)
-        {
-            ani.SetBool("isIdle", false);
-            ani.SetBool("isRunning", true);
-        }
     }
     float angle;
     void Idle()
@@ -122,7 +130,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         }
 
         Direction = new Vector2(math.cos(angle), math.sin(angle));
-     
+
         if (IdleingTimer > Time.time + 1)
             Speed = 1;
         else
