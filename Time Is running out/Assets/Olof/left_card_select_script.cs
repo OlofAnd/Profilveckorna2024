@@ -32,7 +32,7 @@ public class left_card_select_script : MonoBehaviour
         // tier 2
         else if (cardInfo.name == "Bomb Rounds")
             cardInfo.bombRounds = true;
-        else if (cardInfo.name == "Bullet spread") // kvar
+        else if (cardInfo.name == "Bullet spread")
             cardInfo.bulleSpread = true;
         else if (cardInfo.name == "Damage")
             cardInfo.damage = true;
@@ -102,6 +102,12 @@ public class left_card_select_script : MonoBehaviour
 
             Debug.Log(cardInfo.bombRounds);
             cardInfo.bombRounds = false;
+        }
+        else if (cardInfo.bulleSpread)
+        {
+            shootingScript.numberOfBullets++;
+
+            Debug.Log(cardInfo.bulleSpread);
         }
         // tier 3
         else if (cardInfo.freezingAura)
