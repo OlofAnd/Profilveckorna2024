@@ -16,14 +16,15 @@ public class Card_Display_Script_Right : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] public Card_Information_Script card_right;
+    public Image cardBackgroundImage;
     public TMP_Text nameText;
     public Image artworkImage;
 
     void Start()
     {
-
-        nameText.text = card_right.name;
+        cardBackgroundImage.sprite = card_right.cardBackground;
         artworkImage.sprite = card_right.artwork;
+        nameText.text = card_right.name;
     }
     private void Awake()
     {

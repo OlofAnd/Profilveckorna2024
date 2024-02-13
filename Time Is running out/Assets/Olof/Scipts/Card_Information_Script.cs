@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName ="New Card",menuName="Card")]
 public class Card_Information_Script : ScriptableObject
@@ -10,6 +9,7 @@ public class Card_Information_Script : ScriptableObject
     [Header("Info om kort")]
     public new string name;
     public Sprite artwork;
+    public Sprite cardBackground;
 
     [Header("Tier 1 Powerups")]
     public bool healToMax;       //inlagd
