@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 713622136}
     - target: {fileID: 1249113128, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: isPheonixActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: game_controller_script
@@ -191,6 +191,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5607975371974548933, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: tank_Script
+      value: 
+      objectReference: {fileID: 675132371}
+    - target: {fileID: 7014006956212167001, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: gameController_Script
+      value: 
+      objectReference: {fileID: 713622136}
     - target: {fileID: 8661238833200588891, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -213,6 +221,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4099381678496872291, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
   m_PrefabInstance: {fileID: 428986608}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &675132371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7014006956212167001, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+  m_PrefabInstance: {fileID: 428986608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5629653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32fe68ba095ce4489cd5ecf657cce62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &713622136 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
