@@ -10,7 +10,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     Rigidbody2D rb;
     GameObject Target;
     [SerializeField] GameObject Bullet;
-    [SerializeField] SpriteRenderer sprRen;
+    SpriteRenderer sprRen;
 
     Vector2 Direction;
     float Speed;

@@ -21,6 +21,8 @@ public class Player_Movement_Script : MonoBehaviour
 
     [SerializeField] Player_Script player_Script;
 
+    public bool playerIFrames = false;
+
     [Header("Movement")]
     public float movementSpeed = 5.5f;
     Vector2 moveInput;
@@ -166,11 +168,15 @@ public class Player_Movement_Script : MonoBehaviour
         }
         if (other.CompareTag("Explosion") || other.CompareTag("Enemy_bullet"))
         {
-            HurtAnimationRed();
-            Invoke("HurtAnimationWhite", 0.1f);
-            Invoke("HurtAnimationRed", 0.2f);
-            Invoke("HurtAnimationWhite", 0.3f);
+            HurtAnimation();
         }
+    }
+    private void HurtAnimation()
+    {
+        HurtAnimationRed();
+        Invoke("HurtAnimationWhite", 0.1f);
+        Invoke("HurtAnimationRed", 0.2f);
+        Invoke("HurtAnimationWhite", 0.3f);
     }
     private void HurtAnimationRed()
     {
