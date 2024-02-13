@@ -35,8 +35,6 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         EnemyHealthPoints = 10f;
         Damage = 1f;
         ScoreValue = 10;
-        DifficultyValue = 1;
-
         rb = GetComponent<Rigidbody2D>();
         sprRen = GetComponent<SpriteRenderer>();
         ani = GetComponent<Animator>();
@@ -124,6 +122,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         }
 
         Direction = new Vector2(math.cos(angle), math.sin(angle));
+     
         if (IdleingTimer > Time.time + 1)
             Speed = 1;
         else
@@ -162,7 +161,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         Speed = 0;
         if (Time.time > HurtTimer)
         {
-            EnemyHealthPoints--;
+            EnemyHealthPoints -= PlayerDamage;
             Hurting = false;
         }
     }

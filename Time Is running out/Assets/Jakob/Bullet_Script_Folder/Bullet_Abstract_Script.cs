@@ -12,9 +12,9 @@ public abstract class Bullet_Abstract_Script : MonoBehaviour
     public Rigidbody2D rb { get; set; }
     public void BulletMovement()
     {
-        rb.velocity = new Vector2(Direction.x, Direction.y).normalized * Speed;
+        rb.velocity = new Vector2(Direction.x, Direction.y).normalized * Speed * 200 * Time.deltaTime;
         FlyTime -= Time.deltaTime;
-        if(FlyTime < 0)
+        if (FlyTime < 0)
         {
             Destroy(gameObject);
         }
@@ -22,7 +22,7 @@ public abstract class Bullet_Abstract_Script : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        if(trig.gameObject.tag == Target)
+        if (trig.gameObject.tag == Target)
         {
             Destroy(gameObject);
         }

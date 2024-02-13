@@ -32,6 +32,11 @@ public class Card_Display_Script_Left : MonoBehaviour
     }
     private void Awake()
     {
+        RandomizeCard();
+    }
+    public void RandomizeCard()
+    {
+
         if (gameController.remainingTime <= 120f && gameController.remainingTime >= 60f)
         {
             card_left = deck_time_tier1.cards[Random.Range(0, deck_time_tier1.cards.Count)];
@@ -47,5 +52,9 @@ public class Card_Display_Script_Left : MonoBehaviour
             card_left = deck_time_tier3.cards[Random.Range(0, deck_time_tier3.cards.Count)];
             Debug.Log("3");
         }
+        //card_left = deck_time_tier1.cards[Random.Range(0,deck_time_tier1.cards.Count)]; // väljer ett random kort från deck_time_tier1
+
+        nameText.text = card_left.name; // ändra så att nameText är ett image
+        artWorkImage.sprite = card_left.artwork;
     }
 }

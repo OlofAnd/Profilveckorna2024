@@ -5,7 +5,7 @@ using UnityEngine;
 public class left_card_select_script : MonoBehaviour
 {
     Card_Information_Script cardInfo;
-    [SerializeField] GameObject CardCanvas;
+    [SerializeField] GameController_Script GameController;
 
     [SerializeField] Card_Display_Script_Right cardDisplay;
 
@@ -32,13 +32,13 @@ public class left_card_select_script : MonoBehaviour
         // tier 2
         else if (cardInfo.name == "Bomb Rounds")
             cardInfo.bombRounds = true;
-        else if (cardInfo.name == "Bullet spread")
+        else if (cardInfo.name == "Bullet spread") // kvar
             cardInfo.bulleSpread = true;
         else if (cardInfo.name == "Damage")
             cardInfo.damage = true;
         else if (cardInfo.name == "Max Hp")
             cardInfo.maxHp = true;
-        else if (cardInfo.name == "Piercing Rounds")
+        else if (cardInfo.name == "Piercing Rounds") // kvar
             cardInfo.piercingRounds = true;
         // tier 3
         else if (cardInfo.name == "Freezing Aura")
@@ -96,24 +96,39 @@ public class left_card_select_script : MonoBehaviour
             Debug.Log(playerScript.maxHealth);
             cardInfo.maxHp = false;
         }
-        // tier 3
-        else if(cardInfo.freezingAura)
+        else if (cardInfo.bombRounds)
         {
-            freezeAuraScript.isFreezingAuraActive=true;
+            shootingScript.playerBombChance += 10;
+
+            Debug.Log(cardInfo.bombRounds);
+            cardInfo.bombRounds = false;
+        }
+        // tier 3
+        else if (cardInfo.freezingAura)
+        {
+            freezeAuraScript.isFreezingAuraActive = true;
 
             Debug.Log(cardInfo.freezingAura);
         }
-        else if(cardInfo.phoenix)
+        else if (cardInfo.phoenix)
         {
-            phoenixScript.isPheonixActive=true;
+            phoenixScript.isPheonixActive = true;
 
             Debug.Log(cardInfo.phoenix);
         }
-        else if(cardInfo.rage)
+        else if (cardInfo.rage)
         {
+            rageScript.isRageActive = true;
 
+            Debug.Log(cardInfo.rage);
+        }
+        else if (cardInfo.tank)
+        {
+            tankScript.isTankActive = true;
+
+            Debug.Log(cardInfo.tank);
         }
 
-        CardCanvas.SetActive(false);
+        GameController.cardSelected = true;
     }
 }

@@ -13,14 +13,16 @@ public class GameController_Script : MonoBehaviour
     [SerializeField] public GameState CurrentGameState;
     [SerializeField] GameObject Player;
     [SerializeField] GameObject CardCanvas;
+    [SerializeField] Card_Display_Script_Left LeftDisplay;
+    [SerializeField] Card_Display_Script_Right RightDisplay;
     public bool cardSelect;
     public bool cardSelected;
-    int nextWave = 0;
+    int nextWave;
+    public int Wave = 0;
     Random RNG = new Random();
 
     [Header("Enemies")]
     [SerializeField] public List<GameObject> Enemies = new List<GameObject>();
-    public int Wave = 0;
 
     [Header("Enemies")]
     [SerializeField] public int enemiesAlive = 0;
@@ -33,17 +35,22 @@ public class GameController_Script : MonoBehaviour
         CardCanvas.SetActive(false);
         CurrentGameState = GameState.Normal;
         NewWave();
+        nextWave = Wave;
     }
 
     void Update()
     {
+        Debug.Log(nextWave +"  "+ Wave);
         enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
-       
+
         if (cardSelect)
         {
-            if (!cardSelected)
+            if (!cardSelected && nextWave == Wave)
             {
                 CardCanvas.SetActive(true);
+                RightDisplay.RandomizeCard();
+                LeftDisplay.RandomizeCard();
+                nextWave = Wave + 1;
             }
             else if (cardSelected)
             {
@@ -66,7 +73,7 @@ public class GameController_Script : MonoBehaviour
             float angle = RNG.Next(0, 360);
             angle = angle * math.PI / 180;
             Vector2 spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7, 9));
-            Instantiate(Enemies[RNG.Next(0, Enemies.Count)], spawnPoint, Quaternion.identity);
+            Instantiate(Enemies[RNG.Next(0, 1)], spawnPoint, Quaternion.identity);
         }
     }
 }
