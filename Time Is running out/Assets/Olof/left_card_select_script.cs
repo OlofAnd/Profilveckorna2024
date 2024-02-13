@@ -108,6 +108,14 @@ public class left_card_select_script : MonoBehaviour
             shootingScript.numberOfBullets++;
 
             Debug.Log(cardInfo.bulleSpread);
+            cardInfo.bulleSpread = false;
+        }
+        else if (cardInfo.piercingRounds)
+        {
+            playerBulletScript.AmountPierce++;
+            Debug.Log(cardInfo.piercingRounds);
+            cardInfo.piercingRounds = false;
+
         }
         // tier 3
         else if (cardInfo.freezingAura)

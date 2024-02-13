@@ -9,7 +9,8 @@ public abstract class Bullet_Abstract_Script : MonoBehaviour
     public Vector2 Direction { get; set; }
     public float Speed { get; set; }
     public float FlyTime { get; set; }
-    public Rigidbody2D rb { get; set; }
+    public int AmountPierce { get; set; }
+public Rigidbody2D rb { get; set; }
     public void BulletMovement()
     {
         rb.velocity = new Vector2(Direction.x, Direction.y).normalized * Speed * 200 * Time.deltaTime;
@@ -22,7 +23,9 @@ public abstract class Bullet_Abstract_Script : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        if (trig.gameObject.tag == Target)
+        if (AmountPierce != 0)
+            AmountPierce--;
+        if (trig.gameObject.tag == Target && AmountPierce == 0)
         {
             Destroy(gameObject);
         }
