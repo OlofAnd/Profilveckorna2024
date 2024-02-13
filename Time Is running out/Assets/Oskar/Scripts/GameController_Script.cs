@@ -32,6 +32,9 @@ public class GameController_Script : MonoBehaviour
     [SerializeField] public float remainingTime;
     void Start()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+
         CardCanvas.SetActive(false);
         CurrentGameState = GameState.Normal;
         NewWave();
