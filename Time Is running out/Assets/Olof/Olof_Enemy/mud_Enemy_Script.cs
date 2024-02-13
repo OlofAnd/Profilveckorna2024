@@ -124,9 +124,15 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     Vector2 NextLocation()
     {
-        float angle = rng.Next(0, 360);
-        angle = angle * math.PI / 180;
-        return target.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * teleportRadius);
+        Vector2 spawnPoint = Vector2.zero;
+        do
+        {
+            float angle = rng.Next(0, 360);
+            angle = angle * math.PI / 180;
+            spawnPoint = target.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * teleportRadius);
+        }
+        while (spawnPoint.x <= -8 || spawnPoint.x >= 27 || spawnPoint.y >= 14 || spawnPoint.y <= -4);
+        return spawnPoint;
     }
 
     private void OnTriggerEnter2D(Collider2D trig)

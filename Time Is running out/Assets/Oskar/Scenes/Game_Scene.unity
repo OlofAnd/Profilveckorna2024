@@ -169,6 +169,10 @@ PrefabInstance:
       propertyPath: gameCont_Script
       value: 
       objectReference: {fileID: 1388423587}
+    - target: {fileID: 1555072775, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: playerBombChance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: playerDamage
       value: 5
