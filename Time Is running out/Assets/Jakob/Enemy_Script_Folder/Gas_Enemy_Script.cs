@@ -4,11 +4,15 @@ using UnityEngine;
 using Unity.Mathematics;
 using Random = System.Random;
 using UnityEngine.UIElements.Experimental;
+using UnityEngine.Device;
 
 public class Gas_Enemy_Script : Enemy_Abstract_Script
 {
     Rigidbody2D rb;
     GameObject Target;
+    Animator ani;
+    SpriteRenderer sprRen;
+
 
     Vector2 Direction;
     float Speed;
@@ -31,12 +35,26 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
 
         ScoreValue = 50;
         rb = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
+        sprRen = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Speed == 0)
+        {
+            ani.SetBool("isIdle", true);
+            ani.SetBool("isRunning", false);
+        }
+        else
+        {
+            ani.SetBool("isIdle", false);
+            ani.SetBool("isRunning", true);
+        }
         EnemyBehaviour();
+        if (Direction.x > 0) sprRen.flipX = false;
+        else sprRen.flipX = true;
     }
     public override void EnemyBehaviour()
     {
@@ -76,8 +94,10 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
         }
     }
     float angle;
+
     void Idle()
     {
+
         if (IdleingTimer < Time.time)
         {
             angle = RNG.Next(0, 360);
