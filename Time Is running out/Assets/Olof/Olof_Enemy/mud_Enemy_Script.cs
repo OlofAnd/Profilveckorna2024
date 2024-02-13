@@ -34,6 +34,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
     void Update()
     {
         EnemyBehaviour();
+        rb.velocity = Vector2.zero;
     }
 
     public override void EnemyBehaviour()
