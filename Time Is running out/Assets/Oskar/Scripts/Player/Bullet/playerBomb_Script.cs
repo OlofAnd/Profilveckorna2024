@@ -37,4 +37,12 @@ public class playerBomb_Script : Bullet_Abstract_Script
             Instantiate(Explosion, transform.position, transform.rotation);
         Speed -= Time.deltaTime * (Speed / FlyTime);
     }
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        if (trig.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            Instantiate(Explosion, transform.position, transform.rotation);
+        }
+    }
 }
