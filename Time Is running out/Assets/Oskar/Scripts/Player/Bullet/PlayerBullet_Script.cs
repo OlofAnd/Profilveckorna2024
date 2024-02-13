@@ -34,10 +34,7 @@ public class PlayerBullet_Script : Bullet_Abstract_Script
         float angleDeg = Mathf.Rad2Deg * angleRad;
         float angleRadWithOffset = Mathf.Deg2Rad * (angleDeg + degDiff);
         Direction = new Vector2(Mathf.Cos(angleRadWithOffset), Mathf.Sin(angleRadWithOffset));
-
-        Vector3 rotation = transform.position - mousePos;
-        float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot);
+        transform.rotation = Quaternion.Euler(0, 0, angleDeg + 180 + degDiff);
     }
     void Update()
     {
