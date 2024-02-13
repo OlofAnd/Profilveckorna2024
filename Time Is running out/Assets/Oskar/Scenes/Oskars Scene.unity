@@ -389,10 +389,6 @@ PrefabInstance:
       propertyPath: game_controller_script
       value: 
       objectReference: {fileID: 844141540}
-    - target: {fileID: 2803399234008446967, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2b7fdca851cc14944b494b26c4dc0fa0, type: 3}
     - target: {fileID: 4099381678496872291, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: m_RootOrder
       value: 0

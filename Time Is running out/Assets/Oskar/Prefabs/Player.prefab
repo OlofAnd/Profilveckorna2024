@@ -449,7 +449,7 @@ SpriteRenderer:
   m_SortingLayerID: 1442617877
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 724041010, guid: 50e86e4ac45abb94dbab02a70b3adb78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b7fdca851cc14944b494b26c4dc0fa0, type: 3}
   m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -574,6 +574,7 @@ MonoBehaviour:
   slidingSpeed: 10
   slideDir: {x: 0, y: 0, z: 0}
   unFreezeTimer: 0.5
+  mudFreezeSprite: {fileID: 0}
 --- !u!114 &1612695104
 MonoBehaviour:
   m_ObjectHideFlags: 0
