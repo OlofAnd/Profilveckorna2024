@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 3781500053709088710}
   - component: {fileID: 1215238160839745375}
   - component: {fileID: 2674440758631343657}
+  - component: {fileID: -2889286378449710665}
   m_Layer: 5
   m_Name: card_right
   m_TagString: Untagged
@@ -259,7 +260,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3974141885867412460}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -2889286378449710665}
+        m_TargetAssemblyTypeName: right_card_select_script, Assembly-CSharp
+        m_MethodName: RightButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1215238160839745375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e050c4768bcb041890e55eda991489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   deck_tier1: {fileID: 0}
   deck_tier2: {fileID: 0}
   deck_tier3: {fileID: 0}
@@ -296,6 +310,20 @@ MonoBehaviour:
   card_left: {fileID: 0}
   nameText: {fileID: 3691989268998894914}
   artWorkImage: {fileID: 7806623363115252185}
+--- !u!114 &-2889286378449710665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2614390343630276989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511c0d1f233301b4182cc6f849eaf2a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDisplay: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &3449824065521636185
 GameObject:
   m_ObjectHideFlags: 0

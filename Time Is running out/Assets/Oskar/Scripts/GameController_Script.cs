@@ -43,7 +43,7 @@ public class GameController_Script : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(nextWave + "  " + Wave);
+        //Debug.Log(nextWave + "  " + Wave);
         enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         if (cardSelect)
