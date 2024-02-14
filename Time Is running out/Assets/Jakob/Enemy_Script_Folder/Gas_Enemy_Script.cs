@@ -30,6 +30,7 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
     float HurtTimer = 0;
     void Start()
     {
+        EnemySpawnCooldown = Time.time + 0.5f;
         EnemyHealthPoints = 10f;
         Damage = 0;
 
@@ -52,7 +53,10 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
             ani.SetBool("isIdle", false);
             ani.SetBool("isRunning", true);
         }
-        EnemyBehaviour();
+        if (EnemySpawnCooldown < Time.time)
+        {
+            EnemyBehaviour();
+        }
         if (Direction.x > 0) sprRen.flipX = false;
         else sprRen.flipX = true;
     }

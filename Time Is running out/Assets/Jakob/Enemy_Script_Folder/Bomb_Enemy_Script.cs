@@ -27,6 +27,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
 
     void Start()
     {
+        EnemySpawnCooldown = Time.time + 0.5f;
         Target = GameObject.FindGameObjectWithTag("Player");
         sprRen = GetComponent<SpriteRenderer>();
         ani = GetComponent<Animator>();
@@ -39,7 +40,10 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     }
     void Update()
     {
+        if (EnemySpawnCooldown < Time.time)
+        {
         EnemyBehaviour();
+        }
         if (Direction.x > 0) sprRen.flipX = false;
         else sprRen.flipX = true;
     }

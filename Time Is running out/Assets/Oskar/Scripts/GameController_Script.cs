@@ -43,17 +43,14 @@ public class GameController_Script : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(nextWave + "  " + Wave);
         enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         if (cardSelect)
         {
             if (!cardSelected && nextWave == Wave)
             {
-                CardCanvas.SetActive(true);
-                RightDisplay.RandomizeCard();
-                LeftDisplay.RandomizeCard();
                 nextWave = Wave + 1;
+                Invoke("CardSelection", 1);
             }
             else if (cardSelected)
             {
@@ -68,11 +65,18 @@ public class GameController_Script : MonoBehaviour
             cardSelect = true;
         }
     }
+    void CardSelection()
+    {
+        CardCanvas.SetActive(true);
+        RightDisplay.RandomizeCard();
+        LeftDisplay.RandomizeCard();
+        
+    }
     void NewWave()
     {
         Wave++;
         Vector2 spawnPoint = Vector2.zero;
-        for (int i = 0; i < Wave * 2; i++)
+        for (int i = 0; i < (Wave / 2) + 1; i++)
         {
             do
             {
@@ -81,7 +85,14 @@ public class GameController_Script : MonoBehaviour
                 spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7, 9));
             }
             while (spawnPoint.x <= -8 || spawnPoint.x >= 27 || spawnPoint.y >= 14 || spawnPoint.y <= -4);
-            Instantiate(Enemies[RNG.Next(0, 1)], spawnPoint, Quaternion.identity);
+            if (Wave / 2 < Enemies.Count)
+            {
+                Instantiate(Enemies[RNG.Next(0, Wave / 2)], spawnPoint, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(Enemies[RNG.Next(0, Enemies.Count)], spawnPoint, Quaternion.identity);
+            }
         }
     }
 }

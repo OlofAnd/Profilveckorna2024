@@ -151,6 +151,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     }
     void Attack()
     {
+
         Speed = 0f;
         if (Time.time > AttackTimer)
         {

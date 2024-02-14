@@ -23,6 +23,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     void Start()
     {
+        EnemySpawnCooldown = Time.time + 0.5f;
         EnemyHealthPoints = 10f;
         Damage = 1f;
 
@@ -32,7 +33,10 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     void Update()
     {
-        EnemyBehaviour();
+        if (EnemySpawnCooldown < Time.time)
+        {
+            EnemyBehaviour();
+        }
         rb.velocity = Vector2.zero;
     }
 

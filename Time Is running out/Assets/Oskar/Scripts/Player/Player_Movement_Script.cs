@@ -18,6 +18,7 @@ public class Player_Movement_Script : MonoBehaviour
 
 
     [SerializeField] Player_Script player_Script;
+    [SerializeField] GameController_Script gameController;
 
 
     [Header("Movement")]
@@ -53,36 +54,49 @@ public class Player_Movement_Script : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(state);
+
         if (!player_Script.isAlive)
             state = State.Död;
         //State normal
-        if (player_Script.isAlive && state == State.Normal)
-        {
-            LookRightWay();
-            Run();
-            HandleAnimations();
-            UnfreezeFromMud();
-            slideDir = moveInput;
-        }
-        //State dodgerolling
-        else if (state == State.DodgeRollSliding/* && !canDodgeRoll*/)
-        {
-            LookRightWay();
-            HandleAnimations();
-            HandleDodgeRollSliding();
-            if (slidingSpeed <= 0.1f)
-            {
-                canDodgeRoll = true;
-                state = State.Normal;
-                slidingSpeed = 10f;
-            }
-        }
-        //State död/gameover
-        else if (state == State.Död)
+        if (gameController.cardSelect)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
-            rb.freezeRotation = true;
         }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+
+            if (player_Script.isAlive && state == State.Normal)
+            {
+                LookRightWay();
+                Run();
+                HandleAnimations();
+                UnfreezeFromMud();
+                slideDir = moveInput;
+            }
+            //State dodgerolling
+            else if (state == State.DodgeRollSliding/* && !canDodgeRoll*/)
+            {
+                LookRightWay();
+                HandleAnimations();
+                HandleDodgeRollSliding();
+                if (slidingSpeed <= 0.1f)
+                {
+                    canDodgeRoll = true;
+                    state = State.Normal;
+                    slidingSpeed = 10f;
+                }
+            }
+            //State död/gameover
+            else if (state == State.Död)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                rb.freezeRotation = true;
+            }
+        }
+
+
     }
 
     void OnMove(InputValue value)
@@ -134,22 +148,32 @@ public class Player_Movement_Script : MonoBehaviour
     }
     private void HandleAnimations()
     {
-        if ((moveInput.x != 0 || moveInput.y != 0) && !frozenByMud)
+        if (state == State.DodgeRollSliding)
+        {
+            ani.SetBool("isRunning", false);
+            ani.SetBool("isDashing", true);
+            ani.SetBool("isIdle", false);
+        }
+        else if ((moveInput.x != 0 || moveInput.y != 0) && !frozenByMud)
         {
             ani.SetBool("isIdle", false);
             ani.SetBool("isRunning", true);
+            ani.SetBool("isDashing", false);
         }
         else if ((moveInput.x == 0 || moveInput.y == 0) && !frozenByMud)
         {
             ani.SetBool("isRunning", false);
+            ani.SetBool("isDashing", false);
             ani.SetBool("isIdle", true);
         }
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Mud_Bullet") && !frozenByMud)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
             frozenByMud = true;
             ani.SetBool("isIdle", false);
             ani.SetBool("isRunning", false);

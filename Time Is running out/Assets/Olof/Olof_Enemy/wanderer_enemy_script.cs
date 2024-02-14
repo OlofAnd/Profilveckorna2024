@@ -26,6 +26,7 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
 
     void Start()
     {
+        EnemySpawnCooldown = Time.time + 0.5f;
         rb = GetComponent<Rigidbody2D>();
         EnemyHealthPoints = 10f;
         Damage = 0f;
@@ -33,7 +34,10 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
 
     void Update()
     {
-        EnemyBehaviour();
+        if (EnemySpawnCooldown < Time.time)
+        {
+            EnemyBehaviour();
+        }
     }
 
     public override void EnemyBehaviour()

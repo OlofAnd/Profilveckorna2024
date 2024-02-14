@@ -27,6 +27,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     Vector2 NewLocation;
     void Start()
     {
+        EnemySpawnCooldown = Time.time + 0.5f;
         EnemyHealthPoints = 1f;
         Damage = 1f;
 
@@ -37,7 +38,10 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
 
     void Update()
     {
-        EnemyBehaviour();
+        if (EnemySpawnCooldown < Time.time)
+        {
+            EnemyBehaviour();
+        }
     }
     public override void EnemyBehaviour()
     {
@@ -127,8 +131,8 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
             angle = angle * math.PI / 180;
             newLocation = rb.position + (new Vector2(math.cos(angle), math.sin(angle)) * 3);
         }
-        while (Vector2.Distance(newLocation, Target.transform.position) <= 7 && Vector2.Distance(newLocation, Target.transform.position) >= 5&& (newLocation.x <= -8 || newLocation.x >= 27 || newLocation.y >= 14 || newLocation.y <= -4));
-       
+        while (Vector2.Distance(newLocation, Target.transform.position) <= 7 && Vector2.Distance(newLocation, Target.transform.position) >= 5 && (newLocation.x <= -8 || newLocation.x >= 27 || newLocation.y >= 14 || newLocation.y <= -4));
+
         ;
         return newLocation;
     }
