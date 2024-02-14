@@ -18,6 +18,11 @@ public class left_card_select_script : MonoBehaviour
     [SerializeField] Rage_Script rageScript;
     [SerializeField] Tank_Script tankScript;
 
+    public void Update()
+    {
+        Debug.Log("maxhp " + playerScript.maxHealth);
+        Debug.Log("hp " + playerScript.currentHealth);
+    }
     public void LeftButtonPressed()
     {
         cardInfo = GetComponent<Card_Display_Script_Right>().card_right;
@@ -92,8 +97,10 @@ public class left_card_select_script : MonoBehaviour
         else if (cardInfo.maxHp)
         {
             playerScript.maxHealth += 25;
+            playerScript.currentHealth = playerScript.maxHealth;
 
-            Debug.Log(playerScript.maxHealth);
+            Debug.Log("maxhp " + playerScript.maxHealth);
+            Debug.Log("hp " + playerScript.currentHealth);
             cardInfo.maxHp = false;
         }
         else if (cardInfo.bombRounds)

@@ -21,7 +21,7 @@ public class Player_Script : MonoBehaviour
     Animator ani;
 
     [Header("Health")]
-    public int maxHealth = 100;
+    public int maxHealth;
     public int currentHealth;
     public int tankMaxHealth;
 
@@ -31,6 +31,7 @@ public class Player_Script : MonoBehaviour
 
     void Start()
     {
+        maxHealth = 100;
         currentHealth = maxHealth;
         tankMaxHealth = maxHealth;
         sprRen = GetComponent<SpriteRenderer>();
@@ -40,6 +41,8 @@ public class Player_Script : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("maxhp " + maxHealth);
+        Debug.Log("hp " + currentHealth);
         if (!isAlive && deathAnimation == 0)
         {
             deathAnimation++;
@@ -49,11 +52,13 @@ public class Player_Script : MonoBehaviour
             weaponSprRen.enabled = false;
         }
 
-
-        if (currentHealth > maxHealth && !tankScript.isTankActive)
-            currentHealth = maxHealth;
-        else if (currentHealth > tankMaxHealth)
-            currentHealth = tankMaxHealth;
+        if (!game_controller_script)
+        {
+            if (currentHealth > maxHealth && !tankScript.isTankActive)
+                currentHealth = maxHealth;
+            else if (currentHealth > tankMaxHealth)
+                currentHealth = tankMaxHealth;
+        }
 
 
         if (currentHealth <= 0 || game_controller_script.remainingTime <= 0)
