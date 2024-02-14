@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: maxHp_Card
   m_EditorClassIdentifier: 
   name: Max Hp
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 1513e6e5c8e456d489176d83cec7046c, type: 3}
   cardBackground: {fileID: 21300000, guid: 4f136c962bee69d48a74c7687239342c, type: 3}
   healToMax: 0
   attackRange: 0

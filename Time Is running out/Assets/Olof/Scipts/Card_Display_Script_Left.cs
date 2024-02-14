@@ -20,13 +20,13 @@ public class Card_Display_Script_Left : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] public Card_Information_Script card_left;
+    public Image leftBackgroundImage;
     public TMP_Text nameText;
     public Image artWorkImage;
 
     void Start()
     {
-        //card_left = deck_time_tier1.cards[Random.Range(0,deck_time_tier1.cards.Count)]; // väljer ett random kort från deck_time_tier1
-
+        leftBackgroundImage.sprite = card_left.cardBackground;
         nameText.text = card_left.name; // ändra så att nameText är ett image
         artWorkImage.sprite = card_left.artwork;
     }

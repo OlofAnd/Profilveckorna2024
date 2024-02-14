@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: rage_Card
   m_EditorClassIdentifier: 
   name: rage
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 60c1841a981415446b7de24d6ca8e2b5, type: 3}
   cardBackground: {fileID: 21300000, guid: be99a96192047e141887f5a8572f0417, type: 3}
   healToMax: 0
   attackRange: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
   bombRounds: 0
   tier2Time: 0
   freezingAura: 0
-  rage: 0
+  rage: 1
   phoenix: 0
   tank: 0
   tier3Time: 0

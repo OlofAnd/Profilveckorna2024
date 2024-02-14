@@ -562,6 +562,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7014006956212167001, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: gameController_Script
+      value: 
+      objectReference: {fileID: 1312139247}
     - target: {fileID: 8661238833200588891, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -848,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 791181212}
     - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
       propertyPath: remainingTime
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
       propertyPath: Enemies.Array.size

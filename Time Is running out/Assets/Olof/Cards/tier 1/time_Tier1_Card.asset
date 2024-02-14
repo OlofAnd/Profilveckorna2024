@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: time_Tier1_Card
   m_EditorClassIdentifier: 
   name: Time 1
-  artwork: {fileID: 21300000, guid: 942ef93f252a02d4c91981fd6ca0e498, type: 3}
+  artwork: {fileID: 21300000, guid: 91fccb7fbc05e9042a4b2ebe48019834, type: 3}
   cardBackground: {fileID: 21300000, guid: 07ea66588d7fda5458228cdccf6c934a, type: 3}
   healToMax: 0
   attackRange: 0
