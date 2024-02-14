@@ -98,9 +98,6 @@ public class left_card_select_script : MonoBehaviour
         {
             playerScript.maxHealth += 25;
             playerScript.currentHealth = playerScript.maxHealth;
-
-            Debug.Log("maxhp " + playerScript.maxHealth);
-            Debug.Log("hp " + playerScript.currentHealth);
             cardInfo.maxHp = false;
         }
         else if (cardInfo.bombRounds)

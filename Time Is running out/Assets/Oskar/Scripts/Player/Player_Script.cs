@@ -41,8 +41,6 @@ public class Player_Script : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("maxhp " + maxHealth);
-        Debug.Log("hp " + currentHealth);
         if (!isAlive && deathAnimation == 0)
         {
             deathAnimation++;
