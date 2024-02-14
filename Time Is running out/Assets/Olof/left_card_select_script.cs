@@ -38,7 +38,7 @@ public class left_card_select_script : MonoBehaviour
             cardInfo.damage = true;
         else if (cardInfo.name == "Max Hp")
             cardInfo.maxHp = true;
-        else if (cardInfo.name == "Piercing Rounds") // kvar
+        else if (cardInfo.name == "Piercing Rounds")
             cardInfo.piercingRounds = true;
         // tier 3
         else if (cardInfo.name == "Freezing Aura")
@@ -113,9 +113,9 @@ public class left_card_select_script : MonoBehaviour
         else if (cardInfo.piercingRounds)
         {
             playerBulletScript.AmountPierce++;
+
             Debug.Log(cardInfo.piercingRounds);
             cardInfo.piercingRounds = false;
-
         }
         // tier 3
         else if (cardInfo.freezingAura)

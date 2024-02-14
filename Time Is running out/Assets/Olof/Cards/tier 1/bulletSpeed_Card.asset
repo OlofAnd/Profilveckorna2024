@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: bulletSpeed_Card
   m_EditorClassIdentifier: 
   name: Bullet Speed
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 9f324f5291b2c7c4c8c9f2c3b9b17598, type: 3}
   cardBackground: {fileID: 21300000, guid: 07ea66588d7fda5458228cdccf6c934a, type: 3}
   healToMax: 0
   attackRange: 0

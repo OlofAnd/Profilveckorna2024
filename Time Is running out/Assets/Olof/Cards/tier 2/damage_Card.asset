@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: damage_Card
   m_EditorClassIdentifier: 
   name: Damage
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b35401296a7f5f243af385219ea488e7, type: 3}
   cardBackground: {fileID: 21300000, guid: 4f136c962bee69d48a74c7687239342c, type: 3}
   healToMax: 0
   attackRange: 0

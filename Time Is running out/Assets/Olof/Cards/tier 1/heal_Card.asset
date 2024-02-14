@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: heal_Card
   m_EditorClassIdentifier: 
   name: Heal
-  artwork: {fileID: 21300000, guid: ba474ffb11c3b6b4eb3a4e115a4a60c2, type: 3}
+  artwork: {fileID: 21300000, guid: 26f4c0f213d275848b9136f0765e6ffa, type: 3}
   cardBackground: {fileID: 21300000, guid: 07ea66588d7fda5458228cdccf6c934a, type: 3}
   healToMax: 5
   attackRange: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: tank_Card
   m_EditorClassIdentifier: 
   name: Tank
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 25524334d63fe734091e2a9f8d3b2d0c, type: 3}
   cardBackground: {fileID: 21300000, guid: be99a96192047e141887f5a8572f0417, type: 3}
   healToMax: 0
   attackRange: 0

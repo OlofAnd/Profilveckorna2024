@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: fireRate_Card
   m_EditorClassIdentifier: 
   name: Firerate
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: df4bae9a5dad9c142b94dfc0622395f9, type: 3}
   cardBackground: {fileID: 21300000, guid: 07ea66588d7fda5458228cdccf6c934a, type: 3}
   healToMax: 0
   attackRange: 0
