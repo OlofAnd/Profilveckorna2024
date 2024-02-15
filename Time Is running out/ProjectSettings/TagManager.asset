@@ -27,13 +27,13 @@ TagManager:
   - Mud_Enemy
   - Enemy_Trigger
   - Bomb_Enemy
-  - Enemy_Collision
+  - 
   - Gas_Enemy
   - Gas_Aura
   - GameBounds
   - Camera
   - GameWalls
-  - 
+  - freezing_Aura
   - 
   - 
   - 

@@ -9,7 +9,7 @@ public class FreezingAura_Script : MonoBehaviour
     CircleCollider2D freezingAreaCollider;
     Rigidbody2D otherRb;
     SpriteRenderer sprRen;
-
+    [SerializeField] GameObject ParticleSystem;
 
     void Start()
     {
@@ -20,17 +20,9 @@ public class FreezingAura_Script : MonoBehaviour
 
     void Update()
     {
-        if (isFreezingAuraActive)
-        {
-            freezingAreaCollider.enabled = true;
-            sprRen.enabled = true;
-
-        }
-        else
-        {
-            freezingAreaCollider.enabled = false;
-            sprRen.enabled = false;
-        }
+        freezingAreaCollider.enabled = isFreezingAuraActive;
+        sprRen.enabled = isFreezingAuraActive;
+        ParticleSystem.SetActive(isFreezingAuraActive);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
