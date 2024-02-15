@@ -10,7 +10,10 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
     private Rigidbody2D rb;
     private GameObject target;
     private Vector2 direction;
+    private Vector2 Knockback;
 
+    bool Hurting = false;
+    float HurtTimer;
     [SerializeField] private float speed;
     private Random rng = new Random();
 
@@ -42,8 +45,21 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
 
     public override void EnemyBehaviour()
     {
-        rb.velocity = direction * speed;
+        rb.velocity = (Vector3)Knockback;
+        Knockback = Knockback * 0.99f;
+        if (Vector2.Distance(Vector2.zero, Knockback) <= 1)
+        {
+            Knockback = Vector2.zero;
+        }
+        if (Knockback == Vector2.zero)
+        {
+            rb.velocity = direction * speed;
+        }
 
+        if (Hurting)
+        {
+            hurt();
+        }
         if (IsPlayerDetected())
         {
             RunAway();
@@ -63,6 +79,15 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
         }
     }
 
+    void hurt()
+    {
+        speed = 0;
+        if (Time.time > HurtTimer)
+        {
+            EnemyHealthPoints -= PlayerDamage;
+            Hurting = false;
+        }
+    }
     bool IsPlayerDetected()
     {
         return target != null && Vector2.Distance(rb.position, target.transform.position) <= runAwayRadius;
@@ -122,7 +147,20 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
 
         if (trig.gameObject.CompareTag("Player_Bullet"))
         {
-            EnemyHealthPoints -= PlayerDamage;
+            if (!Hurting)
+            {
+                HurtTimer = Time.time + 0.5f;
+                Hurting = true;
+            }
+        }
+        if (trig.gameObject.tag == "Explosion")
+        {
+            Knockback = (transform.position - trig.gameObject.transform.position).normalized * 20;
+            if (!Hurting)
+            {
+                HurtTimer = Time.time + 0.5f;
+                Hurting = true;
+            }
         }
     }
 }

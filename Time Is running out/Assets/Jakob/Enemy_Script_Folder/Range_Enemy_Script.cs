@@ -175,7 +175,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         }
         if (trig.gameObject.tag == "Explosion")
         {
-            KnockBack = (trig.gameObject.transform.position - transform.position).normalized * 20;
+            KnockBack = (transform.position - trig.gameObject.transform.position).normalized * 20;
             if (!Hurting)
             {
                 HurtTimer = Time.time + 0.5f;

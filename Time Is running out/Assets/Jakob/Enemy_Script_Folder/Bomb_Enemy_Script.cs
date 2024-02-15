@@ -42,7 +42,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
     {
         if (EnemySpawnCooldown < Time.time)
         {
-        EnemyBehaviour();
+            EnemyBehaviour();
         }
         if (Direction.x > 0) sprRen.flipX = false;
         else sprRen.flipX = true;
@@ -119,7 +119,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
         Speed = 0;
         if (Time.time > HurtTimer)
         {
-            EnemyHealthPoints--;
+            EnemyHealthPoints -= PlayerDamage;
             Hurting = false;
         }
     }

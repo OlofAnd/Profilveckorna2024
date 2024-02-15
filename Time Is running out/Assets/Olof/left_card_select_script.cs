@@ -143,7 +143,7 @@ public class left_card_select_script : MonoBehaviour
         else if (cardInfo.tank)
         {
             tankScript.isTankActive = true;
-
+            playerScript.currentHealth = playerScript.maxHealth;
             Debug.Log(cardInfo.tank);
         }
 

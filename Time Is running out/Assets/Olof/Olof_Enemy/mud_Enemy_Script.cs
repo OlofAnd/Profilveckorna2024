@@ -119,9 +119,9 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     void Hurt()
     {
-        EnemyHealthPoints -= PlayerDamage;
         if (Time.time > hurtTimer)
         {
+            EnemyHealthPoints -= PlayerDamage;
             hurting = false;
         }
     }
@@ -146,9 +146,22 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
             playerDetected = true;
             target = trig.gameObject;
         }
-        if (trig.gameObject.tag == "Player_Bullet")
+
+        if (trig.gameObject.CompareTag("Player_Bullet"))
         {
-            hurting = true;
+            if (!hurting)
+            {
+                hurtTimer = Time.time + 0.5f;
+                hurting = true;
+            }
+        }
+        if (trig.gameObject.tag == "Explosion")
+        {
+            if (!hurting)
+            {
+                hurtTimer = Time.time + 0.5f;
+                hurting = true;
+            }
         }
     }
 }

@@ -126,7 +126,7 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
         Speed = 0;
         if (Time.time > HurtTimer)
         {
-            EnemyHealthPoints--;
+            EnemyHealthPoints -= PlayerDamage;
             Hurting = false;
         }
     }
