@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardDisplay: {fileID: 299043175}
   gameController: {fileID: 1388423587}
+  timerBarCard: {fileID: 0}
 --- !u!114 &299043175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2674440758631343657, guid: 52d63e2657508f342b5f4f5ba945ecce, type: 3}
