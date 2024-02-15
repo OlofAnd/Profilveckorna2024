@@ -13,6 +13,7 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
     Animator ani;
     SpriteRenderer sprRen;
 
+    float deathAniTimer = 0;
 
     Vector2 Direction;
     float Speed;
@@ -70,7 +71,11 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
         }
         if (KnockBack == Vector2.zero)
         {
-            rb.velocity = Direction * Speed;
+
+            if (deathAniTimer == 0)
+            {
+                rb.velocity = Direction * Speed;
+            }
         }
 
         if (Hurting)
@@ -94,7 +99,13 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
         }
         if (EnemyHealthPoints <= 0)
         {
-            Destroy(gameObject);
+            if (deathAniTimer == 0)
+            {
+                deathAniTimer = Time.time + 0.833f;
+                ani.SetTrigger("isdead");
+            }
+            else if (deathAniTimer < Time.time)
+                Destroy(gameObject);
         }
     }
     float angle;

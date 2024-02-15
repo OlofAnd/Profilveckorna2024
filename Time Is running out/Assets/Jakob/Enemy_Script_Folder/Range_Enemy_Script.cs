@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
 using Random = System.Random;
+using UnityEngine.Device;
 
 public class Range_Enemy_Script : Enemy_Abstract_Script
 {
@@ -11,6 +12,8 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     [SerializeField] GameObject Bullet;
     [SerializeField] GameObject Bomb;
 
+    Animator ani;
+    SpriteRenderer sprRen;
     Vector2 Direction;
     float Speed;
     Vector2 KnockBack;
@@ -32,7 +35,8 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         Damage = 1f;
 
         ScoreValue = 20;
-
+        sprRen = GetComponent<SpriteRenderer>();
+        ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -42,6 +46,8 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         {
             EnemyBehaviour();
         }
+        if (Direction.x > 0) sprRen.flipX = false;
+        else sprRen.flipX = true;
     }
     public override void EnemyBehaviour()
     {
@@ -100,14 +106,26 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
 
         Direction = new Vector2(math.cos(angle), math.sin(angle));
         if (IdleingTimer > Time.time + 1)
+        {
             Speed = 1;
+
+            ani.SetBool("Idle", false);
+            ani.SetBool("Walk", true);
+        }
         else
+        {
             Speed = 0;
+            ani.SetBool("Idle", true);
+            ani.SetBool("Walk", false);
+        }
     }
     void Attack()
     {
         if (Time.time > AttackTimer && NewLocation == (Vector2)transform.position)
         {
+
+            ani.SetBool("Idle", true);
+            ani.SetBool("Walk", false);
             if (RNG.Next(0, 5) == 0)
                 Instantiate(Bomb, transform.position, transform.rotation);
             else
@@ -118,9 +136,17 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         {
             Direction = (NewLocation - rb.position).normalized;
             Speed = 2f;
+
+            ani.SetBool("Idle", false);
+            ani.SetBool("Walk", true);
         }
         else if (Time.time > AttackTimer)
             Attacking = false;
+        else
+        {
+            ani.SetBool("Idle", true);
+            ani.SetBool("Walk", false);
+        }
     }
     Vector2 NextLocation()
     {
@@ -138,6 +164,9 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     }
     void Walk()
     {
+
+        ani.SetBool("Idle", false);
+        ani.SetBool("Walk", true);
         if (Vector2.Distance(rb.position, Target.transform.position) < 5)
         {
             Direction = -((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);

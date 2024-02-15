@@ -45,16 +45,8 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     void Update()
     {
         EnemyBehaviour();
-        if (!PlayerDetected)
-        {
-            if (Direction.x > 0) sprRen.flipX = true;
-            else sprRen.flipX = false;
-        }
-        else
-        {
-            if (Direction.x > 0) sprRen.flipX = false;
-            else sprRen.flipX = true;
-        }
+        if (Direction.x > 0) sprRen.flipX = false;
+        else sprRen.flipX = true;
 
     }
     public override void EnemyBehaviour()
@@ -103,21 +95,14 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
                 else if (Vector2.Distance(rb.position, Target.transform.position) <= 2)
                 {
                     Attacking = true;
-                    AttackTimer = Time.time + 0.7f;
+                    AttackTimer = Time.time + 0.667f;
                 }
             }
             if (EnemyHealthPoints <= 0)
             {
                 Destroy(gameObject);
             }
-            if (PlayerDetected)
-            {
-                ani.SetBool("isIdle", false);
-                ani.SetBool("isRunning", true);
-            }
-
         }
-
     }
     float angle;
     void Idle()
@@ -132,12 +117,22 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
         Direction = new Vector2(math.cos(angle), math.sin(angle));
 
         if (IdleingTimer > Time.time + 1)
+        {
             Speed = 1;
+            resetAni();
+            ani.SetBool("isRunning", true);
+        }
         else
+        {
             Speed = 0;
+            resetAni();
+            ani.SetBool("isIdle", true);
+        }
     }
     void Dash()
     {
+        resetAni();
+        ani.SetBool("isDashing", true);
         Direction = (DashTo - rb.position) / Vector2.Distance(Vector2.zero, DashTo - rb.position);
         Speed = 9f;
 
@@ -151,7 +146,8 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     }
     void Attack()
     {
-
+        resetAni();
+        ani.SetBool("isAttacking", true);
         Speed = 0f;
         if (Time.time > AttackTimer)
         {
@@ -161,12 +157,16 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     }
     void Walk()
     {
+        resetAni();
+        ani.SetBool("isRunning", true);
         Direction = ((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);
         Speed = 4f;
 
     }
     void hurt()
     {
+        resetAni();
+        ani.SetBool("isHurting", true);
         Speed = 0;
         if (Time.time > HurtTimer)
         {
@@ -200,6 +200,14 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
                 Hurting = true;
             }
         }
+    }
+    void resetAni()
+    {
+        ani.SetBool("isHurting", false);
+        ani.SetBool("isRunning", false);
+        ani.SetBool("isAttacking", false);
+        ani.SetBool("isDashing", false);
+        ani.SetBool("isIdle", false);
     }
 }
 

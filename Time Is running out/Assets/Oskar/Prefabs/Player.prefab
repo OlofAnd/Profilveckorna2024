@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFreezingAuraActive: 0
+  ParticleSystem: {fileID: 0}
 --- !u!58 &1046199780
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5387,6 +5388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321505b16bb13bd4d9e6c55f9e50a0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   player_Script: {fileID: 1612695104}
   gameController: {fileID: 0}
   movementSpeed: 5.5
@@ -5409,11 +5411,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game_controller_script: {fileID: 0}
   tankScript: {fileID: 7014006956212167001}
+  pheonixAbility: {fileID: 0}
   healthBar: {fileID: 0}
   weaponSprRen: {fileID: 1727326005}
   isAlive: 1
   playerDamage: 5
   playerIFrames: 0
+  deathAnimation: 0
   maxHealth: 100
   currentHealth: 100
   tankMaxHealth: 0
@@ -5432,6 +5436,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameCont_Script: {fileID: 0}
   player_Script: {fileID: 1612695104}
+  player_Movement_Script: {fileID: 0}
+  weaponSprRen: {fileID: 0}
   isPheonixActive: 0
   pheonixActivatedThisRound: 0
 --- !u!114 &5607975371974548933

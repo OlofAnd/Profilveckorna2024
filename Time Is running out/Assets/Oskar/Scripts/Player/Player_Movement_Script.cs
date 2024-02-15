@@ -122,7 +122,11 @@ public class Player_Movement_Script : MonoBehaviour
         if (Vector2.Distance(Vector2.zero, knockback) <= 1)
             knockback = Vector2.zero;
         if (knockback == Vector2.zero)
+        {
             rb.velocity = moveInput * movementSpeed;
+            if (!frozenByMud)
+                canDodgeRoll = true;
+        }
     }
     private void LookRightWay()
     {
@@ -140,6 +144,7 @@ public class Player_Movement_Script : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;
             rb.freezeRotation = true;
             frozenByMud = false;
+            canDodgeRoll = true;
             ani.SetBool("isMudded", false);
             unFreezeTimer = unFreezeTimerValueHolder;
         }
