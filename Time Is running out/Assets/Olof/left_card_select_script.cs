@@ -18,6 +18,8 @@ public class left_card_select_script : MonoBehaviour
     [SerializeField] Rage_Script rageScript;
     [SerializeField] Tank_Script tankScript;
 
+    public HealthBar_Script healthBarCard;
+
     public void Update()
     {
         Debug.Log("maxhp " + playerScript.maxHealth);
@@ -62,6 +64,7 @@ public class left_card_select_script : MonoBehaviour
         if (cardInfo.healToMax)
         {
             playerScript.currentHealth = playerScript.maxHealth;
+            healthBarCard.SetHealth(playerScript.maxHealth);
             Debug.Log(playerScript.currentHealth);
             cardInfo.healToMax = false;
         }
@@ -98,6 +101,7 @@ public class left_card_select_script : MonoBehaviour
         {
             playerScript.maxHealth += 25;
             playerScript.currentHealth = playerScript.maxHealth;
+            healthBarCard.SetMaxHealth(playerScript.maxHealth);
             cardInfo.maxHp = false;
         }
         else if (cardInfo.bombRounds)
