@@ -8,6 +8,9 @@ public class Player_Script : MonoBehaviour
     [SerializeField] GameController_Script game_controller_script;
     [SerializeField] Tank_Script tankScript;
 
+    public HealthBar_Script healthBar;
+
+
     SpriteRenderer sprRen;
     [SerializeField] SpriteRenderer weaponSprRen;
 
@@ -34,6 +37,9 @@ public class Player_Script : MonoBehaviour
         maxHealth = 100;
         currentHealth = maxHealth;
         tankMaxHealth = maxHealth;
+
+        healthBar.SetMaxHealth(maxHealth);
+
         sprRen = GetComponent<SpriteRenderer>();
         ani = GetComponent<Animator>();
 
@@ -94,6 +100,8 @@ public class Player_Script : MonoBehaviour
         Invoke("HurtAnimationRed", 0.2f);
         Invoke("HurtAnimationWhite", 0.3f);
         Invoke("TurnOffPlayerIFrames", 0.4f);
+
+        healthBar.SetHealth(currentHealth);
     }
     private void HurtAnimationRed()
     {
