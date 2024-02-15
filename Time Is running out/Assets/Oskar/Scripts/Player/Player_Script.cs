@@ -56,7 +56,7 @@ public class Player_Script : MonoBehaviour
             weaponSprRen.enabled = false;
         }
 
-        if (!game_controller_script)
+        if (game_controller_script.Enemies.Count > 0)
         {
             if (currentHealth > maxHealth && !tankScript.isTankActive)
                 currentHealth = maxHealth;

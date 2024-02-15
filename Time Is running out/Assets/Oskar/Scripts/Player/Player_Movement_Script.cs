@@ -54,8 +54,6 @@ public class Player_Movement_Script : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(state);
-
         if (!player_Script.isAlive)
             state = State.Död;
         //State normal

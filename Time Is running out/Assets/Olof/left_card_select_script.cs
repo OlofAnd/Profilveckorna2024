@@ -22,7 +22,7 @@ public class left_card_select_script : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log("maxhp " + playerScript.maxHealth);
+        Debug.Log("maxhp " + playerScript.tankMaxHealth);
         Debug.Log("hp " + playerScript.currentHealth);
     }
     public void LeftButtonPressed()
@@ -63,9 +63,17 @@ public class left_card_select_script : MonoBehaviour
         // tier 1
         if (cardInfo.healToMax)
         {
-            playerScript.currentHealth = playerScript.maxHealth;
-            healthBarCard.SetHealth(playerScript.maxHealth);
-            Debug.Log(playerScript.currentHealth);
+
+            if (!tankScript.isTankActive)
+            {
+                playerScript.currentHealth = playerScript.maxHealth;
+                healthBarCard.SetHealth(playerScript.maxHealth);
+            }
+            else
+            {
+                playerScript.currentHealth = playerScript.tankMaxHealth;
+                healthBarCard.SetHealth(playerScript.tankMaxHealth);
+            }
             cardInfo.healToMax = false;
         }
         else if (cardInfo.bulletSpeed)
@@ -99,9 +107,18 @@ public class left_card_select_script : MonoBehaviour
         }
         else if (cardInfo.maxHp)
         {
-            playerScript.maxHealth += 25;
-            playerScript.currentHealth = playerScript.maxHealth;
-            healthBarCard.SetMaxHealth(playerScript.maxHealth);
+            if (!tankScript.isTankActive)
+            {
+                playerScript.maxHealth += 25;
+                playerScript.currentHealth = playerScript.maxHealth;
+                healthBarCard.SetHealth(playerScript.maxHealth);
+            }
+            else
+            {
+                playerScript.tankMaxHealth += 25;
+                playerScript.currentHealth = playerScript.tankMaxHealth;
+                healthBarCard.SetHealth(playerScript.tankMaxHealth);
+            }
             cardInfo.maxHp = false;
         }
         else if (cardInfo.bombRounds)
@@ -147,7 +164,6 @@ public class left_card_select_script : MonoBehaviour
         else if (cardInfo.tank)
         {
             tankScript.isTankActive = true;
-            playerScript.currentHealth = playerScript.maxHealth;
             Debug.Log(cardInfo.tank);
         }
 
