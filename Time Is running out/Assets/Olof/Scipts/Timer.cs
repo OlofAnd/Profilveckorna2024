@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
 
     [SerializeField] GameController_Script gameController_Script;
+    public TimerBar_Script timerBarInTimer;
 
 
     //void Update()
@@ -35,6 +36,7 @@ public class Timer : MonoBehaviour
             if (gameController_Script.remainingTime > 0)
             {
                 gameController_Script.remainingTime -= Time.deltaTime;
+                timerBarInTimer.SetTime(gameController_Script.remainingTime);
             }
             else if (gameController_Script.remainingTime < 0)
             {

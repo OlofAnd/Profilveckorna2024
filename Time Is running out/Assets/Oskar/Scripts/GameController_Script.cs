@@ -30,11 +30,16 @@ public class GameController_Script : MonoBehaviour
 
 
     [Header("Timer")]
+    public float MaxTime = 120f;
     [SerializeField] public float remainingTime;
+    public TimerBar_Script timerBar;
+    // lägg in en cap på 2 min WIP
     void Start()
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
+
+        timerBar.SetMaxTime(MaxTime);
 
         CardCanvas.SetActive(false);
         CurrentGameState = GameState.Normal;
@@ -44,6 +49,7 @@ public class GameController_Script : MonoBehaviour
 
     void Update()
     {
+
         enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         if (cardSelect)
