@@ -13,8 +13,8 @@ public class Player_Movement_Script : MonoBehaviour
     SpriteRenderer sprRen;
 
 
-    private enum State { Normal, DodgeRollSliding, Död }
-    private State state;
+    public enum State { Normal, DodgeRollSliding, Död }
+    public State state;
 
 
     [SerializeField] Player_Script player_Script;

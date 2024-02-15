@@ -7,6 +7,7 @@ public class Player_Script : MonoBehaviour
 {
     [SerializeField] GameController_Script game_controller_script;
     [SerializeField] Tank_Script tankScript;
+    [SerializeField] PheonixAbility_Script pheonixAbility;
 
     public HealthBar_Script healthBar;
 
@@ -19,7 +20,7 @@ public class Player_Script : MonoBehaviour
     public int playerDamage = 5;
     public bool playerIFrames = false;
 
-    int deathAnimation = 0;
+    public int deathAnimation = 0;
 
     Animator ani;
 
@@ -52,7 +53,10 @@ public class Player_Script : MonoBehaviour
             deathAnimation++;
             ani.SetBool("isIdle", false);
             ani.SetBool("isRunning", false);
-            ani.SetTrigger("isDead");
+            if (pheonixAbility.pheonixActivatedThisRound)
+                ani.SetTrigger("isDead");
+            else
+                ani.SetTrigger("isDead 2");
             weaponSprRen.enabled = false;
         }
 
