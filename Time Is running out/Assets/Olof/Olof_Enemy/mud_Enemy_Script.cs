@@ -119,7 +119,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     void Hurt()
     {
-        EnemyHealthPoints--;
+        EnemyHealthPoints -= PlayerDamage;
         if (Time.time > hurtTimer)
         {
             hurting = false;
@@ -135,7 +135,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
             angle = angle * math.PI / 180;
             spawnPoint = target.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * teleportRadius);
         }
-        while (spawnPoint.x <= -8 || spawnPoint.x >= 27 || spawnPoint.y >= 14 || spawnPoint.y <= -4);
+        while (spawnPoint.x <= -13 || spawnPoint.x >= 15 || spawnPoint.y >= 7 || spawnPoint.y <= -7);
         return spawnPoint;
     }
 

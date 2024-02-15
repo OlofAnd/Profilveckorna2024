@@ -15,6 +15,7 @@ public class GameController_Script : MonoBehaviour
     [SerializeField] GameObject CardCanvas;
     [SerializeField] Card_Display_Script_Left LeftDisplay;
     [SerializeField] Card_Display_Script_Right RightDisplay;
+    [SerializeField] Shooting_Script shooting_Script;
     public bool cardSelect;
     public bool cardSelected;
     int nextWave;
@@ -84,7 +85,7 @@ public class GameController_Script : MonoBehaviour
                 angle = angle * math.PI / 180;
                 spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7, 9));
             }
-            while (spawnPoint.x <= -8 || spawnPoint.x >= 27 || spawnPoint.y >= 14 || spawnPoint.y <= -4);
+            while (spawnPoint.x <= -13 || spawnPoint.x >= 15 || spawnPoint.y >= 7 || spawnPoint.y <= -7);
             if (Wave / 2 < Enemies.Count)
             {
                 Instantiate(Enemies[RNG.Next(0, Wave / 2)], spawnPoint, Quaternion.identity);

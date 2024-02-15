@@ -122,7 +122,7 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
 
         if (trig.gameObject.CompareTag("Player_Bullet"))
         {
-            EnemyHealthPoints--;
+            EnemyHealthPoints -= PlayerDamage;
         }
     }
 }
