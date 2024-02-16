@@ -71,6 +71,11 @@ public class GameController_Script : MonoBehaviour
         {
             cardSelect = true;
         }
+
+        if (remainingTime >= 120f)
+        {
+            remainingTime = 120f;
+        }
     }
     void CardSelection()
     {
