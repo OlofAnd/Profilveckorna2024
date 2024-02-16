@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class playerBomb_Script : Bullet_Abstract_Script
 {
@@ -9,17 +10,23 @@ public class playerBomb_Script : Bullet_Abstract_Script
     Vector3 mousePos;
     Camera cam;
 
-    [SerializeField] int degDiff;
+    int degDiff;
 
+    Random RNG = new Random();
+    Shooting_Script shootScript;
 
     void Start()
     {
-        Speed = 1f;
+        shootScript = FindObjectOfType<Shooting_Script>();
+        Speed = 2f;
         FlyTime = 1f;
         Player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        degDiff = RNG.Next(-shootScript.numberOfBullets * 7, shootScript.numberOfBullets * 7);
+
         float angleRad = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x);
         float angleDeg = Mathf.Rad2Deg * angleRad;
         float angleRadWithOffset = Mathf.Deg2Rad * (angleDeg + degDiff);

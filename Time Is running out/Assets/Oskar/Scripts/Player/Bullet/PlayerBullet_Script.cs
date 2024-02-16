@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using Random = System.Random;
 
 public class PlayerBullet_Script : Bullet_Abstract_Script
 {
@@ -12,21 +13,24 @@ public class PlayerBullet_Script : Bullet_Abstract_Script
     public float timeAlive;
     public float bulletDamage;
 
-    [SerializeField] int degDiff;
+
+    int degDiff;
 
     public Vector2 testDir;
 
-    [SerializeField] Shooting_Script shootScript;
+    Random RNG = new Random();
+    Shooting_Script shootScript;
 
     void Start()
     {
         Damage = bulletDamage;
-
+        shootScript = FindObjectOfType<Shooting_Script>();
         FlyTime = timeAlive;
         Speed = force * Time.deltaTime;
         Target = "Enemy";
         rb = GetComponent<Rigidbody2D>();
         shootScript = FindObjectOfType<Shooting_Script>();
+        degDiff = RNG.Next(-shootScript.numberOfBullets * 7, shootScript.numberOfBullets * 7);
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);

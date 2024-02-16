@@ -32,7 +32,7 @@ public class Gas_Enemy_Script : Enemy_Abstract_Script
     void Start()
     {
         EnemySpawnCooldown = Time.time + 0.5f;
-        EnemyHealthPoints = 10f;
+        EnemyHealthPoints = 20f + (Wave * 2);
         Damage = 0;
 
         ScoreValue = 50;

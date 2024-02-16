@@ -30,7 +30,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
     void Start()
     {
         EnemySpawnCooldown = Time.time + 0.5f;
-        EnemyHealthPoints = 10f;
+        EnemyHealthPoints = 1f + (Wave * 2);
         Damage = 1f;
 
         ScoreValue = 30;
