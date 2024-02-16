@@ -161,7 +161,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
             angle = angle * math.PI / 180;
             spawnPoint = target.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * teleportRadius);
         }
-        while (spawnPoint.x <= -13 || spawnPoint.x >= 15 || spawnPoint.y >= 7 || spawnPoint.y <= -7);
+        while (spawnPoint.x <= -22 || spawnPoint.x >= 24 || spawnPoint.y >= 12 || spawnPoint.y <= -12);
         return spawnPoint;
     }
     void resetAni()

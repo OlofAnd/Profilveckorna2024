@@ -79,14 +79,14 @@ public class left_card_select_script : MonoBehaviour
         }
         else if (cardInfo.bulletSpeed)
         {
-            playerBulletScript.force++; // lägg till mer sen beroende på hur mycket den ska addera
+            playerBulletScript.force += 100; // lägg till mer sen beroende på hur mycket den ska addera
 
             Debug.Log(cardInfo.bulletSpeed);
             cardInfo.bulletSpeed = false;
         }
         else if (cardInfo.fireRate)
         {
-            shootingScript.timeBetweenFiring -= 0.02f;
+            shootingScript.timeBetweenFiring -= 0.1f;
 
             Debug.Log(cardInfo.fireRate);
             cardInfo.fireRate = false;
@@ -101,7 +101,7 @@ public class left_card_select_script : MonoBehaviour
         // tier 2
         else if (cardInfo.damage)
         {
-            playerBulletScript.bulletDamage++;
+            playerBulletScript.bulletDamage += 5;
 
             Debug.Log(cardInfo.damage);
             cardInfo.damage = false;

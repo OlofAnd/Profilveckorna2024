@@ -91,7 +91,7 @@ public class GameController_Script : MonoBehaviour
                 angle = angle * math.PI / 180;
                 spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7, 9));
             }
-            while (spawnPoint.x <= -13 || spawnPoint.x >= 15 || spawnPoint.y >= 7 || spawnPoint.y <= -7);
+            while (spawnPoint.x <= -22 || spawnPoint.x >= 24 || spawnPoint.y >= 12 || spawnPoint.y <= -12);
             if (Wave / 2 < Enemies.Count)
             {
                 Instantiate(Enemies[RNG.Next(0, Wave / 2)], spawnPoint, Quaternion.identity);
