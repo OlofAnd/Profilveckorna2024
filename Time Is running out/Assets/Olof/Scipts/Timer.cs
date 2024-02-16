@@ -10,25 +10,6 @@ public class Timer : MonoBehaviour
     [SerializeField] GameController_Script gameController_Script;
     public TimerBar_Script timerBarInTimer;
 
-
-    //void Update()
-    //{
-    //    if (remainingTime > 0)
-    //    {
-    //        remainingTime -= Time.deltaTime;
-    //    }
-    //    else if (remainingTime < 0)
-    //    {
-    //        remainingTime = 0;
-    //        //Game OVER
-    //        timerText.color = Color.red;
-    //        //fixa så att timer blir röd när tiden är låg.
-    //    }
-    //    int minutes = Mathf.FloorToInt(remainingTime / 60);
-    //    int seconds = Mathf.FloorToInt(remainingTime % 60);
-    //    timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    //}
-
     void Update()
     {
         if (gameController_Script.enemiesAlive > 0)

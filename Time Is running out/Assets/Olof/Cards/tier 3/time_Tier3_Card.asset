@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c889ff66683d164489dae72b916717b, type: 3}
   m_Name: time_Tier3_Card
   m_EditorClassIdentifier: 
-  name: Time 3
+  name: Large Tank
   artwork: {fileID: 21300000, guid: 91fccb7fbc05e9042a4b2ebe48019834, type: 3}
   cardBackground: {fileID: 21300000, guid: be99a96192047e141887f5a8572f0417, type: 3}
   healToMax: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c889ff66683d164489dae72b916717b, type: 3}
   m_Name: time_Tier2_Card
   m_EditorClassIdentifier: 
-  name: Time 2
+  name: Medium Tank
   artwork: {fileID: 21300000, guid: 91fccb7fbc05e9042a4b2ebe48019834, type: 3}
   cardBackground: {fileID: 21300000, guid: 4f136c962bee69d48a74c7687239342c, type: 3}
   healToMax: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
   damage: 0
   piercingRounds: 0
   bombRounds: 0
-  tier2Time: 0
+  tier2Time: 1
   freezingAura: 0
   rage: 0
   phoenix: 0

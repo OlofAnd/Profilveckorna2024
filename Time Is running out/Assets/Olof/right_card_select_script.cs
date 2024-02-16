@@ -17,11 +17,11 @@ public class right_card_select_script : MonoBehaviour
         cardInfo = GetComponent<Card_Display_Script_Left>().card_left;
 
       
-        if (cardInfo.name == "Time 1")
+        if (cardInfo.name == "Small Tank")
             cardInfo.tier1Time = true;
-        else if(cardInfo.name=="Time 2")
+        else if(cardInfo.name=="Medium Tank")
             cardInfo.tier2Time= true;
-        else if(cardInfo.name=="Time 3")
+        else if(cardInfo.name=="Large Tank")
             cardInfo.tier3Time=true;
 
 
