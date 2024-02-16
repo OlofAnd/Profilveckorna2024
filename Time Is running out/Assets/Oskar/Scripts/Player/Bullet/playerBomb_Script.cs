@@ -14,7 +14,7 @@ public class playerBomb_Script : Bullet_Abstract_Script
 
     void Start()
     {
-        Speed = 8f;
+        Speed = 1f;
         FlyTime = 1f;
         Player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
