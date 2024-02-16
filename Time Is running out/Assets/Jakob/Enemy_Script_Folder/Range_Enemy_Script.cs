@@ -31,7 +31,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     void Start()
     {
         EnemySpawnCooldown = Time.time + 0.5f;
-        EnemyHealthPoints = 1f;
+        EnemyHealthPoints = 10f + (Wave * 2);
         Damage = 1f;
 
         ScoreValue = 20;

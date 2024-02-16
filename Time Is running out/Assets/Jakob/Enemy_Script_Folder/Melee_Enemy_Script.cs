@@ -34,7 +34,7 @@ class Melee_Enemy_Script : Enemy_Abstract_Script
     {
         EnemySpawnCooldown = Time.time + 0.5f;
 
-        EnemyHealthPoints = 10f;
+        EnemyHealthPoints = 25f + (Wave * 2);
         Damage = 1f;
         ScoreValue = 10;
         rb = GetComponent<Rigidbody2D>();

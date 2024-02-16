@@ -37,7 +37,7 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         sprRen = GetComponent<SpriteRenderer>();
-        EnemyHealthPoints = 10f;
+        EnemyHealthPoints = 10f + (Wave * 2);
         Damage = 0f;
     }
 
