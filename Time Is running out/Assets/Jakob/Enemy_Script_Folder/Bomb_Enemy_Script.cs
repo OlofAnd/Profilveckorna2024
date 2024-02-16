@@ -31,7 +31,7 @@ public class Bomb_Enemy_Script : Enemy_Abstract_Script
         Target = GameObject.FindGameObjectWithTag("Player");
         sprRen = GetComponent<SpriteRenderer>();
         ani = GetComponent<Animator>();
-        EnemyHealthPoints = 10f;
+        EnemyHealthPoints = 10f + (Wave * 2);
         Damage = 0f;
 
         ScoreValue = 10;

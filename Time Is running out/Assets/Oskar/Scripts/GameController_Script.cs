@@ -88,7 +88,7 @@ public class GameController_Script : MonoBehaviour
     {
         Wave++;
         Vector2 spawnPoint = Vector2.zero;
-        for (int i = 0; i < (Wave / 2) + 1; i++)
+        for (int i = 0; i < (Wave) + 1; i++)
         {
             do
             {
@@ -99,7 +99,7 @@ public class GameController_Script : MonoBehaviour
             while (spawnPoint.x <= -22 || spawnPoint.x >= 24 || spawnPoint.y >= 12 || spawnPoint.y <= -12);
             if (Wave < Enemies.Count)
             {
-                Instantiate(Enemies[RNG.Next(0, Wave / 2)], spawnPoint, Quaternion.identity);
+                Instantiate(Enemies[RNG.Next(0, Wave)], spawnPoint, Quaternion.identity);
             }
             else
             {

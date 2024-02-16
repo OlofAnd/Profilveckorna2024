@@ -90,8 +90,6 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
 
     void hurt()
     {
-        resetAni();
-        ani.SetBool("hurt", true);
         speed = 0;
         if (Time.time > HurtTimer)
         {
@@ -159,9 +157,7 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
     void resetAni()
     {
         ani.SetBool("Idle", false);
-        ani.SetBool("Hurt", false);
         ani.SetBool("Run", false);
-        ani.SetBool("PlayerDetect", false);
     }
 
     void OnTriggerEnter2D(Collider2D trig)

@@ -32,7 +32,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     {
         EnemySpawnCooldown = Time.time + 0.5f;
         EnemyHealthPoints = 10f + (Wave * 2);
-        Damage = 1f;
+        Damage = 15f + (Wave * 2);
 
         ScoreValue = 20;
         sprRen = GetComponent<SpriteRenderer>();
@@ -192,7 +192,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         Speed = 0;
         if (Time.time > HurtTimer)
         {
-            EnemyHealthPoints--;
+            EnemyHealthPoints -= PlayerDamage;
             Hurting = false;
         }
     }

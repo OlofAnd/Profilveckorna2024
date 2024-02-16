@@ -12,6 +12,8 @@ public class Player_Movement_Script : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sprRen;
 
+    bool godMode;
+
     float frozenByMudCoolDown;
     public enum State { Normal, DodgeRollSliding, Död }
     public State state;
@@ -38,8 +40,7 @@ public class Player_Movement_Script : MonoBehaviour
 
     [Header("Mud Freeze")]
     public bool frozenByMud = false;
-    public float unFreezeTimer;
-    float unFreezeTimerValueHolder;
+    float unFreezeTimer;
     public Sprite mudFreezeSprite;
 
     void Start()
@@ -49,17 +50,26 @@ public class Player_Movement_Script : MonoBehaviour
         ani = GetComponent<Animator>();
 
         state = State.Normal;
-        unFreezeTimerValueHolder = unFreezeTimer;
     }
 
     void Update()
     {
+        if (godMode)
+        {
+            player_Script.maxHealth = int.MaxValue;
+            player_Script.tankMaxHealth = int.MaxValue;
+            player_Script.currentHealth = int.MaxValue;
+            player_Script.playerDamage = int.MaxValue;
+            gameController.MaxTime = int.MaxValue;
+            gameController.remainingTime = int.MaxValue;
+        }
         if (!player_Script.isAlive)
             state = State.Död;
         //State normal
-        if (gameController.cardSelect || (frozenByMud && frozenByMudCoolDown > Time.time))
+        if (gameController.cardSelect || (frozenByMud))
         {
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                UnfreezeFromMud();
         }
         else
         {
@@ -69,8 +79,8 @@ public class Player_Movement_Script : MonoBehaviour
             {
                 LookRightWay();
                 Run();
-                HandleAnimations();
                 UnfreezeFromMud();
+                HandleAnimations();
                 slideDir = moveInput;
             }
             //State dodgerolling
@@ -110,6 +120,10 @@ public class Player_Movement_Script : MonoBehaviour
         }
 
     }
+    void OnGodMode()
+    {
+        godMode = true;
+    }
     private void HandleDodgeRollSliding()
     {
         transform.position += slideDir * slidingSpeed * Time.deltaTime;
@@ -137,16 +151,13 @@ public class Player_Movement_Script : MonoBehaviour
     }
     private void UnfreezeFromMud()
     {
-        if (frozenByMud)
-            unFreezeTimer -= Time.deltaTime;
-        if (frozenByMud && unFreezeTimer <= 0)
+        if (frozenByMud && unFreezeTimer < Time.time)
         {
             rb.constraints = RigidbodyConstraints2D.None;
             rb.freezeRotation = true;
             frozenByMud = false;
             canDodgeRoll = true;
             ani.SetBool("isMudded", false);
-            unFreezeTimer = unFreezeTimerValueHolder;
         }
     }
     private void HandleAnimations()
@@ -173,10 +184,10 @@ public class Player_Movement_Script : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Mud_Bullet") && !frozenByMud)
+        if (other.CompareTag("Mud_Bullet") && !frozenByMud && frozenByMudCoolDown < Time.time)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-
+            unFreezeTimer = Time.time + 0.5f;
             frozenByMud = true;
             frozenByMudCoolDown = Time.time + 1f;
             ani.SetBool("isIdle", false);
