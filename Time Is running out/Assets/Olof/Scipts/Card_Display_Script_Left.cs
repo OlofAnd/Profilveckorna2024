@@ -52,5 +52,6 @@ public class Card_Display_Script_Left : MonoBehaviour
 
         nameText.text = card_left.name; // ändra så att nameText är ett image
         artWorkImage.sprite = card_left.artwork;
+        leftBackgroundImage.sprite = card_left.cardBackground;
     }
 }

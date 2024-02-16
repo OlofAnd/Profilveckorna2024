@@ -24,6 +24,7 @@ public class left_card_select_script : MonoBehaviour
     {
         Debug.Log("maxhp " + playerScript.tankMaxHealth);
         Debug.Log("hp " + playerScript.currentHealth);
+        Debug.Log(playerBulletScript.AmountPierce);
     }
     public void LeftButtonPressed()
     {
