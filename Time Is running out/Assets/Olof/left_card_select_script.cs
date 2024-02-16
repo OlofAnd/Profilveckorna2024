@@ -112,6 +112,7 @@ public class left_card_select_script : MonoBehaviour
                 playerScript.maxHealth += 25;
                 playerScript.currentHealth = playerScript.maxHealth;
                 healthBarCard.SetHealth(playerScript.maxHealth);
+                healthBarCard.SetMaxHealth(playerScript.maxHealth);
             }
             else
             {
