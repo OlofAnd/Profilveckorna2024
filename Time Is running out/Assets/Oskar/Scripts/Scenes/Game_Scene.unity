@@ -248,6 +248,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1388423587}
     - target: {fileID: 1555072775, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: numberOfBullets
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555072775, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: playerBombChance
       value: 0
       objectReference: {fileID: 0}
@@ -265,7 +269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: playerDamage
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1612695104, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: currentHealth
@@ -335,9 +339,21 @@ PrefabInstance:
       propertyPath: gameController_Script
       value: 
       objectReference: {fileID: 1388423587}
+    - target: {fileID: 7867770533549062576, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: UVModule.sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867770533549062576, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 29ae91544a05be942891648ed9c28d31, type: 3}
     - target: {fileID: 8661238833200588891, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782661809862903575, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
+      propertyPath: SizeModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd8546c46e0d14545804bae82bd3f09e, type: 3}
@@ -1335,7 +1351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
       propertyPath: Wave
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
       propertyPath: Player
@@ -1359,7 +1375,7 @@ PrefabInstance:
       objectReference: {fileID: 1301700243}
     - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
       propertyPath: remainingTime
-      value: 120
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1210846438297213493, guid: c437ed578dfe25a47a7ac2b109392777, type: 3}
       propertyPath: shooting_Script

@@ -25,6 +25,9 @@ public class PlayerBullet_Script : Bullet_Abstract_Script
     {
         Damage = bulletDamage;
         shootScript = FindObjectOfType<Shooting_Script>();
+        timeAlive = shootScript.TimeAlive;
+        force = shootScript.Force;
+
         FlyTime = timeAlive;
         Speed = force * Time.deltaTime;
         Target = "Enemy";

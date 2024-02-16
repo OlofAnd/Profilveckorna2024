@@ -46,8 +46,9 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
             EnemyBehaviour();
         }
         rb.velocity = Vector2.zero;
-
-        Direction = ((Vector2)(target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(target.transform.position) - rb.position);
+        if (playerDetected)
+            Direction = ((Vector2)(target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(target.transform.position) - rb.position);
+  
         if (Direction.x > 0) sprRen.flipX = false;
         else sprRen.flipX = true;
     }

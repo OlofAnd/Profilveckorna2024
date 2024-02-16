@@ -82,7 +82,7 @@ public class GameController_Script : MonoBehaviour
         CardCanvas.SetActive(true);
         RightDisplay.RandomizeCard();
         LeftDisplay.RandomizeCard();
-        
+
     }
     void NewWave()
     {
@@ -97,7 +97,7 @@ public class GameController_Script : MonoBehaviour
                 spawnPoint = Player.transform.position + (Vector3)(new Vector2(math.cos(angle), math.sin(angle)) * RNG.Next(7, 9));
             }
             while (spawnPoint.x <= -22 || spawnPoint.x >= 24 || spawnPoint.y >= 12 || spawnPoint.y <= -12);
-            if (Wave / 2 < Enemies.Count)
+            if (Wave < Enemies.Count)
             {
                 Instantiate(Enemies[RNG.Next(0, Wave / 2)], spawnPoint, Quaternion.identity);
             }

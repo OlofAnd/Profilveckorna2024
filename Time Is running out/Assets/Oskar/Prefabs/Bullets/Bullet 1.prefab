@@ -149,10 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 100
   timeAlive: 0.5
-  bulletDamage: 0
-  degDiff: 0
+  bulletDamage: 5
   testDir: {x: 0, y: 0}
-  shootScript: {fileID: 0}
 --- !u!95 &8581614367269322090
 Animator:
   serializedVersion: 4

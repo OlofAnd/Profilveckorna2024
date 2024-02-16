@@ -30,11 +30,15 @@ public class Shooting_Script : MonoBehaviour
     public GameObject bullet1;
 
     public GameObject bombBullet1;
+    public float TimeAlive;
+    public float Force;
 
 
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        TimeAlive = 0.5f;
+        Force = 100;
     }
 
     void Update()

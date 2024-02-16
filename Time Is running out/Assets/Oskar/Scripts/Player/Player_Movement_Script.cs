@@ -12,7 +12,7 @@ public class Player_Movement_Script : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sprRen;
 
-
+    float frozenByMudCoolDown;
     public enum State { Normal, DodgeRollSliding, Död }
     public State state;
 
@@ -57,7 +57,7 @@ public class Player_Movement_Script : MonoBehaviour
         if (!player_Script.isAlive)
             state = State.Död;
         //State normal
-        if (gameController.cardSelect)
+        if (gameController.cardSelect || (frozenByMud && frozenByMudCoolDown > Time.time))
         {
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
         }
@@ -178,6 +178,7 @@ public class Player_Movement_Script : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
             frozenByMud = true;
+            frozenByMudCoolDown = Time.time + 1f;
             ani.SetBool("isIdle", false);
             ani.SetBool("isRunning", false);
             ani.SetBool("isMudded", true);
