@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3768059675362619853}
   - component: {fileID: 3768059675362619852}
   - component: {fileID: 3768059675362619859}
+  - component: {fileID: 5949478651852834997}
   m_Layer: 8
   m_Name: wanderer
   m_TagString: Enemy
@@ -100,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ab571c1c03f454393fd97617eb7c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemySpawnCooldown: 0
   speed: 0
   wanderRadius: 5
   wanderCooldown: 3
@@ -142,6 +144,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 0.0001}
   m_Direction: 0
+--- !u!95 &5949478651852834997
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3768059675362619858}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e8fed109d77b0b48a1ecc452d41d14b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3768059676864990286
 GameObject:
   m_ObjectHideFlags: 0

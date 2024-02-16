@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4d2db1b639e623644b701314089884a4
+guid: b21d7448d3705e649a64f06a617781f2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,175 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Melee_Idle_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b60d4f991c5242741b30ca8e00a22ced
-      internalID: 987643963
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2988af33cfff6904586ff94eae604d60
-      internalID: -73938379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 935d747033ef6db45a09e4602d357bb7
-      internalID: 635156205
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3240a2937cdbe744eb551865dcf87a12
-      internalID: -2050753557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcba916314eb6ed46b2c1c506ccef3bf
-      internalID: -218161350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de9dcb0fedb9fd24c838629d9906034d
-      internalID: 663855394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a2a891931d60344e9d4c560575f3691
-      internalID: -1036942848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 382fe2da496b64b4595a03cc1fd34cc1
-      internalID: -53963285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_8
+      name: mud-enemy-death-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -287,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09671e9e11313164fbe2a99f4c2f3620
-      internalID: -89594354
+      spriteID: b4c0fb5cc1f725146a1d65801231ca5c
+      internalID: -839714948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_9
+      name: mud-enemy-death-spritesheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -308,8 +140,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c28d3d13fbe75e647ae5befec7f8e0de
-      internalID: -2037511428
+      spriteID: 5c5b63ca3c42bca4e993343a1ecea5e9
+      internalID: -788630507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mud-enemy-death-spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21fd5c48f807e3a429296b2c5218a4fe
+      internalID: 1656176178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mud-enemy-death-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e151a8ece636a04abd2d337c73b176b
+      internalID: -472061649
       vertices: []
       indices: 
       edges: []
@@ -325,16 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Melee_Idle_0: 987643963
-      Melee_Idle_2: 635156205
-      Melee_Idle_6: -1036942848
-      Melee_Idle_5: 663855394
-      Melee_Idle_3: -2050753557
-      Melee_Idle_1: -73938379
-      Melee_Idle_8: -89594354
-      Melee_Idle_7: -53963285
-      Melee_Idle_9: -2037511428
-      Melee_Idle_4: -218161350
+      mud-enemy-death-spritesheet_3: -472061649
+      mud-enemy-death-spritesheet_2: 1656176178
+      mud-enemy-death-spritesheet_1: -788630507
+      mud-enemy-death-spritesheet_0: -839714948
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4d2db1b639e623644b701314089884a4
+guid: a7f5c17d34e04544ba610b8bccab5681
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,175 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Melee_Idle_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b60d4f991c5242741b30ca8e00a22ced
-      internalID: 987643963
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2988af33cfff6904586ff94eae604d60
-      internalID: -73938379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 935d747033ef6db45a09e4602d357bb7
-      internalID: 635156205
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3240a2937cdbe744eb551865dcf87a12
-      internalID: -2050753557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcba916314eb6ed46b2c1c506ccef3bf
-      internalID: -218161350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de9dcb0fedb9fd24c838629d9906034d
-      internalID: 663855394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a2a891931d60344e9d4c560575f3691
-      internalID: -1036942848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 382fe2da496b64b4595a03cc1fd34cc1
-      internalID: -53963285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_8
+      name: Ranged_Damage_taking_Sprite_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -287,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09671e9e11313164fbe2a99f4c2f3620
-      internalID: -89594354
+      spriteID: 612c4f27014939549a44aa2c71c57cd8
+      internalID: 1952950532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_9
+      name: Ranged_Damage_taking_Sprite_Sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -308,8 +140,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c28d3d13fbe75e647ae5befec7f8e0de
-      internalID: -2037511428
+      spriteID: 946947428ae2e46469cd554fba9ae8cd
+      internalID: 347117320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranged_Damage_taking_Sprite_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea99669b9fae1b4993bbfd4633e9c98
+      internalID: -1805844625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranged_Damage_taking_Sprite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e20b116c9144f94aa7e97e980e06411
+      internalID: -1693687128
       vertices: []
       indices: 
       edges: []
@@ -325,16 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Melee_Idle_0: 987643963
-      Melee_Idle_2: 635156205
-      Melee_Idle_6: -1036942848
-      Melee_Idle_5: 663855394
-      Melee_Idle_3: -2050753557
-      Melee_Idle_1: -73938379
-      Melee_Idle_8: -89594354
-      Melee_Idle_7: -53963285
-      Melee_Idle_9: -2037511428
-      Melee_Idle_4: -218161350
+      Ranged_Damage_taking_Sprite_Sheet_0: 1952950532
+      Ranged_Damage_taking_Sprite_Sheet_2: -1805844625
+      Ranged_Damage_taking_Sprite_Sheet_1: 347117320
+      Ranged_Damage_taking_Sprite_Sheet_3: -1693687128
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

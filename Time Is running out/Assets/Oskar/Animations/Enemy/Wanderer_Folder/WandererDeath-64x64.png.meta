@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4d2db1b639e623644b701314089884a4
+guid: 0a58fc7dee1acc143a9117db09971d44
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,11 +105,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Melee_Idle_0
+      name: WandererDeath-64x64_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -119,18 +119,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b60d4f991c5242741b30ca8e00a22ced
-      internalID: 987643963
+      spriteID: 7426fda80ff1b7f41a6daac4dab66452
+      internalID: 1195182043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_1
+      name: WandererDeath-64x64_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -140,18 +140,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2988af33cfff6904586ff94eae604d60
-      internalID: -73938379
+      spriteID: adad1ce087aecb34dbc112070591675e
+      internalID: 1551859331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_2
+      name: WandererDeath-64x64_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -161,18 +161,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 935d747033ef6db45a09e4602d357bb7
-      internalID: 635156205
+      spriteID: 6293206da63bfdb4f94cc55f7b18773a
+      internalID: -963567848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_3
+      name: WandererDeath-64x64_3
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -182,18 +182,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3240a2937cdbe744eb551865dcf87a12
-      internalID: -2050753557
+      spriteID: b42065bf60bc5a64e9926392da1fa8b4
+      internalID: -504768126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_4
+      name: WandererDeath-64x64_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 256
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -203,18 +203,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcba916314eb6ed46b2c1c506ccef3bf
-      internalID: -218161350
+      spriteID: dfa1a4739c2038848aabce9933025f06
+      internalID: 563915179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_5
+      name: WandererDeath-64x64_5
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 320
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -224,18 +224,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de9dcb0fedb9fd24c838629d9906034d
-      internalID: 663855394
+      spriteID: 500e97b6f942e5048924409eee09c684
+      internalID: -1274014936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_6
+      name: WandererDeath-64x64_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 384
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -245,18 +245,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a2a891931d60344e9d4c560575f3691
-      internalID: -1036942848
+      spriteID: 5ed8eb354be8d534988583de1393350c
+      internalID: -413054583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_7
+      name: WandererDeath-64x64_7
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
+        x: 448
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -266,18 +266,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 382fe2da496b64b4595a03cc1fd34cc1
-      internalID: -53963285
+      spriteID: 9a336c917bd5e9844b221f36c83fa31c
+      internalID: 776098490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Melee_Idle_8
+      name: WandererDeath-64x64_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 512
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -287,29 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09671e9e11313164fbe2a99f4c2f3620
-      internalID: -89594354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Melee_Idle_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c28d3d13fbe75e647ae5befec7f8e0de
-      internalID: -2037511428
+      spriteID: b0d10d226de95934099fd903a634d34e
+      internalID: -1683903749
       vertices: []
       indices: 
       edges: []
@@ -325,16 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Melee_Idle_0: 987643963
-      Melee_Idle_2: 635156205
-      Melee_Idle_6: -1036942848
-      Melee_Idle_5: 663855394
-      Melee_Idle_3: -2050753557
-      Melee_Idle_1: -73938379
-      Melee_Idle_8: -89594354
-      Melee_Idle_7: -53963285
-      Melee_Idle_9: -2037511428
-      Melee_Idle_4: -218161350
+      WandererDeath-64x64_2: -963567848
+      WandererDeath-64x64_5: -1274014936
+      WandererDeath-64x64_0: 1195182043
+      WandererDeath-64x64_1: 1551859331
+      WandererDeath-64x64_6: -413054583
+      WandererDeath-64x64_7: 776098490
+      WandererDeath-64x64_4: 563915179
+      WandererDeath-64x64_8: -1683903749
+      WandererDeath-64x64_3: -504768126
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

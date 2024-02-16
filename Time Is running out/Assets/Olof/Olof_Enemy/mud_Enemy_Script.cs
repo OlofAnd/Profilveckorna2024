@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
 using Random = System.Random;
+using UnityEngine.Device;
 
 public class mud_Enemy_Script : Enemy_Abstract_Script
 {
@@ -11,6 +12,11 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
     [SerializeField] float teleportCooldown = 1f;
 
     Rigidbody2D rb;
+    Animator ani;
+    SpriteRenderer sprRen;
+
+    Vector2 Direction;
+
     GameObject target;
     Random rng = new Random();
 
@@ -28,7 +34,9 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
         Damage = 1f;
 
         ScoreValue = 30;
+        ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        sprRen = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -38,6 +46,10 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
             EnemyBehaviour();
         }
         rb.velocity = Vector2.zero;
+
+        Direction = ((Vector2)(target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(target.transform.position) - rb.position);
+        if (Direction.x > 0) sprRen.flipX = false;
+        else sprRen.flipX = true;
     }
 
     public override void EnemyBehaviour()
@@ -62,7 +74,7 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
                 if (!attacking)
                 {
                     attacking = true;
-                    attackTimer = Time.time + 1f;
+                    attackTimer = Time.time + 0.667f;
                 }
             }
         }
@@ -81,18 +93,25 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
         {
             Teleport();
         }
+        else if ((Vector2.Distance(rb.position, target.transform.position) >= 7 || (Vector2.Distance(rb.position, target.transform.position) < 4)))
+        {
+            resetAni();
+            ani.SetBool("Up", true);
+        }
+
     }
 
     bool ShouldTeleport()
     {
-        return (Vector2.Distance(rb.position, target.transform.position) >= 7 ||
-                (Vector2.Distance(rb.position, target.transform.position) < 4 && teleportCooldown <= 0));
+        return (Vector2.Distance(rb.position, target.transform.position) >= 7 || (Vector2.Distance(rb.position, target.transform.position) < 4 && teleportCooldown <= 0));
     }
 
     void Teleport()
     {
         transform.position = NextLocation();
         teleportCooldown = 2f;
+        resetAni();
+        ani.SetBool("Up", true);
     }
 
     void UpdateCooldowns()
@@ -105,11 +124,15 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     void Idle()
     {
+        resetAni();
+        ani.SetBool("Idle", true);
         playerDetected = false;
     }
 
     void Attack()
     {
+        resetAni();
+        ani.SetBool("Shoot", true);
         if (Time.time > attackTimer)
         {
             Instantiate(bullet, transform.position, transform.rotation);
@@ -119,6 +142,9 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
 
     void Hurt()
     {
+        resetAni();
+        ani.SetBool("Hurt", true);
+
         if (Time.time > hurtTimer)
         {
             EnemyHealthPoints -= PlayerDamage;
@@ -137,6 +163,14 @@ public class mud_Enemy_Script : Enemy_Abstract_Script
         }
         while (spawnPoint.x <= -13 || spawnPoint.x >= 15 || spawnPoint.y >= 7 || spawnPoint.y <= -7);
         return spawnPoint;
+    }
+    void resetAni()
+    {
+        ani.SetBool("Idle", false);
+        ani.SetBool("Down", false);
+        ani.SetBool("Up", false);
+        ani.SetBool("Shoot", false);
+        ani.SetBool("Hurt", false);
     }
 
     private void OnTriggerEnter2D(Collider2D trig)

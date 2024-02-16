@@ -111,12 +111,14 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
 
             ani.SetBool("Idle", false);
             ani.SetBool("Walk", true);
+            ani.SetBool("hurt", false);
         }
         else
         {
             Speed = 0;
             ani.SetBool("Idle", true);
             ani.SetBool("Walk", false);
+            ani.SetBool("hurt", false);
         }
     }
     void Attack()
@@ -126,6 +128,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
 
             ani.SetBool("Idle", true);
             ani.SetBool("Walk", false);
+            ani.SetBool("hurt", false);
             if (RNG.Next(0, 5) == 0)
                 Instantiate(Bomb, transform.position, transform.rotation);
             else
@@ -139,6 +142,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
 
             ani.SetBool("Idle", false);
             ani.SetBool("Walk", true);
+            ani.SetBool("hurt", false);
         }
         else if (Time.time > AttackTimer)
             Attacking = false;
@@ -146,6 +150,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
         {
             ani.SetBool("Idle", true);
             ani.SetBool("Walk", false);
+            ani.SetBool("hurt", false);
         }
     }
     Vector2 NextLocation()
@@ -167,6 +172,7 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
 
         ani.SetBool("Idle", false);
         ani.SetBool("Walk", true);
+        ani.SetBool("hurt", false);
         if (Vector2.Distance(rb.position, Target.transform.position) < 5)
         {
             Direction = -((Vector2)(Target.transform.position) - rb.position) / Vector2.Distance(Vector2.zero, (Vector2)(Target.transform.position) - rb.position);
@@ -180,6 +186,9 @@ public class Range_Enemy_Script : Enemy_Abstract_Script
     }
     void Hurt()
     {
+        ani.SetBool("hurt", true);
+        ani.SetBool("Idle", false);
+        ani.SetBool("Walk", false);
         Speed = 0;
         if (Time.time > HurtTimer)
         {

@@ -4,10 +4,14 @@ using UnityEngine;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using Random = System.Random;
+using UnityEngine.Device;
 
 public class wanderer_enemy_script : Enemy_Abstract_Script
 {
     private Rigidbody2D rb;
+    Animator ani;
+    SpriteRenderer sprRen;
+
     private GameObject target;
     private Vector2 direction;
     private Vector2 Knockback;
@@ -31,6 +35,8 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
     {
         EnemySpawnCooldown = Time.time + 0.5f;
         rb = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
+        sprRen = GetComponent<SpriteRenderer>();
         EnemyHealthPoints = 10f;
         Damage = 0f;
     }
@@ -41,6 +47,8 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
         {
             EnemyBehaviour();
         }
+        if (direction.x > 0) sprRen.flipX = false;
+        else sprRen.flipX = true;
     }
 
     public override void EnemyBehaviour()
@@ -75,12 +83,15 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
 
         if (EnemyHealthPoints <= 0)
         {
+            ani.SetTrigger("Dead");
             Destroy(gameObject);
         }
     }
 
     void hurt()
     {
+        resetAni();
+        ani.SetBool("hurt", true);
         speed = 0;
         if (Time.time > HurtTimer)
         {
@@ -95,12 +106,16 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
 
     void StopMovement()
     {
+        resetAni();
+        ani.SetBool("Idle", true);
         direction = Vector2.zero;
         speed = 0f;
     }
 
     void Walk(Vector2 targetPosition)
     {
+        resetAni();
+        ani.SetBool("Run", true);
         direction = (targetPosition - rb.position).normalized;
         speed = 1.5f;
     }
@@ -109,6 +124,8 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
     {
         if (Time.time > wanderTimer)
         {
+            resetAni();
+            ani.SetBool("Run", true);
             float randomAngle = rng.Next(0, 360) * Mathf.PI / 180;
             Vector2 wanderDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
             Vector2 wanderPosition = rb.position + wanderDirection * wanderRadius;
@@ -126,6 +143,8 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
     {
         if (target != null)
         {
+            resetAni();
+            ani.SetBool("Run", true);
             Vector2 runAwayDirection = (rb.position - (Vector2)target.transform.position).normalized;
             Vector2 runAwayPosition = rb.position + runAwayDirection * runAwayRadius;
 
@@ -136,6 +155,13 @@ public class wanderer_enemy_script : Enemy_Abstract_Script
         {
             StopMovement();
         }
+    }
+    void resetAni()
+    {
+        ani.SetBool("Idle", false);
+        ani.SetBool("Hurt", false);
+        ani.SetBool("Run", false);
+        ani.SetBool("PlayerDetect", false);
     }
 
     void OnTriggerEnter2D(Collider2D trig)
