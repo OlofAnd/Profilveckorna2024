@@ -356,8 +356,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fd583071980d14940ab8984607ec6995, type: 2}
+  m_sharedMaterial: {fileID: -6275950180587174496, guid: fd583071980d14940ab8984607ec6995, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -776,7 +776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4607843595342600398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1032,6 +1032,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8543061954824165242, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 258.947
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543061954824165242, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1072
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543061954824165243, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fd583071980d14940ab8984607ec6995, type: 2}
+    - target: {fileID: 8543061954824165243, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6275950180587174496, guid: fd583071980d14940ab8984607ec6995, type: 2}
     - target: {fileID: 8543061955041981675, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1121,8 +1137,24 @@ PrefabInstance:
       value: Hud_canvas
       objectReference: {fileID: 0}
     - target: {fileID: 8543061955704045448, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.70645994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543061955704045448, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.70645994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543061955704045448, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.70645994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543061955704045448, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1627
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543061955704045448, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -56.899902
+      value: -1056
       objectReference: {fileID: 0}
     - target: {fileID: 8543061955704045449, guid: f9aad1570ac02fe4abf2786a2db94306, type: 3}
       propertyPath: gameController_Script
